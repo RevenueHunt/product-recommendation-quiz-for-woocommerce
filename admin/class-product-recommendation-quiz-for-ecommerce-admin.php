@@ -220,9 +220,9 @@ class Product_Recommendation_Quiz_For_Ecommerce_Admin {
 		
 		if (preg_match('/\.local/i', STORE_URL)) {
 			// Local environment - OK
-		} else if ((!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') || $_SERVER['SERVER_PORT'] == 443) {
+		} else if ((!empty($_SERVER['HTTPS']) && 'off' !== $_SERVER['HTTPS']) || (!empty($_SERVER['SERVER_PORT']) && 443 == $_SERVER['SERVER_PORT'])) {
 			// Your website does have HTTPS - OK
-		}else{
+		} else {
 			// Your website doesn't have HTTPS - ERROR
 			$this->https_ssl_missing();
 			die();

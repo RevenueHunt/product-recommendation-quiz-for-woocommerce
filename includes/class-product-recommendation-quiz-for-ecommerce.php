@@ -74,7 +74,7 @@ class Product_Recommendation_Quiz_For_Ecommerce {
 		if ( isset( $_SERVER['HTTP_HOST'] ) ) {
 			$storeurl = wp_parse_url( esc_url_raw( wp_unslash( $_SERVER['HTTP_HOST'] ), PHP_URL_HOST ) );
 			
-			if(gettype($storeurl) === 'array'){
+			if (gettype($storeurl) === 'array') {
 				$storeurl = $storeurl['host'];
 			}
 		} else {
@@ -85,7 +85,6 @@ class Product_Recommendation_Quiz_For_Ecommerce {
 		define('WP_VERSION', get_bloginfo('version'));
 				
 		if (preg_match('/\.local/i', STORE_URL)) {
-		// if (STORE_URL === 'productrecommendationquizforwoocommerce.local') {
 			// development environment
 			// ssh -R 80:localhost:3000 ssh.localhost.run
 			define('API_URL', 'https://xxx-xxx.localhost.run');
