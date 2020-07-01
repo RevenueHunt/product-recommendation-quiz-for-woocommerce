@@ -80,7 +80,8 @@ class Product_Recommendation_Quiz_For_Ecommerce {
 		define('WOO_VERSION', $this->get_woo_version());
 		define('WP_VERSION', get_bloginfo('version'));
 
-		if (STORE_URL === 'productrecommendationquizforwoocommerce.local') {
+		if (preg_match('/\.local/i', STORE_URL)) {
+		// if (STORE_URL === 'productrecommendationquizforwoocommerce.local') {
 			// development environment
 			// ssh -R 443:localhost:3000 ssh.localhost.run
 			define('API_URL', 'https://xxx-xxx.localhost.run');

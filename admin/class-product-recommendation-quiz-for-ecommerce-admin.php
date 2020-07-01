@@ -115,8 +115,8 @@ class Product_Recommendation_Quiz_For_Ecommerce_Admin {
 	}
 
 	public function prquiz_get_oauth_url( $token, $hashid ) { 
-
-		if (STORE_URL === 'productrecommendationquizforwoocommerce.local') {
+		
+		if (preg_match('/\.local/i', STORE_URL)) {
 			// development environment
 			$oauth_url = 'http://localhost:9528/public/woocommerce/oauth';
 		} else {
@@ -218,7 +218,9 @@ class Product_Recommendation_Quiz_For_Ecommerce_Admin {
 			die();
 		}
 		
-		if ((!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') || $_SERVER['SERVER_PORT'] == 443) {
+		if (preg_match('/\.local/i', STORE_URL)) {
+			// OK
+		} else if ((!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') || $_SERVER['SERVER_PORT'] == 443) {
 			// Your website does have HTTPS - OK
 		}else{
 			// Your website doesn't have HTTPS - ERROR
