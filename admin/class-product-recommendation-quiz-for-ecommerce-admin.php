@@ -176,6 +176,8 @@ class Product_Recommendation_Quiz_For_Ecommerce_Admin {
 		$url = API_URL . '/api/v1/woocommerce/knock';
 		$args = array(
 			'domain' => urlencode(STORE_URL),
+			'channel' => 'wordpress',
+			'plugin_version' => PRODUCT_RECOMMENDATION_QUIZ_FOR_ECOMMERCE_VERSION,
 			'name' => get_bloginfo('name'),
 			'email' => get_bloginfo('admin_email'),
 			'locale' => $locale[0],

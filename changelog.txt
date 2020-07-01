@@ -1,5 +1,8 @@
 *** Product Recommendation Quiz for WooCommerce ***
 
+2020-06-21 - version 1.0.3
+* Dev - Pass channel parameter to server
+
 2020-06-20 - version 1.0.2
 * Fix - Store URL host bug
 

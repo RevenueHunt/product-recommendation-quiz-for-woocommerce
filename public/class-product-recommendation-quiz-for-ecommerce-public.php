@@ -93,6 +93,8 @@ class Product_Recommendation_Quiz_For_Ecommerce_Public {
 		$dataToBePassed = array(
 			'shop' => STORE_URL,
 			'platform' => 'woocommerce',
+			'channel' => 'wordpress',
+			'plugin_version' => PRODUCT_RECOMMENDATION_QUIZ_FOR_ECOMMERCE_VERSION,
 			'wooversion' => WOO_VERSION,
 			'wpversion' => WP_VERSION
 		);
