@@ -219,7 +219,7 @@ class Product_Recommendation_Quiz_For_Ecommerce_Admin {
 		}
 		
 		if (preg_match('/\.local/i', STORE_URL)) {
-			// OK
+			// Local environment - OK
 		} else if ((!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') || $_SERVER['SERVER_PORT'] == 443) {
 			// Your website does have HTTPS - OK
 		}else{
