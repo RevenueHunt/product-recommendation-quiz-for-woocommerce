@@ -73,17 +73,21 @@ class Product_Recommendation_Quiz_For_Ecommerce {
 		/* DEFINE CONSTANTS */
 		if ( isset( $_SERVER['HTTP_HOST'] ) ) {
 			$storeurl = wp_parse_url( esc_url_raw( wp_unslash( $_SERVER['HTTP_HOST'] ), PHP_URL_HOST ) );
+			
+			if(gettype($storeurl) === 'array'){
+				$storeurl = $storeurl['host'];
+			}
 		} else {
 			$storeurl = false;
 		}
 		define('STORE_URL', $storeurl);
 		define('WOO_VERSION', $this->get_woo_version());
 		define('WP_VERSION', get_bloginfo('version'));
-
+				
 		if (preg_match('/\.local/i', STORE_URL)) {
 		// if (STORE_URL === 'productrecommendationquizforwoocommerce.local') {
 			// development environment
-			// ssh -R 443:localhost:3000 ssh.localhost.run
+			// ssh -R 80:localhost:3000 ssh.localhost.run
 			define('API_URL', 'https://xxx-xxx.localhost.run');
 			define('ADMIN_URL', 'http://localhost:9528');
 		} else {
@@ -97,7 +101,7 @@ class Product_Recommendation_Quiz_For_Ecommerce {
 		$this->load_dependencies();
 		$this->set_locale();
 		$this->define_admin_hooks();
-		$this->define_public_hooks();
+		$this->define_public_hooks();		
 	}
 
 	private function get_woo_version() {
