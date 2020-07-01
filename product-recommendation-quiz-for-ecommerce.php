@@ -14,7 +14,7 @@
  *
  * @wordpress-plugin
  * Plugin Name:       Product Recommendation Quiz for eCommerce
- * Plugin URI:        https://revenuehunt.com/
+ * Plugin URI:        https://revenuehunt.com/product-recommendation-quiz-woocommerce/
  * Description:       Advise and delight your customers by engaging them with a personal shopper experience on your store, guiding your customers from start to cart and helping them find the products that best match their needs.
  * Version:           1.0.2
  * Author:            RevenueHunt
