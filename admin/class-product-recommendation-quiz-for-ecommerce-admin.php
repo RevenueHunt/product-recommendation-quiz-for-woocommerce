@@ -154,7 +154,7 @@ class Product_Recommendation_Quiz_For_Ecommerce_Admin {
 	public function woocommerce_missing() {
 		?>
 		<div class="error">
-			<p><strong>Product Recommendation Quiz for eCommerce requires the WooCommerce plugin to be installed and active. You can download <a href="https://wordpress.org/plugins/woocommerce/" target="_blank">WooCommerce</a> here.</strong></p>
+			<p><strong>Product Recommendation Quiz for eCommerce requires the WooCommerce plugin to be installed and active. You can download <a href="https://wordpress.org/plugins/woocommerce/" target="_blank">WooCommerce</a> here. If you want this plugin developed for your eCommerce platform, please send us a message.</strong></p>
 		</div>
 		<?php
 	}

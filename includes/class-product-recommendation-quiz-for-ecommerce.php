@@ -82,6 +82,7 @@ class Product_Recommendation_Quiz_For_Ecommerce {
 
 		if (STORE_URL === 'productrecommendationquizforwoocommerce.local') {
 			// development environment
+			// ssh -R 443:localhost:3000 ssh.localhost.run
 			define('API_URL', 'https://xxx-xxx.localhost.run');
 			define('ADMIN_URL', 'http://localhost:9528');
 		} else {
