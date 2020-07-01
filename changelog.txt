@@ -1,0 +1,7 @@
+*** Product Recommendation Quiz for eCommerce ***
+
+2020-06-06 - version 1.0.0
+* Dev - Initial release
+
+2020-06-19 - version 1.0.1
+* Dev - Added HTTPS/SSL verification

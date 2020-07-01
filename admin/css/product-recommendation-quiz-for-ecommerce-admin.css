@@ -1,0 +1,56 @@
+/**
+ * All of the CSS for your admin-specific functionality should be
+ * included in this file.
+ */
+
+#wpbody-content{
+    padding-bottom: 0;
+}
+
+.fright{
+    float: right;
+}
+
+.alcenter{
+    text-align: center;
+}
+
+.mtop-0{
+    margin-top: 0;    
+}
+
+.mtop-30{
+    margin-top: 30px;    
+}
+
+.mtop-60{
+    margin-top: 60px !important;    
+}
+
+.h-24{
+    height: 24px;
+    line-height:24px;
+}
+
+hr{
+    width: 100%;
+}
+
+.lg{
+    font-size: 16px;
+}
+
+a.btn{
+    text-decoration: none;
+    background-color: #62ded5;
+    color: #333;
+    padding: 12px 15px;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+}
+
+a.btn:hover{
+    text-decoration: none;
+    opacity: 0.8;
+}
