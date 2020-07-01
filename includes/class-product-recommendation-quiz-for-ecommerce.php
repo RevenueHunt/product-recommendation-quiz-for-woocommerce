@@ -67,7 +67,7 @@ class Product_Recommendation_Quiz_For_Ecommerce {
 		if (defined('PRODUCT_RECOMMENDATION_QUIZ_FOR_ECOMMERCE_VERSION')) {
 			$this->version = PRODUCT_RECOMMENDATION_QUIZ_FOR_ECOMMERCE_VERSION;
 		} else {
-			$this->version = '1.0.1';
+			$this->version = '1.0.2';
 		}
 
 		/* DEFINE CONSTANTS */

@@ -5,3 +5,6 @@
 
 2020-06-19 - version 1.0.1
 * Dev - Added HTTPS/SSL verification
+
+2020-06-20 - version 1.0.2
+* Fix - Store URL host bug
