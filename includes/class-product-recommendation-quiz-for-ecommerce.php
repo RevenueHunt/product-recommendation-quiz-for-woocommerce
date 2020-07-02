@@ -64,8 +64,8 @@ class Product_Recommendation_Quiz_For_Ecommerce {
 	 * @since    1.0.0
 	 */
 	public function __construct() {
-		if (defined('PRODUCT_RECOMMENDATION_QUIZ_FOR_ECOMMERCE_VERSION')) {
-			$this->version = PRODUCT_RECOMMENDATION_QUIZ_FOR_ECOMMERCE_VERSION;
+		if (defined('PRQ_PLUGIN_VERSION')) {
+			$this->version = PRQ_PLUGIN_VERSION;
 		} else {
 			$this->version = '1.0.2';
 		}
@@ -80,19 +80,19 @@ class Product_Recommendation_Quiz_For_Ecommerce {
 		} else {
 			$storeurl = false;
 		}
-		define('STORE_URL', $storeurl);
-		define('WOO_VERSION', $this->get_woo_version());
-		define('WP_VERSION', get_bloginfo('version'));
+		define('PRQ_STORE_URL', $storeurl);
+		define('PRQ_WOO_VERSION', $this->get_woo_version());
+		define('PRQ_WP_VERSION', get_bloginfo('version'));
 				
-		if (preg_match('/\.local/i', STORE_URL)) {
+		if (preg_match('/\.local/i', PRQ_STORE_URL)) {
 			// development environment
 			// ssh -R 80:localhost:3000 ssh.localhost.run
-			define('API_URL', 'https://xxx-xxx.localhost.run');
-			define('ADMIN_URL', 'http://localhost:9528');
+			define('PRQ_API_URL', 'https://xxx-xxx.localhost.run');
+			define('PRQ_ADMIN_URL', 'http://localhost:9528');
 		} else {
 			// production environment
-			define('API_URL', 'https://api.revenuehunt.com');
-			define('ADMIN_URL', 'https://admin.revenuehunt.com');
+			define('PRQ_API_URL', 'https://api.revenuehunt.com');
+			define('PRQ_ADMIN_URL', 'https://admin.revenuehunt.com');
 		}
 
 		$this->plugin_name = 'product-recommendation-quiz-for-ecommerce';

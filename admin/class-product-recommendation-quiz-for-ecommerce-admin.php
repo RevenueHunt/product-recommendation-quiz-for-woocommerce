@@ -98,12 +98,12 @@ class Product_Recommendation_Quiz_For_Ecommerce_Admin {
 
 		$return_url = admin_url() . 'admin.php?page=product-recommendation-quiz-for-ecommerce';
 
-		$callback_url = API_URL . '/api/v1/woocommerce/create';
+		$callback_url = PRQ_API_URL . '/api/v1/woocommerce/create';
 
 		$params = array(
 			'app_name' => 'Product Recommendation Quiz',
 			'scope' => 'read_write', // 'read', 'write', 'read_write'
-			'user_id' => STORE_URL, // Local user ID
+			'user_id' => PRQ_STORE_URL, // Local user ID
 			'return_url' => $return_url,
 			'callback_url' => $callback_url, // TODO TO DO -> Must be https
 		);
@@ -116,7 +116,7 @@ class Product_Recommendation_Quiz_For_Ecommerce_Admin {
 
 	public function prquiz_get_oauth_url( $token, $hashid ) { 
 		
-		if (preg_match('/\.local/i', STORE_URL)) {
+		if (preg_match('/\.local/i', PRQ_STORE_URL)) {
 			// development environment
 			$oauth_url = 'http://localhost:9528/public/woocommerce/oauth';
 		} else {
@@ -173,11 +173,11 @@ class Product_Recommendation_Quiz_For_Ecommerce_Admin {
 		// TODO TO DO https://woocommerce.wp-a2z.org/oik_api/loaderget_currency_settings/
 		//extract data from the post
 		//set POST variables
-		$url = API_URL . '/api/v1/woocommerce/knock';
+		$url = PRQ_API_URL . '/api/v1/woocommerce/knock';
 		$args = array(
-			'domain' => urlencode(STORE_URL),
+			'domain' => urlencode(PRQ_STORE_URL),
 			'channel' => 'wordpress',
-			'plugin_version' => PRODUCT_RECOMMENDATION_QUIZ_FOR_ECOMMERCE_VERSION,
+			'plugin_version' => PRQ_PLUGIN_VERSION,
 			'name' => get_bloginfo('name'),
 			'email' => get_bloginfo('admin_email'),
 			'locale' => $locale[0],
@@ -220,7 +220,7 @@ class Product_Recommendation_Quiz_For_Ecommerce_Admin {
 			die();
 		}
 		
-		if (preg_match('/\.local/i', STORE_URL)) {
+		if (preg_match('/\.local/i', PRQ_STORE_URL)) {
 			// Local environment - OK
 			define('HTTPS_STORE', true);
 		} else if ( ( !empty($_SERVER['HTTPS']) && 'off' !== $_SERVER['HTTPS'] ) || ( !empty($_SERVER['SERVER_PORT']) && 443 == $_SERVER['SERVER_PORT'] ) ) {

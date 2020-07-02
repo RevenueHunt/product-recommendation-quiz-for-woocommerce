@@ -91,16 +91,16 @@ class Product_Recommendation_Quiz_For_Ecommerce_Public {
 		 * class.
 		 */
 		$dataToBePassed = array(
-			'shop' => STORE_URL,
+			'shop' => PRQ_STORE_URL,
 			'platform' => 'woocommerce',
 			'channel' => 'wordpress',
-			'plugin_version' => PRODUCT_RECOMMENDATION_QUIZ_FOR_ECOMMERCE_VERSION,
-			'wooversion' => WOO_VERSION,
-			'wpversion' => WP_VERSION
+			'plugin_version' => PRQ_PLUGIN_VERSION,
+			'wooversion' => PRQ_WOO_VERSION,
+			'wpversion' => PRQ_WP_VERSION
 		);
 
 		// wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/product-recommendation-quiz-for-ecommerce-public.js', array( 'jquery' ), $this->version, false );
-		wp_enqueue_script($this->plugin_name, ADMIN_URL . '/embed.js?shop=' . STORE_URL, array(), PRODUCT_RECOMMENDATION_QUIZ_FOR_ECOMMERCE_VERSION, true);
+		wp_enqueue_script($this->plugin_name, PRQ_ADMIN_URL . '/embed.js?shop=' . PRQ_STORE_URL, array(), PRQ_PLUGIN_VERSION, true);
 		wp_localize_script($this->plugin_name, 'js_vars', $dataToBePassed);
 	}
 
