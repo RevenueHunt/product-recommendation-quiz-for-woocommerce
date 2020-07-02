@@ -222,10 +222,10 @@ class Product_Recommendation_Quiz_For_Ecommerce_Admin {
 		
 		if (preg_match('/\.local/i', PRQ_STORE_URL)) {
 			// Local environment - OK
-			define('HTTPS_STORE', true);
+			define('PRQ_HTTPS_STORE', true);
 		} else if ( ( !empty($_SERVER['HTTPS']) && 'off' !== $_SERVER['HTTPS'] ) || ( !empty($_SERVER['SERVER_PORT']) && 443 == $_SERVER['SERVER_PORT'] ) ) {
 			// Your website does have HTTPS - OK
-			define('HTTPS_STORE', true);
+			define('PRQ_HTTPS_STORE', true);
 		} else {
 			// Your website doesn't have HTTPS - ERROR
 			$this->https_ssl_missing();
