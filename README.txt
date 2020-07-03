@@ -1,9 +1,9 @@
 === Product Recommendation Quiz for eCommerce ===
 Contributors: revenuehunt
 Donate link: https://revenuehunt.com/
-Tags: product recommendation, quiz builder, ecommerce, conversion optimization, sales automation, sales funnel
+Tags: product recommendation, quiz builder, woocommerce, sales automation
 Requires at least: 3.0.1
-Tested up to: 3.4
+Tested up to: 5.4.2
 Requires PHP: 5.6
 Stable tag: 4.3
 License: GPLv2 or later
@@ -79,6 +79,7 @@ Explore how the app works in our [demo store](https://woo.revenuehunt.com/ "Demo
 **MINIMUM REQUIREMENTS**
 
 * You need to have an [eCommerce](https://wordpress.org/plugins/woocommerce/ "Open-source eCommerce for WordPress") plugin installed and activated on your WordPress website.
+* You website must have a valid HTTPS/SSL certificate installed.
 
 **WALKTHROUGH**
 
