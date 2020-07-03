@@ -9,7 +9,7 @@ Stable tag: 4.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-A personal shopper that do the selling for you. Recover abandoned carts, capture leads and grow your audience.
+A quiz that does the selling for you. Recover abandoned carts, capture leads and grow your audience.
 
 == Description ==
 
