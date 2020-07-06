@@ -67,7 +67,7 @@ class Product_Recommendation_Quiz_For_Ecommerce {
 		if (defined('PRQ_PLUGIN_VERSION')) {
 			$this->version = PRQ_PLUGIN_VERSION;
 		} else {
-			$this->version = '1.0.2';
+			$this->version = '1.0.4';
 		}
 
 		/* DEFINE CONSTANTS */

@@ -178,6 +178,8 @@ class Product_Recommendation_Quiz_For_Ecommerce_Admin {
 			'domain' => urlencode(PRQ_STORE_URL),
 			'channel' => 'wordpress',
 			'plugin_version' => PRQ_PLUGIN_VERSION,
+			'woo_version' => PRQ_WOO_VERSION,
+			'wp_version' => PRQ_WP_VERSION,
 			'name' => get_bloginfo('name'),
 			'email' => get_bloginfo('admin_email'),
 			'locale' => $locale[0],

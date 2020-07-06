@@ -95,8 +95,8 @@ class Product_Recommendation_Quiz_For_Ecommerce_Public {
 			'platform' => 'woocommerce',
 			'channel' => 'wordpress',
 			'plugin_version' => PRQ_PLUGIN_VERSION,
-			'wooversion' => PRQ_WOO_VERSION,
-			'wpversion' => PRQ_WP_VERSION
+			'woo_version' => PRQ_WOO_VERSION,
+			'wp_version' => PRQ_WP_VERSION
 		);
 
 		// wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/product-recommendation-quiz-for-ecommerce-public.js', array( 'jquery' ), $this->version, false );

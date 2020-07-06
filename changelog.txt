@@ -1,5 +1,8 @@
 *** Product Recommendation Quiz for WooCommerce ***
 
+2020-07-06 - version 1.0.4
+* Dev - Pass WooCommerce and WordPress version
+
 2020-06-21 - version 1.0.3
 * Dev - Pass channel parameter to server
 
