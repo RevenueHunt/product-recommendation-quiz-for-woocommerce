@@ -96,7 +96,7 @@ class Product_Recommendation_Quiz_For_Ecommerce_Admin {
 
 		$auth_base = get_site_url(null, '/wc-auth/v1/authorize/');
 
-		$return_url = admin_url() . 'admin.php?page=product-recommendation-quiz-for-ecommerce';
+		$return_url = admin_url() . 'admin.php?page=prqfw';
 
 		$callback_url = PRQ_API_URL . '/api/v1/woocommerce/create';
 
@@ -269,7 +269,7 @@ class Product_Recommendation_Quiz_For_Ecommerce_Admin {
 		// }
 
 		add_menu_page(
-				'Product Recommendation Quiz', 'Product Quiz', 'manage_options', 'product-recommendation-quiz-for-ecommerce', array($this, 'prquiz_options'), 'dashicons-format-chat', 58 /* https://developer.wordpress.org/reference/functions/add_menu_page/#default-bottom-of-menu-structure */
+				'Product Recommendation Quiz', 'Product Quiz', 'manage_options', 'prqfw', array($this, 'prquiz_options'), 'dashicons-format-chat', 58 /* https://developer.wordpress.org/reference/functions/add_menu_page/#default-bottom-of-menu-structure */
 		);
 	}
 
