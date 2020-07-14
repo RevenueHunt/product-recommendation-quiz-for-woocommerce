@@ -1,5 +1,11 @@
 *** Product Recommendation Quiz for WooCommerce ***
 
+2020-07-14 - version 1.0.6
+* Fix - Shorten menu URL
+
+2020-07-12 - version 1.0.5
+* Dev - Fix variable names
+
 2020-07-06 - version 1.0.4
 * Dev - Pass WooCommerce and WordPress version
 
