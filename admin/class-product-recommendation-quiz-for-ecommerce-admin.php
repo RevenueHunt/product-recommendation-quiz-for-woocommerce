@@ -124,7 +124,15 @@ class Product_Recommendation_Quiz_For_Ecommerce_Admin {
 			$oauth_url = 'https://admin.revenuehunt.com/public/woocommerce/oauth';
 		}
 
-		return $oauth_url . '?token=' . $token . '&shop_hashid=' . $hashid . '&signature=' . time();
+		$url = $oauth_url . '?token=' . $token . '&shop_hashid=' . $hashid . '&signature=' . time();
+		
+		$get = $_GET;
+		
+		if(isset($get['route'])){
+			$url = $url . '&route=' . $get['route'];
+		}
+		
+		return $url;
 	}
 
 	public function prquiz_authenticated_visit( $token, $hashid ) { 
