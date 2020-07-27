@@ -64,13 +64,11 @@ class Product_Recommendation_Quiz_For_Ecommerce {
 	 * @since    1.0.0
 	 */
 	public function __construct() {
-		if (defined('PRQ_PLUGIN_VERSION')) {
-			$this->version = PRQ_PLUGIN_VERSION;
-		} else {
-			$this->version = '1.0.7';
-		}
-
+		
 		/* DEFINE CONSTANTS */
+		define('PRQ_PLUGIN_VERSION', '1.0.8');
+		$this->version = PRQ_PLUGIN_VERSION;
+		
 		if ( isset( $_SERVER['HTTP_HOST'] ) ) {
 			$storeurl = wp_parse_url( esc_url_raw( wp_unslash( $_SERVER['HTTP_HOST'] ), PHP_URL_HOST ) );
 			
@@ -80,6 +78,7 @@ class Product_Recommendation_Quiz_For_Ecommerce {
 		} else {
 			$storeurl = false;
 		}
+		
 		define('PRQ_STORE_URL', $storeurl);
 		define('PRQ_WOO_VERSION', $this->get_woo_version());
 		define('PRQ_WP_VERSION', get_bloginfo('version'));
