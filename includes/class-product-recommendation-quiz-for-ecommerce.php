@@ -65,8 +65,6 @@ class Product_Recommendation_Quiz_For_Ecommerce {
 	 */
 	public function __construct() {
 		
-		/* DEFINE CONSTANTS */
-		define('PRQ_PLUGIN_VERSION', '1.0.8');
 		$this->version = PRQ_PLUGIN_VERSION;
 		
 		if ( isset( $_SERVER['HTTP_HOST'] ) ) {
@@ -79,6 +77,7 @@ class Product_Recommendation_Quiz_For_Ecommerce {
 			$storeurl = false;
 		}
 		
+		/* DEFINE CONSTANTS */
 		define('PRQ_STORE_URL', $storeurl);
 		define('PRQ_WOO_VERSION', $this->get_woo_version());
 		define('PRQ_WP_VERSION', get_bloginfo('version'));
