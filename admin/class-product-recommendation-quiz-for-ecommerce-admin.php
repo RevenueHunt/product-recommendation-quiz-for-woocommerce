@@ -128,7 +128,7 @@ class Product_Recommendation_Quiz_For_Ecommerce_Admin {
 		
 		$get = $_GET;
 		
-		if(isset($get['route'])){
+		if ( isset($get['route'] ) ) {
 			$url = $url . '&route=' . $get['route'];
 		}
 		
