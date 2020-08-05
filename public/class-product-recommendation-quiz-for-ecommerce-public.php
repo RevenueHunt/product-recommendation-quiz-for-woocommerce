@@ -50,6 +50,13 @@ class Product_Recommendation_Quiz_For_Ecommerce_Public {
 		$this->plugin_name = $plugin_name;
 		$this->version = $version;
 	}
+	
+	function dns_prefetch() {
+		echo '<meta http-equiv="x-dns-prefetch-control" content="on">';
+		echo '<link rel="dns-prefetch" href="' . PRQ_ADMIN_URL . '">';
+		echo '<link rel="dns-prefetch" href="' . PRQ_API_URL . '">';
+		echo '<link rel="dns-prefetch" href="https://revenuehunt.sfo2.digitaloceanspaces.com">';
+	}
 
 	/**
 	 * Register the stylesheets for the public-facing side of the site.
@@ -70,6 +77,7 @@ class Product_Recommendation_Quiz_For_Ecommerce_Public {
 		 * class.
 		 */
 		wp_enqueue_style($this->plugin_name, plugin_dir_url(__FILE__) . 'css/product-recommendation-quiz-for-ecommerce-public.css', array(), $this->version, 'all');
+		$this->dns_prefetch();
 	}
 
 	/**
