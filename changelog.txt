@@ -1,8 +1,5 @@
 *** Product Recommendation Quiz for WooCommerce ***
 
-2020-08-05 - version 1.0.10
-* Dev - Prefetch DNS
-
 2020-07-27 - version 1.0.9
 * Fix - Include plugin file
 
