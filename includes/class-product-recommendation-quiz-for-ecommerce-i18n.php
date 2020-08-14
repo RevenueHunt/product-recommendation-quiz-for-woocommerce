@@ -22,7 +22,6 @@
  * @since      1.0.0
  * @package    Product_Recommendation_Quiz_For_Ecommerce
  * @subpackage Product_Recommendation_Quiz_For_Ecommerce/includes
- * @author     Alex <alex@revenuehunt.com>
  */
 class Product_Recommendation_Quiz_For_Ecommerce_I18n {
 
