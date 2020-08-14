@@ -89,6 +89,9 @@ function prq_set_token() {
 		return 'die2';
 	}
 
+	$GLOBALS['wp_object_cache']->delete( 'rh_token', 'options' );
+	$GLOBALS['wp_object_cache']->delete( 'rh_shop_hashid', 'options' );
+
 	update_option('rh_token', $post['token']);
 	update_option('rh_shop_hashid', $post['shop_hashid']);
 
