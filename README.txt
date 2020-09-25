@@ -81,6 +81,7 @@ Explore how the app works in our [demo store](https://woo.revenuehunt.com/ "Demo
 * You need to have an [eCommerce](https://wordpress.org/plugins/woocommerce/ "Open-source eCommerce for WordPress") plugin installed and activated on your WordPress website.
 * Works with WooCommerce version 3.5 or higher.
 * You website must have a valid HTTPS/SSL certificate installed.
+* Does not work on local/development environments.
 
 **WALKTHROUGH**
 
