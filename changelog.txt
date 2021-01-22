@@ -1,5 +1,8 @@
 *** Product Recommendation Quiz for WooCommerce ***
 
+2021-01-22 - version 1.0.13
+* Dev - Minor layout fix
+
 2020-11-20 - version 1.0.12
 * Dev - New logo and minor updates
 
