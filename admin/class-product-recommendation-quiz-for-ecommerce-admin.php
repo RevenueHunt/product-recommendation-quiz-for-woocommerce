@@ -151,8 +151,8 @@ class Product_Recommendation_Quiz_For_Ecommerce_Admin {
 			<p class="fright h-24 mtop-0" style="font-size: 14px; width: calc(100% - 35px);">Product Recommendation Quiz for eCommerce<span class="fright">by <a href="https://revenuehunt.com/" target="_blank">RevenueHunt</a></span></p>
 			<hr>
 			<h1 class="mtop-60 alcenter">Congratulations!</h1>
-			<p class="lg alcenter">You're on step away from getting more conversions and sales in your store.</p>
-			<p class="lg alcenter">We just need you to grant this app permission to access your eCommerce plugin:</p>
+			<p class="lg alcenter">You're one step away from getting more conversions and sales in your store.</p>
+			<p class="lg alcenter">We just need you to grant this plugin permission to access your eCommerce plugin:</p>
 			<p class="lg alcenter mtop-30"><a class="btn btn-main" href="<?php echo esc_url($this->prquiz_get_woocommerce_auth_url()); ?>">grant permission now</a></p>
 		</div>
 		<?php
