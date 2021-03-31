@@ -1,5 +1,8 @@
 *** Product Recommendation Quiz for WooCommerce ***
 
+2021-03-31 - version 1.0.15
+* Dev - Automatic migration from dev/staging to live stores
+
 2021-01-28 - version 1.0.14
 * Dev - set flag update_option autoload false
 

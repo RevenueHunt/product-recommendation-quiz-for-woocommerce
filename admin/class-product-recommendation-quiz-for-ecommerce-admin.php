@@ -174,7 +174,30 @@ class Product_Recommendation_Quiz_For_Ecommerce_Admin {
 		<?php
 	}
 
+	public function migration_warning() {
+		?>
+		<div class="error">
+			<p><strong>We've detected that you've changed the domain name. We're migrating your Product Recommendation Quiz account from <?php echo(get_option('rh_domain')); ?> to <?php echo($_SERVER['SERVER_NAME']); ?></p>
+			<p>Please <a href="https://revenuehunt.com/contact/" target="_blank">contact us</a> if you encounter any issues.</strong></p>
+		</div>
+		<?php
+	}
+
 	public function knock() {
+		
+		$domain = $_SERVER['SERVER_NAME'];
+
+        $old_domain = get_option('rh_domain');
+
+        if(!$old_domain){
+          update_option('rh_domain', $domain, false);
+          $old_domain = $domain;
+        }
+    
+        if($domain !== $old_domain){
+          // migration warning
+		  $this->migration_warning($old_domain,$domain);
+        }
 
 		$locale = explode('_', get_locale());
 		// TODO TO DO https://woocommerce.wp-a2z.org/oik_api/loaderget_currency_settings/
