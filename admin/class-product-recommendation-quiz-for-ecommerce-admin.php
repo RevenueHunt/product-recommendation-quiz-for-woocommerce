@@ -185,8 +185,7 @@ class Product_Recommendation_Quiz_For_Ecommerce_Admin {
 
 	public function knock() {
 		
-		$domain = $_SERVER['SERVER_NAME'];
-
+		$domain = PRQ_STORE_URL;
         $old_domain = get_option('rh_domain');
 
         if(!$old_domain){
@@ -205,7 +204,8 @@ class Product_Recommendation_Quiz_For_Ecommerce_Admin {
 		//set POST variables
 		$url = PRQ_API_URL . '/api/v1/woocommerce/knock';
 		$args = array(
-			'domain' => urlencode(PRQ_STORE_URL),
+			'domain' => urlencode($domain),
+			'old_domain' => urlencode($old_domain),
 			'channel' => 'wordpress',
 			'plugin_version' => PRQ_PLUGIN_VERSION,
 			'woo_version' => PRQ_WOO_VERSION,
