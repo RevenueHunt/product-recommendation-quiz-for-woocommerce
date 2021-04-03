@@ -1,6 +1,6 @@
 *** Product Recommendation Quiz for WooCommerce ***
 
-2021-03-31 - version 1.0.15
+2021-03-31 - version 1.1.0
 * Dev - Automatic migration from dev/staging to live stores
 
 2021-01-28 - version 1.0.14
