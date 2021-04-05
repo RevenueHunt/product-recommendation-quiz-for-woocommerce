@@ -177,7 +177,7 @@ class Product_Recommendation_Quiz_For_Ecommerce_Admin {
 	public function migration_warning() {
 		?>
 		<div class="error">
-			<p><strong>We've detected that you've changed the domain name. We're migrating your Product Recommendation Quiz account from <?php echo(get_option('rh_domain')); ?> to <?php echo($_SERVER['SERVER_NAME']); ?></p>
+			<p><strong>We've detected that you've changed the domain name. We're migrating your Product Recommendation Quiz account from <?php echo esc_html( get_option('rh_domain') ); ?> to <?php echo esc_html( PRQ_STORE_URL ); ?></p>
 			<p>Please <a href="https://revenuehunt.com/contact/" target="_blank">contact us</a> if you encounter any issues.</strong></p>
 		</div>
 		<?php
@@ -186,18 +186,18 @@ class Product_Recommendation_Quiz_For_Ecommerce_Admin {
 	public function knock() {
 		
 		$domain		= PRQ_STORE_URL;
-        $old_domain = get_option('rh_domain');
-        $api_key	= get_option('rh_api_key');
-
-        if(!$old_domain){
-          update_option('rh_domain', $domain, false);
-          $old_domain = $domain;
-        }
-    
-        if($domain !== $old_domain){
-          // migration warning
-		  $this->migration_warning($old_domain,$domain);
-        }
+		$old_domain = get_option('rh_domain');
+		$api_key	= get_option('rh_api_key');
+		
+		if ( !$old_domain ) {
+			update_option('rh_domain', $domain, false);
+			$old_domain = $domain;
+		}
+		
+		if ( $domain !== $old_domain ) {
+			// migration warning
+			$this->migration_warning();
+		}
 
 		$locale = explode('_', get_locale());
 		// TODO TO DO https://woocommerce.wp-a2z.org/oik_api/loaderget_currency_settings/

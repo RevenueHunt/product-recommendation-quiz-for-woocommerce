@@ -95,11 +95,11 @@ function prq_set_token() {
 
 	update_option('rh_token', $post['token'], false);
 	update_option('rh_shop_hashid', $post['shop_hashid'], false);
-	update_option('rh_domain', $_SERVER['SERVER_NAME'], false);
-	
+	update_option('rh_domain', PRQ_STORE_URL, false);	
+		
 	$api_key = get_option('rh_api_key');
 	
-	if(!$api_key && $post['api_key']){
+	if ( !$api_key && $post['api_key'] ) {
 	  update_option('rh_api_key', $post['api_key'], false);		
 	}
 
