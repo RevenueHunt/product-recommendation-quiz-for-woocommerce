@@ -34,11 +34,11 @@ Online shoppers need guidance on finding what they want, just like in real shops
 
 A fresh alternative to the obsolete "Search Bar" in eCommerce stores, our digital personal shopper engages your customers just like a salesperson would do, guiding them from start to cart and ensuring they find exactly what they're looking for.
 
-Our app allows the customers to play an active role in the buying experience. The quiz asks your customers a series of questions, analyzes their responses and returns a selection of recommended products that match their needs along with an explanation to why they're the right fit for them.
+Our plugin allows the customers to play an active role in the buying experience. The quiz asks your customers a series of questions, analyzes their responses and returns a selection of recommended products that match their needs along with an explanation to why they're the right fit for them.
 
 **CUSTOMIZING THE QUIZ TO YOUR PARTICULAR NEEDS**
 
-Just like every customer is unique, we believe every brand has its own personality. Our app allows you to customize multiple aspects of the quiz. With our easy-to-use quiz builder you can:
+Just like every customer is unique, we believe every brand has its own personality. Our plugin allows you to customize multiple aspects of the quiz. With our easy-to-use quiz builder you can:
 
 * Define the questions you ask
 * Personalize the feedback you give
@@ -53,7 +53,7 @@ Just like every customer is unique, we believe every brand has its own personali
 
 **WHEN IS A PRODUCT RECOMMENDATION QUIZ USEFUL?**
 
-Shops where their customers are overloaded with choices are a great fit, a few cases where our app can provide value are:
+Shops where their customers are overloaded with choices are a great fit, a few cases where our plugin can provide value are:
 
 * When people want to make a quick an easy choice (e.g.: gifts)
 * The product is complex or it's difficult to compare alternatives
@@ -71,9 +71,9 @@ There are several shopping verticals that are inherently more suited for a Produ
 
 Google Analytics, Mailchimp, Klaviyo, HubSpot, webhooks, and many more via [Zapier](https://zapier.com/ "Connect your apps and automate workflows")
 
-== See the app in action ==
+== See the plugin in action ==
 
-Explore how the app works in our [demo store](https://woo.revenuehunt.com/ "Demo Skincare Store with Quiz")
+Explore how the plugin works in our [demo store](https://woo.revenuehunt.com/ "Demo Skincare Store with Quiz")
 
 
 == Installation ==
@@ -90,7 +90,7 @@ Explore how the app works in our [demo store](https://woo.revenuehunt.com/ "Demo
 * Install and activate the plugin through the "Plugins" screen in WordPress (more instructions below)
 * Install and activate an eCommerce plugin if you haven’t already done so
 * In your WordPress dashboard, navigate to the **Product Quiz** tab
-* Grant permissions to connect our app to your eCommerce
+* Grant permissions to connect our plugin to your eCommerce
 * Follow the **Success Checklist** to create and publish your quiz
 * Drive traffic to your quiz and start getting sales and leads!
 
