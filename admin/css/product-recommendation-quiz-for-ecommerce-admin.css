@@ -56,3 +56,16 @@ a.btn:hover{
     text-decoration: none;
     opacity: 0.8;
 }
+
+.prq-author{
+    font-size: 14px;
+    width: calc(100% - 35px);
+}
+
+.prq-iframe{
+    position: relative;
+    border: none;
+    width: calc(100% + 41px);
+    margin-left: -21px;
+    height: calc(100vh - 85px);
+}

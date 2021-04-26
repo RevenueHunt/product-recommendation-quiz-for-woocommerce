@@ -50,45 +50,25 @@ class Product_Recommendation_Quiz_For_Ecommerce_Admin {
 	}
 
 	/**
-	 * Register the stylesheets for the admin area.
-	 *
-	 * @since    1.0.0
-	 */
-	public function enqueue_styles() {
-
-		/**
-		 * This function is provided for demonstration purposes only.
-		 *
-		 * An instance of this class should be passed to the run() function
-		 * defined in Product_Recommendation_Quiz_For_Ecommerce_Loader as all of the hooks are defined
-		 * in that particular class.
-		 *
-		 * The Product_Recommendation_Quiz_For_Ecommerce_Loader will then create the relationship
-		 * between the defined hooks and the functions defined in this
-		 * class.
-		 */
-		wp_enqueue_style($this->plugin_name, plugin_dir_url(__FILE__) . 'css/product-recommendation-quiz-for-ecommerce-admin.css', array(), $this->version, 'all');
-	}
-
-	/**
-	 * Register the JavaScript for the admin area.
+	 * Register the stylesheets and JavaScript for the admin area.
 	 *
 	 * @since    1.0.0
 	 */
 	public function enqueue_scripts() {
 
-		/**
-		 * This function is provided for demonstration purposes only.
-		 *
-		 * An instance of this class should be passed to the run() function
-		 * defined in Product_Recommendation_Quiz_For_Ecommerce_Loader as all of the hooks are defined
-		 * in that particular class.
-		 *
-		 * The Product_Recommendation_Quiz_For_Ecommerce_Loader will then create the relationship
-		 * between the defined hooks and the functions defined in this
-		 * class.
-		 */
-		wp_enqueue_script($this->plugin_name, plugin_dir_url(__FILE__) . 'js/product-recommendation-quiz-for-ecommerce-admin.js', array('jquery'), $this->version, false);
+		wp_enqueue_style($this->plugin_name, plugin_dir_url(__FILE__) . 'css/product-recommendation-quiz-for-ecommerce-admin.css', array(), $this->version, 'all');
+		
+		$dataToBePassed = array(
+			'shop' => PRQ_STORE_URL,
+			'platform' => 'woocommerce',
+			'channel' => 'wordpress',
+			'plugin_version' => PRQ_PLUGIN_VERSION,
+			'woo_version' => PRQ_WOO_VERSION,
+			'wp_version' => PRQ_WP_VERSION
+		);
+
+		wp_enqueue_script($this->plugin_name, PRQ_ADMIN_URL . '/embed.js?shop=' . PRQ_STORE_URL, array(), PRQ_PLUGIN_VERSION, true);
+		wp_localize_script($this->plugin_name, 'js_vars', $dataToBePassed);
 	}
 
 	public function prquiz_get_woocommerce_auth_url() {
@@ -138,8 +118,8 @@ class Product_Recommendation_Quiz_For_Ecommerce_Admin {
 		?>
 		<div class="wrap">
 			<img src="<?php echo esc_url(plugin_dir_url(__FILE__) . 'img/revenuehunt-logo.png'); ?>" width="24" height="24" alt="RevenueHunt Logo" /> 
-			<p class="fright h-24 mtop-0" style="font-size: 14px; width: calc(100% - 35px);">Product Recommendation Quiz for eCommerce<span class="fright">by <a href="https://revenuehunt.com/" target="_blank">RevenueHunt</a></span></p>
-			<iframe title="Product Recommendation Quiz" src="<?php echo esc_url($this->prquiz_get_oauth_url($token, $hashid)); ?>" name="app-iframe" context="Main" style="position: relative; border: none; width: calc(100% + 41px); margin-left: -21px; height: calc(100vh - 85px);"></iframe>
+			<p class="fright h-24 mtop-0 prq-author">Product Recommendation Quiz for eCommerce<span class="fright">by <a href="https://revenuehunt.com/" target="_blank">RevenueHunt</a></span></p>
+			<iframe title="Product Recommendation Quiz" src="<?php echo esc_url($this->prquiz_get_oauth_url($token, $hashid)); ?>" name="app-iframe" context="Main" class="prq-iframe"></iframe>
 		</div>            
 		<?php
 	}
@@ -148,7 +128,7 @@ class Product_Recommendation_Quiz_For_Ecommerce_Admin {
 		?>
 		<div class="wrap">
 			<img src="<?php echo esc_url(plugin_dir_url(__FILE__) . 'img/revenuehunt-logo.png'); ?>" width="24" height="24" alt="RevenueHunt Logo" /> 
-			<p class="fright h-24 mtop-0" style="font-size: 14px; width: calc(100% - 35px);">Product Recommendation Quiz for eCommerce<span class="fright">by <a href="https://revenuehunt.com/" target="_blank">RevenueHunt</a></span></p>
+			<p class="fright h-24 mtop-0 prq-author">Product Recommendation Quiz for eCommerce<span class="fright">by <a href="https://revenuehunt.com/" target="_blank">RevenueHunt</a></span></p>
 			<hr>
 			<h1 class="mtop-60 alcenter">Congratulations!</h1>
 			<p class="lg alcenter">You're one step away from getting more conversions and sales in your store.</p>
@@ -240,7 +220,6 @@ class Product_Recommendation_Quiz_For_Ecommerce_Admin {
 			return $response;
 		}
 
-
 		// https://stackoverflow.com/questions/8655515/get-utc-time-in-php
 		// https://stackoverflow.com/questions/2707967/php-how-can-i-generate-a-hmacsha256-signature-of-a-string
 		// https://developer.wordpress.org/rest-api/extending-the-rest-api/adding-custom-endpoints/
@@ -287,7 +266,6 @@ class Product_Recommendation_Quiz_For_Ecommerce_Admin {
 				die();
 			}
 		} else {
-			// echo $knock['response']['code'];
 			// if 401 go to prquiz_first_visit
 			$this->prquiz_first_visit();
 			die();
@@ -295,10 +273,6 @@ class Product_Recommendation_Quiz_For_Ecommerce_Admin {
 	}
 
 	public function my_plugin_menu() {
-
-		// if (!function_exists('my_plugin_options')) {
-		// wp_die( __( 'function does\'t exist.' ) );
-		// }
 
 		add_menu_page(
 				'Product Recommendation Quiz', 'Product Quiz', 'manage_options', 'prqfw', array($this, 'prquiz_options'), 'dashicons-format-chat', 58 /* https://developer.wordpress.org/reference/functions/add_menu_page/#default-bottom-of-menu-structure */
