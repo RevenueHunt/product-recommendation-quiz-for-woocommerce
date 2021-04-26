@@ -1,0 +1,77 @@
+# Copyright (C) 2021 RevenueHunt
+# This file is distributed under the same license as the Product Recommendation Quiz for eCommerce plugin.
+msgid ""
+msgstr ""
+"Project-Id-Version: Product Recommendation Quiz for eCommerce 1.1.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/product-recommendation-quiz-for-ecommercen\"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2021-04-26T10:49:45+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.4.0\n"
+"X-Domain: product-recommendation-quiz-for-ecommerce\n"
+
+#. Plugin Name of the plugin
+msgid "Product Recommendation Quiz\'s for eCommerce"
+msgstr ""
+
+#. Plugin URI of the plugin
+msgid "https://revenuehunt.com/product-recommendation-quiz-woocommerce/"
+msgstr ""
+
+#. Description of the plugin
+msgid "Advise and delight your customers by engaging them with a personal shopper experience on your store, guiding your customers from start to cart and helping them find the products that best match their needs."
+msgstr ""
+
+#. Author of the plugin
+msgid "RevenueHunt"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "https://revenuehunt.com/"
+msgstr ""
+
+#. The following messages all appear in the admin/class-product-recommendation-quiz-for-ecommerce-admin.php file
+msgid "by"
+msgstr ""
+
+msgid "Congratulations!"
+msgstr ""
+
+msgid "You\'re one step away from getting more conversions and sales in your store."
+msgstr ""
+
+msgid "We just need you to grant this plugin permission to access your WooCommerce store:"
+msgstr ""
+
+msgid "grant permission now"
+msgstr ""
+
+msgid "Product Recommendation Quiz for eCommerce requires the WooCommerce plugin to be installed and active. You can download"
+msgstr ""
+
+msgid "WooCommerce"
+msgstr ""
+
+msgid "here. If you want this plugin developed for your eCommerce platform, please send us a message."
+msgstr ""
+
+msgid "Product Recommendation Quiz for eCommerce requires your website to have a valid HTTPS/SSL certificate."
+msgstr ""
+
+msgid "We\'ve detected that you\'ve changed the domain name. We\'re migrating your Product Recommendation Quiz account from"
+
+msgid "to"
+msgstr ""
+
+msgid "Please"
+msgstr ""
+
+msgid "contact us"
+msgstr ""
+
+msgid "if you encounter any issues."
+msgstr ""

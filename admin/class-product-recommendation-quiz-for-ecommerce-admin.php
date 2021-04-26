@@ -117,9 +117,14 @@ class Product_Recommendation_Quiz_For_Ecommerce_Admin {
 	public function prquiz_authenticated_visit( $token, $hashid ) { 
 		?>
 		<div class="wrap">
-			<img src="<?php echo esc_url(plugin_dir_url(__FILE__) . 'img/revenuehunt-logo.png'); ?>" width="24" height="24" alt="RevenueHunt Logo" /> 
-			<p class="fright h-24 mtop-0 prq-author">Product Recommendation Quiz for eCommerce<span class="fright">by <a href="https://revenuehunt.com/" target="_blank">RevenueHunt</a></span></p>
-			<iframe title="Product Recommendation Quiz" src="<?php echo esc_url($this->prquiz_get_oauth_url($token, $hashid)); ?>" name="app-iframe" context="Main" class="prq-iframe"></iframe>
+			<img src="<?php echo esc_url(plugin_dir_url(__FILE__) . 'img/revenuehunt-logo.png'); ?>" width="24" height="24" alt="<?php esc_html_e( 'RevenueHunt', 'product-recommendation-quiz-for-ecommerce' ); ?>" /> 
+			<p class="fright h-24 mtop-0 prq-author">
+				<?php esc_html_e( 'Product Recommendation Quiz for eCommerce', 'product-recommendation-quiz-for-ecommerce' ); ?>
+				<span class="fright"><?php esc_html_e( 'by', 'product-recommendation-quiz-for-ecommerce' ); ?> 
+					<a href="https://revenuehunt.com/" target="_blank"><?php esc_html_e( 'RevenueHunt', 'product-recommendation-quiz-for-ecommerce' ); ?></a>
+				</span>
+			</p>
+			<iframe title="<?php esc_html_e( 'Product Recommendation Quiz for eCommerce', 'product-recommendation-quiz-for-ecommerce' ); ?>" src="<?php echo esc_url($this->prquiz_get_oauth_url($token, $hashid)); ?>" name="app-iframe" context="Main" class="prq-iframe"></iframe>
 		</div>            
 		<?php
 	}
@@ -127,13 +132,20 @@ class Product_Recommendation_Quiz_For_Ecommerce_Admin {
 	public function prquiz_first_visit() {
 		?>
 		<div class="wrap">
-			<img src="<?php echo esc_url(plugin_dir_url(__FILE__) . 'img/revenuehunt-logo.png'); ?>" width="24" height="24" alt="RevenueHunt Logo" /> 
-			<p class="fright h-24 mtop-0 prq-author">Product Recommendation Quiz for eCommerce<span class="fright">by <a href="https://revenuehunt.com/" target="_blank">RevenueHunt</a></span></p>
+			<img src="<?php echo esc_url(plugin_dir_url(__FILE__) . 'img/revenuehunt-logo.png'); ?>" width="24" height="24" alt="<?php esc_html_e( 'RevenueHunt', 'product-recommendation-quiz-for-ecommerce' ); ?>" /> 
+			<p class="fright h-24 mtop-0 prq-author">
+				<?php esc_html_e( 'Product Recommendation Quiz for eCommerce', 'product-recommendation-quiz-for-ecommerce' ); ?>
+				<span class="fright"><?php esc_html_e( 'by', 'product-recommendation-quiz-for-ecommerce' ); ?> 
+					<a href="https://revenuehunt.com/" target="_blank"><?php esc_html_e( 'RevenueHunt', 'product-recommendation-quiz-for-ecommerce' ); ?></a>
+				</span>
+			</p>
 			<hr>
-			<h1 class="mtop-60 alcenter">Congratulations!</h1>
-			<p class="lg alcenter">You're one step away from getting more conversions and sales in your store.</p>
-			<p class="lg alcenter">We just need you to grant this plugin permission to access your eCommerce plugin:</p>
-			<p class="lg alcenter mtop-30"><a class="btn btn-main" href="<?php echo esc_url($this->prquiz_get_woocommerce_auth_url()); ?>">grant permission now</a></p>
+			<h1 class="mtop-60 alcenter"><?php esc_html_e( 'Congratulations!', 'product-recommendation-quiz-for-ecommerce' ); ?></h1>
+			<p class="lg alcenter"><?php esc_html_e( 'You\'re one step away from getting more conversions and sales in your store.', 'product-recommendation-quiz-for-ecommerce' ); ?></p>
+			<p class="lg alcenter"><?php esc_html_e( 'We just need you to grant this plugin permission to access your WooCommerce store:', 'product-recommendation-quiz-for-ecommerce' ); ?></p>
+			<p class="lg alcenter mtop-30">
+				<a class="btn btn-main" href="<?php echo esc_url($this->prquiz_get_woocommerce_auth_url()); ?>"><?php esc_html_e( 'grant permission now', 'product-recommendation-quiz-for-ecommerce' ); ?></a>
+			</p>
 		</div>
 		<?php
 	}
@@ -141,7 +153,9 @@ class Product_Recommendation_Quiz_For_Ecommerce_Admin {
 	public function woocommerce_missing() {
 		?>
 		<div class="error">
-			<p><strong>Product Recommendation Quiz for eCommerce requires the WooCommerce plugin to be installed and active. You can download <a href="https://wordpress.org/plugins/woocommerce/" target="_blank">WooCommerce</a> here. If you want this plugin developed for your eCommerce platform, please send us a message.</strong></p>
+			<p><strong><?php esc_html_e( 'Product Recommendation Quiz for eCommerce requires the WooCommerce plugin to be installed and active. You can download', 'product-recommendation-quiz-for-ecommerce' ); ?> 
+					<a href="https://wordpress.org/plugins/woocommerce/" target="_blank"><?php esc_html_e( 'WooCommerce', 'product-recommendation-quiz-for-ecommerce' ); ?></a> 
+					<?php esc_html_e( 'here. If you want this plugin developed for your eCommerce platform, please send us a message.', 'product-recommendation-quiz-for-ecommerce' ); ?></strong></p>
 		</div>
 		<?php
 	}
@@ -149,7 +163,7 @@ class Product_Recommendation_Quiz_For_Ecommerce_Admin {
 	public function https_ssl_missing() {
 		?>
 		<div class="error">
-			<p><strong>Product Recommendation Quiz for eCommerce requires your website to have a valid HTTPS/SSL certificate.</strong></p>
+			<p><strong><?php esc_html_e( 'Product Recommendation Quiz for eCommerce requires your website to have a valid HTTPS/SSL certificate.', 'product-recommendation-quiz-for-ecommerce' ); ?></strong></p>
 		</div>
 		<?php
 	}
@@ -157,8 +171,11 @@ class Product_Recommendation_Quiz_For_Ecommerce_Admin {
 	public function migration_warning() {
 		?>
 		<div class="error">
-			<p><strong>We've detected that you've changed the domain name. We're migrating your Product Recommendation Quiz account from <?php echo esc_html( get_option('rh_domain') ); ?> to <?php echo esc_html( PRQ_STORE_URL ); ?></p>
-			<p>Please <a href="https://revenuehunt.com/contact/" target="_blank">contact us</a> if you encounter any issues.</strong></p>
+			<p><strong><?php esc_html_e( 'We\'ve detected that you\'ve changed the domain name. We\'re migrating your Product Recommendation Quiz account from', 'product-recommendation-quiz-for-ecommerce' ); ?> 
+				<?php echo esc_html( get_option('rh_domain') ); ?> <?php esc_html_e( 'to', 'product-recommendation-quiz-for-ecommerce' ); ?> <?php echo esc_html( PRQ_STORE_URL ); ?></p>
+			<p><?php esc_html_e( 'Please', 'product-recommendation-quiz-for-ecommerce' ); ?> 
+				<a href="https://revenuehunt.com/contact/" target="_blank"><?php esc_html_e( 'contact us', 'product-recommendation-quiz-for-ecommerce' ); ?></a> 
+				<?php esc_html_e( 'if you encounter any issues.', 'product-recommendation-quiz-for-ecommerce' ); ?></strong></p>
 		</div>
 		<?php
 	}
