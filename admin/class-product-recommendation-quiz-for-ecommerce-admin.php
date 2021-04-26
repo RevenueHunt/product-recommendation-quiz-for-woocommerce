@@ -104,7 +104,7 @@ class Product_Recommendation_Quiz_For_Ecommerce_Admin {
 			'scope' => 'read_write', // 'read', 'write', 'read_write'
 			'user_id' => PRQ_STORE_URL, // Local user ID
 			'return_url' => $return_url,
-			'callback_url' => $callback_url, // TODO TO DO -> Must be https
+			'callback_url' => $callback_url, // Must be https
 		);
 
 		// Add PHP_QUERY_RFC3986 so spaces are encoded as %20 and not +
@@ -200,9 +200,9 @@ class Product_Recommendation_Quiz_For_Ecommerce_Admin {
 		}
 
 		$locale = explode('_', get_locale());
-		// TODO TO DO https://woocommerce.wp-a2z.org/oik_api/loaderget_currency_settings/
-		//extract data from the post
-		//set POST variables
+		// Currency Settings: https://woocommerce.wp-a2z.org/oik_api/loaderget_currency_settings/
+		// extract data from the post
+		// set POST variables
 		$url = PRQ_API_URL . '/api/v1/woocommerce/knock';
 		$args = array(
 			'domain' => urlencode($domain),

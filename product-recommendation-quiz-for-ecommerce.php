@@ -40,7 +40,7 @@ define('PRQ_PLUGIN_VERSION', '1.1.0');
  * The code that runs during plugin activation.
  * This action is documented in includes/class-product-recommendation-quiz-for-ecommerce-activator.php
  */
-function activate_product_recommendation_quiz_for_ecommerce() {
+function product_recommendation_quiz_for_ecommerce_activate() {
 	require_once plugin_dir_path(__FILE__) . 'includes/class-product-recommendation-quiz-for-ecommerce-activator.php';
 	Product_Recommendation_Quiz_For_Ecommerce_Activator::activate();
 }
@@ -49,13 +49,13 @@ function activate_product_recommendation_quiz_for_ecommerce() {
  * The code that runs during plugin deactivation.
  * This action is documented in includes/class-product-recommendation-quiz-for-ecommerce-deactivator.php
  */
-function deactivate_product_recommendation_quiz_for_ecommerce() {
+function product_recommendation_quiz_for_ecommerce_deactivate() {
 	require_once plugin_dir_path(__FILE__) . 'includes/class-product-recommendation-quiz-for-ecommerce-deactivator.php';
 	Product_Recommendation_Quiz_For_Ecommerce_Deactivator::deactivate();
 }
 
-register_activation_hook(__FILE__, 'activate_product_recommendation_quiz_for_ecommerce');
-register_deactivation_hook(__FILE__, 'deactivate_product_recommendation_quiz_for_ecommerce');
+register_activation_hook(__FILE__, 'product_recommendation_quiz_for_ecommerce_activate');
+register_deactivation_hook(__FILE__, 'product_recommendation_quiz_for_ecommerce_deactivate');
 
 /**
  * The core plugin class that is used to define internationalization,
@@ -72,7 +72,7 @@ require plugin_dir_path(__FILE__) . 'includes/class-product-recommendation-quiz-
  *
  * @since    1.0.0
  */
-function run_product_recommendation_quiz_for_ecommerce() {
+function product_recommendation_quiz_for_ecommerce_run() {
 
 	$plugin = new Product_Recommendation_Quiz_For_Ecommerce();
 	$plugin->run();
@@ -113,4 +113,4 @@ add_action('rest_api_init', function() {
 	));
 });
 
-run_product_recommendation_quiz_for_ecommerce();
+product_recommendation_quiz_for_ecommerce_run();

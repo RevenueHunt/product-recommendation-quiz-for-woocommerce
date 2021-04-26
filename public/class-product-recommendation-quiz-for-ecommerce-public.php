@@ -98,7 +98,6 @@ class Product_Recommendation_Quiz_For_Ecommerce_Public {
 			'wp_version' => PRQ_WP_VERSION
 		);
 
-		// wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/product-recommendation-quiz-for-ecommerce-public.js', array( 'jquery' ), $this->version, false );
 		wp_enqueue_script($this->plugin_name, PRQ_ADMIN_URL . '/embed.js?shop=' . PRQ_STORE_URL, array(), PRQ_PLUGIN_VERSION, true);
 		wp_localize_script($this->plugin_name, 'js_vars', $dataToBePassed);
 	}
