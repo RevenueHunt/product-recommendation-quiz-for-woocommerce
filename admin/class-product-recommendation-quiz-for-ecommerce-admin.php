@@ -185,6 +185,7 @@ class Product_Recommendation_Quiz_For_Ecommerce_Admin {
 		$domain		= PRQ_STORE_URL;
 		$old_domain = get_option('rh_domain');
 		$api_key	= get_option('rh_api_key');
+		$country	= WC_Countries::get_base_country();
 		
 		if ( !$old_domain ) {
 			update_option('rh_domain', $domain, false);
@@ -206,6 +207,7 @@ class Product_Recommendation_Quiz_For_Ecommerce_Admin {
 			'old_domain' => urlencode($old_domain),
 			'api_key' => $api_key,
  			'channel' => 'wordpress',
+ 			'country' => $country,
 			'plugin_version' => PRQ_PLUGIN_VERSION,
 			'woo_version' => PRQ_WOO_VERSION,
 			'wp_version' => PRQ_WP_VERSION,
