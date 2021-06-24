@@ -63,9 +63,9 @@ a.btn:hover{
 }
 
 .prq-iframe{
-    position: relative;
-    border: none;
-    width: calc(100% + 41px);
-    margin-left: -21px;
-    height: calc(100vh - 85px);
+    position: relative !important;
+    border: none !important;
+    width: calc(100% + 41px) !important;
+    margin-left: -21px !important;
+    height: calc(100vh - 85px) !important;
 }
