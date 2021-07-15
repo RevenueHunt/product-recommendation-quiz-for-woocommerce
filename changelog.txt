@@ -1,5 +1,8 @@
 *** Product Recommendation Quiz for WooCommerce ***
 
+2021-07-13 - version 2.0.0
+* Dev - Change oauth method
+
 2021-06-15 - version 1.1.2
 * Fix - Upgrade WC_Countries to WC()->countries
 

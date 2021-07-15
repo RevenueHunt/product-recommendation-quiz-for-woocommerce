@@ -92,8 +92,8 @@ class Product_Recommendation_Quiz_For_Ecommerce_Admin {
 
 		return $auth_base . '?' . $query;
 	}
-
-	public function prquiz_get_oauth_url( $token, $hashid ) { 
+	
+	public function prquiz_get_oauth_url () {
 		
 		if (preg_match('/\.local/i', PRQ_STORE_URL)) {
 			// development environment
@@ -102,19 +102,44 @@ class Product_Recommendation_Quiz_For_Ecommerce_Admin {
 			// production environment
 			$oauth_url = 'https://admin.revenuehunt.com/public/woocommerce/oauth';
 		}
+		
+		$shop_hashid	= get_option('rh_shop_hashid');
+		$api_key		= get_option('rh_api_key');
+		$country		= WC()->countries->get_base_country();
+		$time			= time();
+		
+		$data = sprintf('hashid=%s&domain=%s&plugin_version=%s&timestamp=%s',$shop_hashid,PRQ_STORE_URL,PRQ_PLUGIN_VERSION,(string)$time);
+        $hmac = base64_encode(hash_hmac('sha256', $data, $api_key, true));
+				
+		$request = array(
+			'timestamp' => $time,
+			'domain' => urlencode(PRQ_STORE_URL),
+			'shop_hashid' => $shop_hashid,
+ 			'channel' => 'wordpress',
+ 			'country' => $country,
+			'plugin_version' => PRQ_PLUGIN_VERSION,
+			'woo_version' => PRQ_WOO_VERSION,
+			'wp_version' => PRQ_WP_VERSION,
+			'name' => get_bloginfo('name'),
+			'email' => get_bloginfo('admin_email'),
+			'locale' => explode('_', get_locale())[0],
+			'timezone' => get_option('gmt_offset'),
+			'currency' => get_woocommerce_currency(),
+			'symbol' => html_entity_decode(get_woocommerce_currency_symbol()),
+			'hmac' => urlencode($hmac)
+		);
+		
+        $create = $oauth_url . '?';
+		
+        foreach($request as $key => $value) {
+            $create .= $key.'='.$value.'&';
+        }
 
-		$url = $oauth_url . '?token=' . $token . '&shop_hashid=' . $hashid . '&signature=' . time();
-		
-		$get = $_GET;
-		
-		if ( isset($get['route'] ) ) {
-			$url = $url . '&route=' . $get['route'];
-		}
-		
-		return $url;
+        $create = trim($create,' &');
+        return $create;
 	}
 
-	public function prquiz_authenticated_visit( $token, $hashid ) { 
+	public function prquiz_authenticated_visit() { 
 		?>
 		<div class="wrap">
 			<img src="<?php echo esc_url(plugin_dir_url(__FILE__) . 'img/revenuehunt-logo.png'); ?>" width="24" height="24" alt="<?php esc_html_e( 'RevenueHunt', 'product-recommendation-quiz-for-ecommerce' ); ?>" /> 
@@ -124,7 +149,7 @@ class Product_Recommendation_Quiz_For_Ecommerce_Admin {
 					<a href="https://revenuehunt.com/" target="_blank"><?php esc_html_e( 'RevenueHunt', 'product-recommendation-quiz-for-ecommerce' ); ?></a>
 				</span>
 			</p>
-			<iframe title="<?php esc_html_e( 'Product Recommendation Quiz for eCommerce', 'product-recommendation-quiz-for-ecommerce' ); ?>" src="<?php echo esc_url($this->prquiz_get_oauth_url($token, $hashid)); ?>" name="app-iframe" context="Main" class="prq-iframe"></iframe>
+			<iframe title="<?php esc_html_e( 'Product Recommendation Quiz for eCommerce', 'product-recommendation-quiz-for-ecommerce' ); ?>" src="<?php echo esc_url($this->prquiz_get_oauth_url()); ?>" name="app-iframe" context="Main" class="prq-iframe"></iframe>
 		</div>            
 		<?php
 	}
@@ -180,70 +205,6 @@ class Product_Recommendation_Quiz_For_Ecommerce_Admin {
 		<?php
 	}
 
-	public function knock() {
-		
-		$domain		= PRQ_STORE_URL;
-		$old_domain = get_option('rh_domain');
-		$api_key	= get_option('rh_api_key');
-		$country	= WC()->countries->get_base_country();
-		
-		if ( !$old_domain ) {
-			update_option('rh_domain', $domain, false);
-			$old_domain = $domain;
-		}
-		
-		if ( $domain !== $old_domain ) {
-			// migration warning
-			$this->migration_warning();
-		}
-
-		$locale = explode('_', get_locale());
-		// Currency Settings: https://woocommerce.wp-a2z.org/oik_api/loaderget_currency_settings/
-		// extract data from the post
-		// set POST variables
-		$url = PRQ_API_URL . '/api/v1/woocommerce/knock';
-		$args = array(
-			'domain' => urlencode($domain),
-			'old_domain' => urlencode($old_domain),
-			'api_key' => $api_key,
- 			'channel' => 'wordpress',
- 			'country' => $country,
-			'plugin_version' => PRQ_PLUGIN_VERSION,
-			'woo_version' => PRQ_WOO_VERSION,
-			'wp_version' => PRQ_WP_VERSION,
-			'name' => get_bloginfo('name'),
-			'email' => get_bloginfo('admin_email'),
-			'locale' => $locale[0],
-			'timezone' => get_option('gmt_offset'),
-			'currency' => get_woocommerce_currency(),
-			'symbol' => html_entity_decode(get_woocommerce_currency_symbol()),
-			'signature' => time()
-		);
-
-		$response = wp_remote_post($url, array(
-			'method' => 'POST',
-			'timeout' => 45,
-			'redirection' => 5,
-			'httpversion' => '1.0',
-			'blocking' => true,
-			'headers' => array(),
-			'body' => $args,
-			'cookies' => array()
-				)
-		);
-
-		if (is_wp_error($response)) {
-			$error_message = $response->get_error_message();
-			echo esc_html("Something went wrong: $error_message");
-		} else {
-			return $response;
-		}
-
-		// https://stackoverflow.com/questions/8655515/get-utc-time-in-php
-		// https://stackoverflow.com/questions/2707967/php-how-can-i-generate-a-hmacsha256-signature-of-a-string
-		// https://developer.wordpress.org/rest-api/extending-the-rest-api/adding-custom-endpoints/
-	}
-
 	public function prquiz_options() {
 
 		if (!class_exists('WooCommerce')) {
@@ -263,32 +224,17 @@ class Product_Recommendation_Quiz_For_Ecommerce_Admin {
 			$this->https_ssl_missing();
 			die();
 		}
-
-		// DO A KNOCK (send domain & time signature)
-		$knock = $this->knock();
-
-		if (200 == $knock['response']['code']) {
-
-			// check if we have auth token
-			$stored_token = get_option('rh_token');
-			$stored_hashid = get_option('rh_shop_hashid');
-
-			if ($stored_token) {
-				// already have permissions, go to oauth
-				$token = $stored_token;
-				delete_option('rh_token');
-				delete_option('rh_shop_hashid');
-				$this->prquiz_authenticated_visit($token, $stored_hashid);
-				die();
-			} else {
-				$this->prquiz_first_visit();
-				die();
-			}
+		
+		// NEW OAUTH
+	    $shop_hashid = get_option('rh_shop_hashid');
+				
+		if ($shop_hashid) {
+			// already have permissions, go to oauth
+			$this->prquiz_authenticated_visit();
 		} else {
-			// if 401 go to prquiz_first_visit
+			// needs to receive credentials from our server
 			$this->prquiz_first_visit();
-			die();
-		}
+		}		
 	}
 
 	public function my_plugin_menu() {

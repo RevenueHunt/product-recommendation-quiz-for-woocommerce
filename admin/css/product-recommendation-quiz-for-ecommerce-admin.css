@@ -4,7 +4,11 @@
  */
 
 #wpbody-content{
-    padding-bottom: 0;
+    padding-bottom: 48px;
+}
+
+#wpfooter{
+    padding: 16px 20px !important;
 }
 
 .fright{
