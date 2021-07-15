@@ -92,7 +92,7 @@ class Product_Recommendation_Quiz_For_Ecommerce_Admin {
 
 		return $auth_base . '?' . $query;
 	}
-	
+
 	public function prquiz_get_oauth_url () {
 		
 		if (preg_match('/\.local/i', PRQ_STORE_URL)) {
@@ -108,15 +108,15 @@ class Product_Recommendation_Quiz_For_Ecommerce_Admin {
 		$country		= WC()->countries->get_base_country();
 		$time			= time();
 		
-		$data = sprintf('hashid=%s&domain=%s&plugin_version=%s&timestamp=%s',$shop_hashid,PRQ_STORE_URL,PRQ_PLUGIN_VERSION,(string)$time);
-        $hmac = base64_encode(hash_hmac('sha256', $data, $api_key, true));
+		$data = sprintf('hashid=%s&domain=%s&plugin_version=%s&timestamp=%s', $shop_hashid, PRQ_STORE_URL,PRQ_PLUGIN_VERSION, (string)$time );
+		$hmac = base64_encode(hash_hmac('sha256', $data, $api_key, true));
 				
 		$request = array(
 			'timestamp' => $time,
 			'domain' => urlencode(PRQ_STORE_URL),
 			'shop_hashid' => $shop_hashid,
- 			'channel' => 'wordpress',
- 			'country' => $country,
+			'channel' => 'wordpress',
+			'country' => $country,
 			'plugin_version' => PRQ_PLUGIN_VERSION,
 			'woo_version' => PRQ_WOO_VERSION,
 			'wp_version' => PRQ_WP_VERSION,
@@ -129,14 +129,14 @@ class Product_Recommendation_Quiz_For_Ecommerce_Admin {
 			'hmac' => urlencode($hmac)
 		);
 		
-        $create = $oauth_url . '?';
+		$create = $oauth_url . '?';
 		
-        foreach($request as $key => $value) {
-            $create .= $key.'='.$value.'&';
-        }
-
-        $create = trim($create,' &');
-        return $create;
+		foreach($request as $key => $value) {
+			$create .= $key.'='.$value.'&';
+		}
+		
+		$create = trim($create, ' &' );
+		return $create;
 	}
 
 	public function prquiz_authenticated_visit() { 
