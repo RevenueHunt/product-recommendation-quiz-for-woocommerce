@@ -108,7 +108,7 @@ class Product_Recommendation_Quiz_For_Ecommerce_Admin {
 		$country		= WC()->countries->get_base_country();
 		$time			= time();
 		
-		$data = sprintf('hashid=%s&domain=%s&plugin_version=%s&timestamp=%s', $shop_hashid, PRQ_STORE_URL,PRQ_PLUGIN_VERSION, (string)$time );
+		$data = sprintf('hashid=%s&domain=%s&plugin_version=%s&timestamp=%s', $shop_hashid, PRQ_STORE_URL, PRQ_PLUGIN_VERSION, (string) $time );
 		$hmac = base64_encode(hash_hmac('sha256', $data, $api_key, true));
 				
 		$request = array(
@@ -131,8 +131,8 @@ class Product_Recommendation_Quiz_For_Ecommerce_Admin {
 		
 		$create = $oauth_url . '?';
 		
-		foreach($request as $key => $value) {
-			$create .= $key.'='.$value.'&';
+		foreach ($request as $key => $value) {
+			$create .= $key . '=' . $value . '&';
 		}
 		
 		$create = trim($create, ' &' );
@@ -226,7 +226,7 @@ class Product_Recommendation_Quiz_For_Ecommerce_Admin {
 		}
 		
 		// NEW OAUTH
-	    $shop_hashid = get_option('rh_shop_hashid');
+		$shop_hashid = get_option('rh_shop_hashid');
 				
 		if ($shop_hashid) {
 			// already have permissions, go to oauth
