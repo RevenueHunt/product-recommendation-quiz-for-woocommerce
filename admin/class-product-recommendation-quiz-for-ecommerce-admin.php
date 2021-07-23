@@ -219,7 +219,7 @@ class Product_Recommendation_Quiz_For_Ecommerce_Admin {
 		<?php
 	}
 	
-	function isJson($string) {
+	public function isJson( $string ) {
 	   json_decode($string);
 	   return json_last_error() === JSON_ERROR_NONE;
 	}
