@@ -92,7 +92,7 @@ class Product_Recommendation_Quiz_For_Ecommerce_Admin {
 
 		return $auth_base . '?' . $query;
 	}
-
+	
 	public function prquiz_get_oauth_url () {
 		
 		if (preg_match('/\.local/i', PRQ_STORE_URL)) {
@@ -109,14 +109,14 @@ class Product_Recommendation_Quiz_For_Ecommerce_Admin {
 		$time			= time();
 		
 		$data = sprintf('hashid=%s&domain=%s&plugin_version=%s&timestamp=%s', $shop_hashid, PRQ_STORE_URL, PRQ_PLUGIN_VERSION, (string) $time );
-		$hmac = base64_encode(hash_hmac('sha256', $data, $api_key, true));
+        $hmac = base64_encode(hash_hmac('sha256', $data, $api_key, true));
 				
 		$request = array(
 			'timestamp' => $time,
 			'domain' => urlencode(PRQ_STORE_URL),
 			'shop_hashid' => $shop_hashid,
-			'channel' => 'wordpress',
-			'country' => $country,
+ 			'channel' => 'wordpress',
+ 			'country' => $country,
 			'plugin_version' => PRQ_PLUGIN_VERSION,
 			'woo_version' => PRQ_WOO_VERSION,
 			'wp_version' => PRQ_WP_VERSION,
@@ -129,14 +129,14 @@ class Product_Recommendation_Quiz_For_Ecommerce_Admin {
 			'hmac' => urlencode($hmac)
 		);
 		
-		$create = $oauth_url . '?';
+        $create = $oauth_url . '?';
 		
 		foreach ($request as $key => $value) {
 			$create .= $key . '=' . $value . '&';
-		}
-		
+        }
+
 		$create = trim($create, ' &' );
-		return $create;
+        return $create;
 	}
 
 	public function prquiz_authenticated_visit() { 
@@ -193,6 +193,20 @@ class Product_Recommendation_Quiz_For_Ecommerce_Admin {
 		<?php
 	}
 
+	public function wp_json_error() {
+		?>
+		<div class="error">
+			<p><strong>
+				<?php esc_html_e( 'It seems like there\'s something interfering with your', 'product-recommendation-quiz-for-ecommerce' ); ?>
+				<a href="https://developer.wordpress.org/rest-api/" target="_blank"><?php esc_html_e( 'WordPress REST API', 'product-recommendation-quiz-for-ecommerce' ); ?></a>.
+				<?php esc_html_e( 'This needs to be fixed in order to grant access to this plugin.', 'product-recommendation-quiz-for-ecommerce' ); ?>
+				<?php esc_html_e( 'More info', 'product-recommendation-quiz-for-ecommerce' ); ?>
+				<a href="https://revenuehunt.com/faqs/woocommerce-authentication-error-404-not-found-missing-parameter-app-name/" target="_blank"><?php esc_html_e( 'here', 'product-recommendation-quiz-for-ecommerce' ); ?></a>.
+				</strong></p>
+		</div>
+		<?php
+	}
+
 	public function migration_warning() {
 		?>
 		<div class="error">
@@ -203,6 +217,11 @@ class Product_Recommendation_Quiz_For_Ecommerce_Admin {
 				<?php esc_html_e( 'if you encounter any issues.', 'product-recommendation-quiz-for-ecommerce' ); ?></strong></p>
 		</div>
 		<?php
+	}
+	
+	function isJson($string) {
+	   json_decode($string);
+	   return json_last_error() === JSON_ERROR_NONE;
 	}
 
 	public function prquiz_options() {
@@ -225,8 +244,16 @@ class Product_Recommendation_Quiz_For_Ecommerce_Admin {
 			die();
 		}
 		
+		$wp_json_endpoint = str_replace('//wp-json/', '', site_url() . '/wp-json/');
+		$wp_json = file_get_contents($wp_json_endpoint);
+		
+		if (!$this->isJson($wp_json)) {
+			$this->wp_json_error();
+			die();
+		}
+		
 		// NEW OAUTH
-		$shop_hashid = get_option('rh_shop_hashid');
+	    $shop_hashid = get_option('rh_shop_hashid');
 				
 		if ($shop_hashid) {
 			// already have permissions, go to oauth

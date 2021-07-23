@@ -1,5 +1,8 @@
 *** Product Recommendation Quiz for WooCommerce ***
 
+2021-07-23 - version 2.0.2
+* Dev - warning when no WordPress REST API
+
 2021-07-13 - version 2.0.0
 * Dev - Change oauth method
 
