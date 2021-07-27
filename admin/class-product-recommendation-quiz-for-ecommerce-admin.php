@@ -223,6 +223,18 @@ class Product_Recommendation_Quiz_For_Ecommerce_Admin {
 	   json_decode($string);
 	   return json_last_error() === JSON_ERROR_NONE;
 	}
+	
+	public function curl_get_contents ($url) {
+		if ( !function_exists('curl_init') ){ 
+			die('CURL is not installed!');
+		}
+		$ch = curl_init();
+		curl_setopt($ch, CURLOPT_URL, $url);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+		$output = curl_exec($ch);
+		curl_close($ch);
+		return $output;
+	}
 
 	public function prquiz_options() {
 
@@ -245,7 +257,7 @@ class Product_Recommendation_Quiz_For_Ecommerce_Admin {
 		}
 		
 		$wp_json_endpoint = str_replace('//wp-json/', '', site_url() . '/wp-json/');
-		$wp_json = file_get_contents($wp_json_endpoint);
+		$wp_json = $this->curl_get_contents($wp_json_endpoint);
 		
 		if (!$this->isJson($wp_json)) {
 			$this->wp_json_error();

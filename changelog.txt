@@ -1,5 +1,8 @@
 *** Product Recommendation Quiz for WooCommerce ***
 
+2021-07-27 - version 2.0.3
+* Fix - replace file_get_contents for curl
+
 2021-07-23 - version 2.0.2
 * Dev - warning when no WordPress REST API
 
