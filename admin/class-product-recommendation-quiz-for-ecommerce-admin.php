@@ -224,8 +224,8 @@ class Product_Recommendation_Quiz_For_Ecommerce_Admin {
 	   return json_last_error() === JSON_ERROR_NONE;
 	}
 	
-	public function curl_get_contents ($url) {
-		if ( !function_exists('curl_init') ){ 
+	public function curl_get_contents ( $url ) {
+		if ( !function_exists( 'curl_init' ) ) { 
 			die('CURL is not installed!');
 		}
 		$ch = curl_init();
