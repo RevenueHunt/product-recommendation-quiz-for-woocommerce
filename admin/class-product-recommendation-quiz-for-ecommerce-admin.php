@@ -229,8 +229,21 @@ class Product_Recommendation_Quiz_For_Ecommerce_Admin {
 			die('CURL is not installed!');
 		}
 		$ch = curl_init();
+		
+		if ( isset( $_SERVER['HTTP_USER_AGENT'] ) ) {
+			$user_agent = $_SERVER['HTTP_USER_AGENT'];
+	        curl_setopt($ch, CURLOPT_USERAGENT, $user_agent);			
+		}
 		curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_ENCODING, 'gzip');
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+		curl_setopt($ch, CURLOPT_HEADER, false);
+        curl_setopt($ch, CURLOPT_TIMEOUT, 10);
+		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false); // Only for debugging locally
+		if (defined('CURLOPT_IPRESOLVE') && defined('CURL_IPRESOLVE_V4')) {
+            curl_setopt($ch, CURLOPT_IPRESOLVE, CURL_IPRESOLVE_V4);
+        }
 		$output = curl_exec($ch);
 		curl_close($ch);
 		return $output;
