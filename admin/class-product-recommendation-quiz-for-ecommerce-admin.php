@@ -261,7 +261,6 @@ class Product_Recommendation_Quiz_For_Ecommerce_Admin {
 		
 		if (!$this->isJson($wp_json)) {
 			$this->wp_json_error();
-			die();
 		}
 		
 		// NEW OAUTH
