@@ -231,7 +231,7 @@ class Product_Recommendation_Quiz_For_Ecommerce_Admin {
 		$ch = curl_init();
 		
 		if ( isset( $_SERVER['HTTP_USER_AGENT'] ) ) {
-			$user_agent = $_SERVER['HTTP_USER_AGENT'];
+			$user_agent = sanitize_text_field( $_SERVER['HTTP_USER_AGENT'] );
 	        curl_setopt($ch, CURLOPT_USERAGENT, $user_agent);			
 		}
 		curl_setopt($ch, CURLOPT_URL, $url);
