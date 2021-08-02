@@ -1,5 +1,8 @@
 *** Product Recommendation Quiz for WooCommerce ***
 
+2021-08-02 - version 2.0.7
+* Dev - warning when WPML plugin is installed and active
+
 2021-08-01 - version 2.0.6
 * Fix - disable continue when wp_json_error 
 

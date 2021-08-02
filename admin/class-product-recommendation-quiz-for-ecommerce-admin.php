@@ -192,6 +192,17 @@ class Product_Recommendation_Quiz_For_Ecommerce_Admin {
 		</div>
 		<?php
 	}
+	
+	public function wpml_active() {
+		?>
+		<div class="error">
+			<p><strong><?php esc_html_e( 'There\'s an issue with the WPML Multilingual CMS plugin which interferes with the authentication process of other plugins. Please deactivate the WPML Multilingual CMS plugin temporarily, you can reactivate it later.', 'product-recommendation-quiz-for-woocommerce' ); ?>
+				<?php esc_html_e( 'More info', 'product-recommendation-quiz-for-ecommerce' ); ?>
+				<a href="https://revenuehunt.com/faqs/woocommerce-authentication-error-404-not-found-missing-parameter-app-name/" target="_blank"><?php esc_html_e( 'here', 'product-recommendation-quiz-for-ecommerce' ); ?></a>.
+				</strong></p>
+		</div>
+		<?php
+	}
 
 	public function wp_json_error() {
 		?>
@@ -249,6 +260,13 @@ class Product_Recommendation_Quiz_For_Ecommerce_Admin {
 		return $output;
 	}
 
+	public function check_wpml() {
+		if ( function_exists('icl_object_id') ) {
+			$this->wpml_active();
+			die();
+		}
+	}
+
 	public function prquiz_options() {
 
 		if (!class_exists('WooCommerce')) {
@@ -284,8 +302,11 @@ class Product_Recommendation_Quiz_For_Ecommerce_Admin {
 			$this->prquiz_authenticated_visit();
 		} else {
 			// needs to receive credentials from our server
+			// check if WPML is active, it causes authentication issues
+			// https://stackoverflow.com/questions/65776787/woocommerce-is-encoding-the-authorization-endpoint
+			$this->check_wpml();
 			$this->prquiz_first_visit();
-		}		
+		}
 	}
 
 	public function my_plugin_menu() {

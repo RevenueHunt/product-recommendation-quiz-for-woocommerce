@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the Product Recommendation Quiz for eCommerce plugin.
 msgid ""
 msgstr ""
-"Project-Id-Version: Product Recommendation Quiz for eCommerce 2.0.6\n"
+"Project-Id-Version: Product Recommendation Quiz for eCommerce 2.0.7\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/product-recommendation-quiz-for-ecommercen\"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -60,6 +60,9 @@ msgid "here. If you want this plugin developed for your eCommerce platform, plea
 msgstr ""
 
 msgid "Product Recommendation Quiz for eCommerce requires your website to have a valid HTTPS/SSL certificate."
+msgstr ""
+
+msgid "There\'s an issue with the WPML Multilingual CMS plugin which interferes with the authentication process of other plugins. Please deactivate the WPML Multilingual CMS plugin temporarily, you can reactivate it later."
 msgstr ""
 
 msgid "It seems like there\'s something interfering with your"
