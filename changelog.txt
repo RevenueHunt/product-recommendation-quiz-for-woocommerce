@@ -1,5 +1,8 @@
 *** Product Recommendation Quiz for WooCommerce ***
 
+2021-08-04 - version 2.0.8
+* Dev - check if wp-json works via server API
+
 2021-08-02 - version 2.0.7
 * Dev - warning when WPML plugin is installed and active
 

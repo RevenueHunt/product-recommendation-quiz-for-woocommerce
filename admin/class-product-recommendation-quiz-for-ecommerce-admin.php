@@ -109,7 +109,7 @@ class Product_Recommendation_Quiz_For_Ecommerce_Admin {
 		$time			= time();
 		
 		$data = sprintf('hashid=%s&domain=%s&plugin_version=%s&timestamp=%s', $shop_hashid, PRQ_STORE_URL, PRQ_PLUGIN_VERSION, (string) $time );
-        $hmac = base64_encode(hash_hmac('sha256', $data, $api_key, true));
+		$hmac = base64_encode(hash_hmac('sha256', $data, $api_key, true));
 				
 		$request = array(
 			'timestamp' => $time,
@@ -129,14 +129,14 @@ class Product_Recommendation_Quiz_For_Ecommerce_Admin {
 			'hmac' => urlencode($hmac)
 		);
 		
-        $create = $oauth_url . '?';
+		$create = $oauth_url . '?';
 		
 		foreach ($request as $key => $value) {
 			$create .= $key . '=' . $value . '&';
-        }
+		}
 
 		$create = trim($create, ' &' );
-        return $create;
+		return $create;
 	}
 
 	public function prquiz_authenticated_visit() { 
@@ -150,7 +150,7 @@ class Product_Recommendation_Quiz_For_Ecommerce_Admin {
 				</span>
 			</p>
 			<iframe title="<?php esc_html_e( 'Product Recommendation Quiz for eCommerce', 'product-recommendation-quiz-for-ecommerce' ); ?>" src="<?php echo esc_url($this->prquiz_get_oauth_url()); ?>" name="app-iframe" context="Main" class="prq-iframe"></iframe>
-		</div>            
+		</div>
 		<?php
 	}
 
@@ -231,33 +231,36 @@ class Product_Recommendation_Quiz_For_Ecommerce_Admin {
 	}
 	
 	public function isJson( $string ) {
-	   json_decode($string);
-	   return json_last_error() === JSON_ERROR_NONE;
+		json_decode($string);
+		return json_last_error() === JSON_ERROR_NONE;
 	}
 	
-	public function curl_get_contents ( $url ) {
+	public function api_check_json ( $domain ) {
 		if ( !function_exists( 'curl_init' ) ) { 
 			die('CURL is not installed!');
 		}
+		$url = 'https://api.revenuehunt.com/api/v1/woocommerce/check?domain=' . $domain;
 		$ch = curl_init();
 		
 		if ( isset( $_SERVER['HTTP_USER_AGENT'] ) ) {
 			$user_agent = sanitize_text_field( $_SERVER['HTTP_USER_AGENT'] );
-	        curl_setopt($ch, CURLOPT_USERAGENT, $user_agent);			
+			curl_setopt($ch, CURLOPT_USERAGENT, $user_agent);			
 		}
 		curl_setopt($ch, CURLOPT_URL, $url);
-        curl_setopt($ch, CURLOPT_ENCODING, 'gzip');
+		curl_setopt($ch, CURLOPT_ENCODING, 'gzip');
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+		curl_setopt($ch, CURLOPT_POST, true);
+		curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
 		curl_setopt($ch, CURLOPT_HEADER, false);
-        curl_setopt($ch, CURLOPT_TIMEOUT, 10);
+		curl_setopt($ch, CURLOPT_TIMEOUT, 10);
 		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false); // Only for debugging locally
 		if (defined('CURLOPT_IPRESOLVE') && defined('CURL_IPRESOLVE_V4')) {
-            curl_setopt($ch, CURLOPT_IPRESOLVE, CURL_IPRESOLVE_V4);
-        }
+			curl_setopt($ch, CURLOPT_IPRESOLVE, CURL_IPRESOLVE_V4);
+		}
 		$output = curl_exec($ch);
+		$httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 		curl_close($ch);
-		return $output;
+		return array($httpcode,$output);
 	}
 
 	public function check_wpml() {
@@ -287,15 +290,24 @@ class Product_Recommendation_Quiz_For_Ecommerce_Admin {
 			die();
 		}
 		
-		$wp_json_endpoint = str_replace('//wp-json/', '', site_url() . '/wp-json/');
-		$wp_json = $this->curl_get_contents($wp_json_endpoint);
+		$domain = parse_url(site_url(), PHP_URL_HOST);					
+		$wp_api_check = $this->api_check_json($domain);
 		
-		if (!$this->isJson($wp_json)) {
+		/* RESPONSE CODES:
+		200 success, OK
+		400 invalid domain was passed
+		404 invalid JSON received 
+		500 valid domain but no connection
+		429 tested more than 10 times per minute
+		*/
+		
+		if ( 404 === $wp_api_check[0] ) {
 			$this->wp_json_error();
+			die();
 		}
 		
 		// NEW OAUTH
-	    $shop_hashid = get_option('rh_shop_hashid');
+		$shop_hashid = get_option('rh_shop_hashid');
 				
 		if ($shop_hashid) {
 			// already have permissions, go to oauth
