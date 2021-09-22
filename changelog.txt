@@ -1,5 +1,8 @@
 *** Product Recommendation Quiz for WooCommerce ***
 
+2021-09-22 - version 2.0.9
+* Dev - do not allow localhost
+
 2021-08-04 - version 2.0.8
 * Dev - check if wp-json works via server API
 
