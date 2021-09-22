@@ -192,6 +192,14 @@ class Product_Recommendation_Quiz_For_Ecommerce_Admin {
 		</div>
 		<?php
 	}
+
+	public function is_localhost() {
+		?>
+		<div class="error">
+			<p><strong><?php esc_html_e( 'This plugin does not work on local environments. It needs to be installed on a live website. Your website needs to be public and not hidden by a site under construction plugin because it needs connection to our server in order to work.', 'product-recommendation-quiz-for-ecommerce' ); ?></strong></p>
+		</div>
+		<?php
+	}
 	
 	public function wpml_active() {
 		?>
@@ -272,6 +280,8 @@ class Product_Recommendation_Quiz_For_Ecommerce_Admin {
 
 	public function prquiz_options() {
 
+		$domain = parse_url(site_url(), PHP_URL_HOST);					
+
 		if (!class_exists('WooCommerce')) {
 			// Your website doesn't appear to have WooCommerce installed and activated - ERROR
 			$this->woocommerce_missing();
@@ -289,8 +299,13 @@ class Product_Recommendation_Quiz_For_Ecommerce_Admin {
 			$this->https_ssl_missing();
 			die();
 		}
+
+		if ('localhost' == $domain) {
+			// Does not work on local environments
+			$this->is_localhost();
+			die();
+		}
 		
-		$domain = parse_url(site_url(), PHP_URL_HOST);					
 		$wp_api_check = $this->api_check_json($domain);
 		
 		/* RESPONSE CODES:
