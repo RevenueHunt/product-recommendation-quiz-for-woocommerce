@@ -6,7 +6,7 @@ A quiz that does the selling for you. Recover abandoned carts, capture leads and
 
 Your Product Recommendation Quiz does the selling for you. It's like having **a personal shopper on your eCommerce store**, guiding your customers from start to cart and helping them find the products that best match their needs.
 
-[youtube https://www.youtube.com/watch?v=SX-BZBl1PFw]
+[![Product Recommendation Quiz for WooCommerce](https://img.youtube.com/vi/SX-BZBl1PFw/0.jpg)](http://www.youtube.com/watch?v=SX-BZBl1PFw)
 
 Your quiz will help you achieve four goals:
 
