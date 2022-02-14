@@ -99,11 +99,11 @@ First, download the latest version of our extension [here](https://revenuehunt.c
 
 Log in to your WordPress dashboard, navigate to the Plugins menu, and click on "Add New", then click on "Upload Plugin". Choose the ZIP file you downloaded in the previous step and click on "Install Now".
 
-### Frequently Asked Questions
+## Frequently Asked Questions
 
 Please refer to our [FAQs page](https://revenuehunt.com/faqs/ "Frequently Asked Questions") for more information.
 
-### Screenshots
+## Screenshots
 
 1. Quiz Builder. Create the questions you ask to guide your customers throughout their shopping experience.
 2. Quiz Design. Choose one of our design templates or customize the quiz's design to match your store's look & feel. 
@@ -115,7 +115,7 @@ Please refer to our [FAQs page](https://revenuehunt.com/faqs/ "Frequently Asked 
 8. Capture emails and grow your audience.
 9. Links seamlessly with your WooCommerce cart.
 
-### Technical Specifications
+## Technical Specifications
 
 * Requires at least WP version: 3.0.1
 * Tested up to WP version: 5.9
