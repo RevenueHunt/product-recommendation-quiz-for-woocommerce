@@ -60,7 +60,15 @@ There are several shopping verticals that are inherently more suited for a Produ
 
 ### INTEGRATES WITH MULTIPLE THIRD PARTY APPS
 
-Google Analytics, Mailchimp, Klaviyo, HubSpot, webhooks, and many more via [Zapier](https://zapier.com/ "Connect your apps and automate workflows")
+* Google Analytics
+* Facebook Pixel
+* Mailchimp
+* Klaviyo
+* HubSpot
+* Omnisend
+* ActiveCampaign
+* Webhooks
+* And many more third-party apps via [Zapier](https://zapier.com/ "Connect your apps and automate workflows")
 
 ## See the plugin in action
 
