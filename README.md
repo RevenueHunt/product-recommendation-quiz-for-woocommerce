@@ -84,6 +84,7 @@ Explore how the plugin works in our [demo store](https://woo.revenuehunt.com/ "D
 * You website must have a valid HTTPS/SSL certificate installed.
 * Does not work on local/development environments.
 
+
 ### WALKTHROUGH
 
 * Install and activate the plugin through the "Plugins" screen in WordPress (more instructions below)
@@ -93,15 +94,18 @@ Explore how the plugin works in our [demo store](https://woo.revenuehunt.com/ "D
 * Follow the **Success Checklist** to create and publish your quiz
 * Drive traffic to your quiz and start getting sales and leads!
 
-## MANUAL INSTALLATION
+
+### MANUAL INSTALLATION
 
 First, download the latest version of our extension [here](https://revenuehunt.com/product-recommendation-quiz-woocommerce/ "Product Recommendation Quiz for WooCommerce").
 
 Log in to your WordPress dashboard, navigate to the Plugins menu, and click on "Add New", then click on "Upload Plugin". Choose the ZIP file you downloaded in the previous step and click on "Install Now".
 
+
 ## Frequently Asked Questions
 
 Please refer to our [FAQs page](https://revenuehunt.com/faqs/ "Frequently Asked Questions") for more information.
+
 
 ## Screenshots
 
@@ -114,6 +118,7 @@ Please refer to our [FAQs page](https://revenuehunt.com/faqs/ "Frequently Asked 
 7. Works great on all devices and browsers.
 8. Capture emails and grow your audience.
 9. Links seamlessly with your WooCommerce cart.
+
 
 ## Technical Specifications
 
