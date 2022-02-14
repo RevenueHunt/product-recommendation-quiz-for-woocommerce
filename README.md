@@ -93,7 +93,7 @@ Explore how the plugin works in our [demo store](https://woo.revenuehunt.com/ "D
 * Follow the **Success Checklist** to create and publish your quiz
 * Drive traffic to your quiz and start getting sales and leads!
 
-### MANUAL INSTALLATION
+## MANUAL INSTALLATION
 
 First, download the latest version of our extension [here](https://revenuehunt.com/product-recommendation-quiz-woocommerce/ "Product Recommendation Quiz for WooCommerce").
 
