@@ -8,7 +8,7 @@ Your Product Recommendation Quiz does the selling for you. It's like having **a 
 
 [![Product Recommendation Quiz for WooCommerce](https://img.youtube.com/vi/SX-BZBl1PFw/0.jpg)](http://www.youtube.com/watch?v=SX-BZBl1PFw)
 
-Your quiz will help you achieve four goals:
+**Your quiz will help you achieve four goals:**
 
 1. **Boost sales** on the first visit to your store by giving your customers a personalized product recommendation.
 2. **Recover abandoned carts**. Quiz results are sent to your customer's inbox so they can come back later and finish the purchase.
@@ -58,7 +58,7 @@ There are several shopping verticals that are inherently more suited for a Produ
 * Sports & Outdoor Goods
 * Specialized Equipment & Supplies
 
-### INTEGRATES WITH MULTIPLE THIRD PARTY APPS
+### INTEGRATES WITH MULTIPLE THIRD-PARTY APPS
 
 * Google Analytics
 * Facebook Pixel
@@ -84,7 +84,6 @@ Explore how the plugin works in our [demo store](https://woo.revenuehunt.com/ "D
 * You website must have a valid HTTPS/SSL certificate installed.
 * Does not work on local/development environments.
 
-
 ### WALKTHROUGH
 
 * Install and activate the plugin through the "Plugins" screen in WordPress (more instructions below)
@@ -94,8 +93,7 @@ Explore how the plugin works in our [demo store](https://woo.revenuehunt.com/ "D
 * Follow the **Success Checklist** to create and publish your quiz
 * Drive traffic to your quiz and start getting sales and leads!
 
-
-### MANUAL INSTALLATION
+### MANUAL INSTALLATION
 
 First, download the latest version of our extension [here](https://revenuehunt.com/product-recommendation-quiz-woocommerce/ "Product Recommendation Quiz for WooCommerce").
 
