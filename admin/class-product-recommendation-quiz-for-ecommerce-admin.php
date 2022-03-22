@@ -224,7 +224,7 @@ class Product_Recommendation_Quiz_For_Ecommerce_Admin {
 				</strong></p>
 		</div>
 		<div class="error">
-			<p><strong><?php echo $wp_api_check_body; ?></strong></p>
+			<p><strong><?php echo esc_html( $wp_api_check_body ); ?></strong></p>
 		</div>
 		<?php
 	}
