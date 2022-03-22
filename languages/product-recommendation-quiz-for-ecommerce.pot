@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the Product Recommendation Quiz for eCommerce plugin.
 msgid ""
 msgstr ""
-"Project-Id-Version: Product Recommendation Quiz for eCommerce 2.0.10\n"
+"Project-Id-Version: Product Recommendation Quiz for eCommerce 2.0.11\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/product-recommendation-quiz-for-ecommercen\"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -81,6 +81,9 @@ msgid "more info"
 msgstr ""
 
 msgid "here"
+msgstr ""
+
+msgid "We\'re getting the following error accessing your WooCommerce API from our server:"
 msgstr ""
 
 msgid "We\'ve detected that you\'ve changed the domain name. We\'re migrating your Product Recommendation Quiz account from"

@@ -212,7 +212,7 @@ class Product_Recommendation_Quiz_For_Ecommerce_Admin {
 		<?php
 	}
 
-	public function wp_json_error() {
+	public function wp_json_error( $wp_api_check_body ) {
 		?>
 		<div class="error">
 			<p><strong>
@@ -220,8 +220,11 @@ class Product_Recommendation_Quiz_For_Ecommerce_Admin {
 				<a href="https://developer.wordpress.org/rest-api/" target="_blank"><?php esc_html_e( 'WordPress REST API', 'product-recommendation-quiz-for-ecommerce' ); ?></a>.
 				<?php esc_html_e( 'This needs to be fixed in order to grant access to this plugin.', 'product-recommendation-quiz-for-ecommerce' ); ?>
 				<?php esc_html_e( 'More info', 'product-recommendation-quiz-for-ecommerce' ); ?>
-				<a href="https://revenuehunt.com/faqs/woocommerce-authentication-error-404-not-found-missing-parameter-app-name/" target="_blank"><?php esc_html_e( 'here', 'product-recommendation-quiz-for-ecommerce' ); ?></a>.
+				<a href="https://revenuehunt.com/faqs/woocommerce-authentication-error-404-not-found-missing-parameter-app-name/" target="_blank"><?php esc_html_e( 'here', 'product-recommendation-quiz-for-ecommerce' ); ?></a>. <?php esc_html_e( 'We\'re getting the following error accessing your WooCommerce API from our server:', 'product-recommendation-quiz-for-ecommerce' ); ?>
 				</strong></p>
+		</div>
+		<div class="error">
+			<p><strong><?php echo $wp_api_check_body; ?></strong></p>
 		</div>
 		<?php
 	}
@@ -317,7 +320,8 @@ class Product_Recommendation_Quiz_For_Ecommerce_Admin {
 		*/
 		
 		if ( 404 === $wp_api_check[0] ) {
-			$this->wp_json_error();
+			$wp_api_check_json = json_decode($wp_api_check[1]);
+			$this->wp_json_error($wp_api_check_json->body);
 			die();
 		}
 		
