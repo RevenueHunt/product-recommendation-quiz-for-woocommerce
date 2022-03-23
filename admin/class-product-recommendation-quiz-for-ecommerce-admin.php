@@ -212,7 +212,7 @@ class Product_Recommendation_Quiz_For_Ecommerce_Admin {
 		<?php
 	}
 
-	public function wp_json_error( $wp_api_check_body ) {
+	public function wp_json_error() {
 		?>
 		<div class="error">
 			<p><strong>
@@ -223,6 +223,22 @@ class Product_Recommendation_Quiz_For_Ecommerce_Admin {
 				<a href="https://revenuehunt.com/faqs/woocommerce-authentication-error-404-not-found-missing-parameter-app-name/" target="_blank"><?php esc_html_e( 'here', 'product-recommendation-quiz-for-ecommerce' ); ?></a>. <?php esc_html_e( 'We\'re getting the following error accessing your WooCommerce API from our server:', 'product-recommendation-quiz-for-ecommerce' ); ?>
 				</strong></p>
 		</div>
+		<?php
+	}
+
+	public function wp_json_error_html_content_type( $domain ) {
+		?>
+		<div class="error">
+			<p><strong>
+				<?php esc_html_e( 'The following REST API endpoint is returning a valid JSON but the returned content-type is text/html instead of the expected application/json:', 'product-recommendation-quiz-for-ecommerce' ); ?>
+				<a href="https://<?php echo $domain; ?>/wp-json/wc/v3/" target="_blank">https://<?php echo $domain; ?>/wp-json/wc/v3/</a>
+			</strong></p>
+		</div>
+		<?php
+	}
+
+	public function wp_json_error_body( $wp_api_check_body ) {
+		?>
 		<div class="error">
 			<p><strong><?php echo wp_strip_all_tags( $wp_api_check_body ); ?></strong></p>
 		</div>
@@ -320,8 +336,17 @@ class Product_Recommendation_Quiz_For_Ecommerce_Admin {
 		*/
 		
 		if ( 404 === $wp_api_check[0] ) {
+			$this->wp_json_error();
+
 			$wp_api_check_json = json_decode($wp_api_check[1]);
-			$this->wp_json_error($wp_api_check_json->body);
+			$is_html_type = strpos($wp_api_check_json->content_type, 'text/html') !== false;
+			$is_json_body = $this->isJson($wp_api_check_json->body);
+
+			if ($is_html_type && $is_json_body) {
+				$this->wp_json_error_html_content_type( $domain );
+			}
+
+			$this->wp_json_error_body($wp_api_check_json->body);
 			die();
 		}
 		
