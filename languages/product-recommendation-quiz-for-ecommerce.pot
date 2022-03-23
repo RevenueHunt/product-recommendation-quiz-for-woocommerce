@@ -86,6 +86,9 @@ msgstr ""
 msgid "We\'re getting the following error accessing your WooCommerce API from our server:"
 msgstr ""
 
+msgid "The following REST API endpoint is returning a valid JSON but the returned content-type is text/html instead of the expected application/json:"
+msgstr ""
+
 msgid "We\'ve detected that you\'ve changed the domain name. We\'re migrating your Product Recommendation Quiz account from"
 msgstr ""
 
