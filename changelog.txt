@@ -1,5 +1,8 @@
 *** Product Recommendation Quiz for WooCommerce ***
 
+2022-05-12 - version 2.0.13
+* Dev - tested up to WP 6.0
+
 2022-03-23 - version 2.0.12
 * Fix - show additional error info when invalid JSON format
 

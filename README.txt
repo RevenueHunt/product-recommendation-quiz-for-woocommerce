@@ -3,9 +3,9 @@ Contributors: revenuehunt
 Donate link: https://revenuehunt.com/
 Tags: product recommendation, quiz builder, woocommerce, sales automation, sales funnel, ecommerce
 Requires at least: 3.0.1
-Tested up to: 5.9
+Tested up to: 6.0
 Requires PHP: 5.6
-Stable tag: 2.0.12
+Stable tag: 2.0.13
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
