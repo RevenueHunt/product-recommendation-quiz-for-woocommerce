@@ -1,5 +1,8 @@
 *** Product Recommendation Quiz for WooCommerce ***
 
+2022-05-12 - version 2.0.14
+* Fix - REST API endpoint error message
+
 2022-05-12 - version 2.0.13
 * Dev - tested up to WP 6.0
 

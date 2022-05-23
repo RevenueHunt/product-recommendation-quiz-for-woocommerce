@@ -231,7 +231,7 @@ class Product_Recommendation_Quiz_For_Ecommerce_Admin {
 		<div class="error">
 			<p><strong>
 				<?php esc_html_e( 'The following REST API endpoint is returning a valid JSON but the returned content-type is text/html instead of the expected application/json:', 'product-recommendation-quiz-for-ecommerce' ); ?>
-				<a href="https://<?php echo esc_url($domain); ?>/wp-json/wc/v3/" target="_blank">https://<?php echo esc_url($domain); ?>/wp-json/wc/v3/</a>
+				<a href="https://<?php echo esc_html_e($domain); ?>/wp-json/wc/v3/" target="_blank">https://<?php echo esc_html_e($domain); ?>/wp-json/wc/v3/</a>
 			</strong></p>
 		</div>
 		<?php
