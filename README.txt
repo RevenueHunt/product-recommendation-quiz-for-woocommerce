@@ -73,8 +73,9 @@ Google Analytics, Mailchimp, Klaviyo, HubSpot, webhooks, and many more via [Zapi
 
 == See the plugin in action ==
 
-Explore how the plugin works in our [demo store](https://woo.revenuehunt.com/ "Demo Skincare Store with Quiz")
+Explore how your customers will see the quiz in our [demo store](https://woo.revenuehunt.com/ "Demo Skincare Store with Quiz")
 
+Try the quiz builder plugin for free on a [dummy site](https://tastewp.com/template/d2pbbNMPvZg "Demo WooCommerce Dashboard")
 
 == Installation ==
 
