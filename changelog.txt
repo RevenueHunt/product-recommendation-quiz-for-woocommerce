@@ -1,5 +1,8 @@
 *** Product Recommendation Quiz for WooCommerce ***
 
+2022-12-05 - version 2.0.17
+* Dev - tested up to WP 6.1.1
+
 2022-10-18 - version 2.0.16
 * Chores - Add link to demo WP site
 
