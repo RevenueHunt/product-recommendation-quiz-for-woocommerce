@@ -69,8 +69,10 @@ class Product_Recommendation_Quiz_For_Ecommerce {
 		if ( isset( $_SERVER['HTTP_HOST'] ) ) {
 			$storeurl = wp_parse_url( esc_url_raw( wp_unslash( $_SERVER['HTTP_HOST'] ), PHP_URL_HOST ) );
 			
-			if (gettype($storeurl) === 'array') {
+			if ( gettype($storeurl) === 'array' && array_key_exists('host', $storeurl) ) {
 				$storeurl = $storeurl['host'];
+			} else {
+				$storeurl = false;
 			}
 		} else {
 			$storeurl = false;
