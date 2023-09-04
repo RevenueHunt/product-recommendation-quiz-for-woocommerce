@@ -121,8 +121,8 @@ Please refer to our [FAQs page](https://revenuehunt.com/faqs/ "Frequently Asked 
 ## Technical Specifications
 
 * Requires at least WP version: 3.0.1
-* Tested up to WP version: 6.2
+* Tested up to WP version: 6.3
 * Requires PHP: 5.6 or above
-* Stable tag: 2.0.20
+* Stable tag: 2.0.21
 * License: GPLv2 or later
 * License URI: http://www.gnu.org/licenses/gpl-2.0.html
