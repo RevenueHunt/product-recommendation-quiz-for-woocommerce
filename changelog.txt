@@ -1,5 +1,8 @@
 *** Product Recommendation Quiz for WooCommerce ***
 
+2023-09-09 - version 2.0.23
+* Dev - undo fix security issues
+
 2023-09-04 - version 2.0.22
 * Dev - tested up to WP 6.3 and fix security issues
 

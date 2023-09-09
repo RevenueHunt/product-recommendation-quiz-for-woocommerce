@@ -280,7 +280,7 @@ class Product_Recommendation_Quiz_For_Ecommerce_Admin {
 		curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
 		curl_setopt($ch, CURLOPT_HEADER, false);
 		curl_setopt($ch, CURLOPT_TIMEOUT, 10);
-		// curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false); // Only for debugging locally
+		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false); // Only for debugging locally
 		if (defined('CURLOPT_IPRESOLVE') && defined('CURL_IPRESOLVE_V4')) {
 			curl_setopt($ch, CURLOPT_IPRESOLVE, CURL_IPRESOLVE_V4);
 		}
