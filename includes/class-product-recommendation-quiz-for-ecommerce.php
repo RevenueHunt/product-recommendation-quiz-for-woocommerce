@@ -66,18 +66,25 @@ class Product_Recommendation_Quiz_For_Ecommerce {
 		
 		$this->version = PRQ_PLUGIN_VERSION;
 		
+		/* 
+		// commented out to enable folder install
 		if ( isset( $_SERVER['HTTP_HOST'] ) ) {
-			$storeurl = wp_parse_url( esc_url_raw( wp_unslash( $_SERVER['HTTP_HOST'] ), PHP_URL_HOST ) );
+			$parsed_url = wp_parse_url( esc_url_raw( wp_unslash( $_SERVER['HTTP_HOST'] ) ) );
 			
-			if ( gettype($storeurl) === 'array' && array_key_exists('host', $storeurl) ) {
-				$storeurl = $storeurl['host'];
+			if ( gettype($parsed_url) === 'array' && array_key_exists('host', $parsed_url) ) {
+				$storeurl = $parsed_url['host'];
 			} else {
 				$storeurl = false;
 			}
 		} else {
 			$storeurl = false;
 		}
+		*/
 		
+		// enable folder install
+		$storeurl = get_site_url();
+		$storeurl = preg_replace('#^https?://#', '', $storeurl);
+
 		/* DEFINE CONSTANTS */
 		define('PRQ_STORE_URL', $storeurl);
 		define('PRQ_WOO_VERSION', $this->get_woo_version());
