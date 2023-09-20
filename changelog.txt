@@ -1,5 +1,8 @@
 *** Product Recommendation Quiz for WooCommerce ***
 
+2023-09-20 - version 2.0.26
+* Dev - Enable multisite
+
 2023-09-19 - version 2.0.25
 * Chores - Update plugin version
 

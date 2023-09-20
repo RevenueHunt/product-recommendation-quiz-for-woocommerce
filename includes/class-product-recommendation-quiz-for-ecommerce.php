@@ -66,23 +66,20 @@ class Product_Recommendation_Quiz_For_Ecommerce {
 		
 		$this->version = PRQ_PLUGIN_VERSION;
 		
-		/* 
-		// commented out to enable folder install
-		if ( isset( $_SERVER['HTTP_HOST'] ) ) {
-			$parsed_url = wp_parse_url( esc_url_raw( wp_unslash( $_SERVER['HTTP_HOST'] ) ) );
-			
-			if ( gettype($parsed_url) === 'array' && array_key_exists('host', $parsed_url) ) {
-				$storeurl = $parsed_url['host'];
+		if ( is_multisite() ) {
+			// Get the details of the current blog in multisite setup
+			$current_site = get_current_site();
+		
+			if ( $current_site ) {
+				$storeurl = $current_site->domain;
 			} else {
 				$storeurl = false;
 			}
 		} else {
-			$storeurl = false;
+			// enable folder install
+			$storeurl = get_site_url();
 		}
-		*/
 		
-		// enable folder install
-		$storeurl = get_site_url();
 		$storeurl = preg_replace('#^https?://#', '', $storeurl);
 
 		/* DEFINE CONSTANTS */
