@@ -66,10 +66,10 @@ class Product_Recommendation_Quiz_For_Ecommerce {
 		
 		$this->version = PRQ_PLUGIN_VERSION;
 
-		$storeurl = false;
-		$currentUrl = $this->getCurrentUrlSanitized();
+		// $storeurl = false;
 		
 		// Check if it's a multisite install
+		/*
 		if ( is_multisite() ) {
 			// Get the details of the current blog in multisite setup
 			$current_site = get_current_site();
@@ -78,12 +78,13 @@ class Product_Recommendation_Quiz_For_Ecommerce {
 				$storeurl = $current_site->domain;
 			}
 		}
+		*/
 		
     	// Assign $storeurl based on the extracted domain or fall back to get_site_url()
-		if ( !$storeurl ) {
+		// if ( !$storeurl ) {
 			$currentUrl = $this->getCurrentUrlSanitized();
 			$storeurl = $this->extractDomainAndPath($currentUrl) ?: get_site_url();
-		}
+		// }
 		
 		// Remove 'http://' or 'https://'
 		$storeurl = preg_replace('#^https?://#', '', $storeurl);
