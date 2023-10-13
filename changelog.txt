@@ -1,5 +1,8 @@
 *** Product Recommendation Quiz for WooCommerce ***
 
+2023-10-13 - version 2.0.28
+* Fix - multisite login issue
+
 2023-10-13 - version 2.0.27
 * Fix - multisite login issue
 
