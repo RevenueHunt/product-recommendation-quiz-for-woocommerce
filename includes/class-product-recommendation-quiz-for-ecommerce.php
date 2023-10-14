@@ -65,26 +65,10 @@ class Product_Recommendation_Quiz_For_Ecommerce {
 	public function __construct() {
 		
 		$this->version = PRQ_PLUGIN_VERSION;
-
-		// $storeurl = false;
-		
-		// Check if it's a multisite install
-		/*
-		if ( is_multisite() ) {
-			// Get the details of the current blog in multisite setup
-			$current_site = get_current_site();
-		
-			if ( $current_site ) {
-				$storeurl = $current_site->domain;
-			}
-		}
-		*/
 		
     	// Assign $storeurl based on the extracted domain or fall back to get_site_url()
-		// if ( !$storeurl ) {
-			$currentUrl = $this->getCurrentUrlSanitized();
-			$storeurl = $this->extractDomainAndPath($currentUrl) ?: get_site_url();
-		// }
+		$currentUrl = $this->getCurrentUrlSanitized();
+		$storeurl = $this->extractDomainAndPath($currentUrl) ? $this->extractDomainAndPath($currentUrl) : get_site_url();
 		
 		// Remove 'http://' or 'https://'
 		$storeurl = preg_replace('#^https?://#', '', $storeurl);
@@ -118,8 +102,12 @@ class Product_Recommendation_Quiz_For_Ecommerce {
 		$scheme = is_ssl() ? 'https' : 'http';
 		
 		// Use esc_url_raw() to sanitize the host and request URI
-		$host = esc_url_raw($_SERVER['HTTP_HOST']);
-		$requestUri = esc_url_raw($_SERVER['REQUEST_URI']);
+		if ( isset( $_SERVER['HTTP_HOST'] ) ) {
+			$host = esc_url_raw($_SERVER['HTTP_HOST']);
+		}
+		if ( isset( $_SERVER['REQUEST_URI'] ) ) {
+			$requestUri = esc_url_raw($_SERVER['REQUEST_URI']);
+		}
 		
 		return $scheme . '://' . $host . $requestUri;
 	}

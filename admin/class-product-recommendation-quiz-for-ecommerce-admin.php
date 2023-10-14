@@ -125,7 +125,7 @@ class Product_Recommendation_Quiz_For_Ecommerce_Admin {
 			'locale' => explode('_', get_locale())[0],
 			'timezone' => get_option('gmt_offset'),
 			'currency' => get_woocommerce_currency(),
-			'symbol' => html_entity_decode(get_woocommerce_currency_symbol()),
+			'symbol' => html_entity_decode(get_woocommerce_currency_symbol(), ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401),
 			'hmac' => urlencode($hmac)
 		);
 		
