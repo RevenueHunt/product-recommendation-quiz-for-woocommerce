@@ -100,6 +100,9 @@ class Product_Recommendation_Quiz_For_Ecommerce {
 	private function getCurrentUrlSanitized() {
 		// Use WordPress's is_ssl() to check for HTTPS
 		$scheme = is_ssl() ? 'https' : 'http';
+
+		$host = false;
+		$requestUri = '';
 		
 		// Use esc_url_raw() to sanitize the host and request URI
 		if ( isset( $_SERVER['HTTP_HOST'] ) ) {
@@ -108,11 +111,20 @@ class Product_Recommendation_Quiz_For_Ecommerce {
 		if ( isset( $_SERVER['REQUEST_URI'] ) ) {
 			$requestUri = esc_url_raw($_SERVER['REQUEST_URI']);
 		}
+
+		if ( !$host ) {
+			return false;
+		}
 		
 		return $scheme . '://' . $host . $requestUri;
 	}
 
 	private function extractDomainAndPath($url) {
+
+		if ( !$url ) {
+			return false;
+		}
+
 		$pattern = '/https?:\/\/(.*?)\/wp-admin\//';
 		preg_match($pattern, $url, $matches);
 		
