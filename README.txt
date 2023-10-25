@@ -28,11 +28,11 @@ Your quiz will help you achieve four goals:
 
 We believe that being engaged by a salesperson is key to a successful shopping experience. After all, your customers might not be experts in the products you're selling and they might not know which ones best match their needs.
 
-Online shoppers need guidance on finding what they want, just like in real shops.
+Online shoppers need guidance in finding what they want, just like in real shops.
 
 **HOW OUR PRODUCT RECOMMENDATION QUIZ WORKS**
 
-A fresh alternative to the obsolete "Search Bar" in eCommerce stores, our digital personal shopper engages your customers just like a salesperson would do, guiding them from start to cart and ensuring they find exactly what they're looking for.
+A fresh alternative to the obsolete "Search Bar" in eCommerce stores, our digital personal shopper engages your customers just like a salesperson would, guiding them from start to cart and ensuring they find exactly what they're looking for.
 
 Our plugin allows the customers to play an active role in the buying experience. The quiz asks your customers a series of questions, analyzes their responses and returns a selection of recommended products that match their needs along with an explanation to why they're the right fit for them.
 
