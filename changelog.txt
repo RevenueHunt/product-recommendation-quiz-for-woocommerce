@@ -1,6 +1,6 @@
 *** Product Recommendation Quiz for WooCommerce ***
 
-2023-11-13 - version 2.1.3
+2023-11-13 - version 2.2.1
 * Fix - revert last commits
 
 2023-10-28 - version 2.1.2
