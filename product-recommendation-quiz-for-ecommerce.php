@@ -16,7 +16,7 @@
  * Plugin Name:       Product Recommendation Quiz for eCommerce
  * Plugin URI:        https://revenuehunt.com/product-recommendation-quiz-woocommerce/
  * Description:       Advise and delight your customers by engaging them with a personal shopper experience on your store, guiding your customers from start to cart and helping them find the products that best match their needs.
- * Version:           2.2.1
+ * Version:           2.2.2
  * Author:            RevenueHunt
  * Author URI:        https://revenuehunt.com/
  * License:           GPL-2.0+
@@ -34,7 +34,7 @@ if (!defined('WPINC')) {
  * Start at version 1.0.0 and use SemVer - https://semver.org
  * Rename this for your plugin and update it as you release new versions.
  */
-define('PRQ_PLUGIN_VERSION', '2.2.1');
+define('PRQ_PLUGIN_VERSION', '2.2.2');
 
 /**
  * The code that runs during plugin activation.
@@ -78,25 +78,42 @@ function product_recommendation_quiz_for_ecommerce_run() {
 	$plugin->run();
 }
 
-function prq_set_token() {
-	$post = $_REQUEST;
-	
-	if (!$post) {
-		return 'die';
-	}
-	
-	$shop_hashid	= get_option('rh_shop_hashid');
-	$api_key		= get_option('rh_api_key');
-		
-	if ( !$shop_hashid && $post['shop_hashid'] ) {
-	  update_option('rh_shop_hashid', $post['shop_hashid'], false);
-	}
-	
-	if ( !$api_key && $post['api_key'] ) {
-	  update_option('rh_api_key', $post['api_key'], false);		
-	}
+add_action('rest_api_init', 'register_prq_set_token');
 
-	return get_option('rh_shop_hashid');
+function register_prq_set_token() {
+    register_rest_route('wc/v3', 'prq_set_token', array(
+        'methods' => 'POST',
+        'callback' => 'prq_set_token',
+        'permission_callback' => 'check_woocommerce_api_permission'
+    ));
+}
+
+function check_woocommerce_api_permission($request) {
+    $auth = new WC_REST_Authentication();
+    // Note we are not trying to authenticate a specific user, so we need to pass false to the function
+    $result = $auth->authenticate(false);
+    return $result;
+}
+
+function prq_set_token($data) {
+    $post = $_REQUEST;
+    
+    if (!$post) {
+        return 'die';
+    }
+    
+    $shop_hashid    = get_option('rh_shop_hashid');
+    $api_key        = get_option('rh_api_key');
+        
+    if ( !$shop_hashid && $post['shop_hashid'] ) {
+      update_option('rh_shop_hashid', $post['shop_hashid'], false);
+    }
+    
+    if ( !$api_key && $post['api_key'] ) {
+      update_option('rh_api_key', $post['api_key'], false);        
+    }
+
+    return get_option('rh_shop_hashid');
 }
 
 function prq_deactivate_plugin() {

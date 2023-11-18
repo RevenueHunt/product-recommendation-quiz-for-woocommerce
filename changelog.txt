@@ -1,5 +1,8 @@
 *** Product Recommendation Quiz for WooCommerce ***
 
+2023-11-18 - version 2.2.2
+* Fix - vulnerability issue
+
 2023-11-13 - version 2.2.1
 * Fix - revert last commits
 
