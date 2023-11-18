@@ -81,39 +81,39 @@ function product_recommendation_quiz_for_ecommerce_run() {
 add_action('rest_api_init', 'register_prq_set_token');
 
 function register_prq_set_token() {
-    register_rest_route('wc/v3', 'prq_set_token', array(
-        'methods' => 'POST',
-        'callback' => 'prq_set_token',
-        'permission_callback' => 'check_woocommerce_api_permission'
-    ));
+	register_rest_route('wc/v3', 'prq_set_token', array(
+		'methods' => 'POST',
+		'callback' => 'prq_set_token',
+		'permission_callback' => 'check_woocommerce_api_permission'
+	));
 }
 
 function check_woocommerce_api_permission($request) {
-    $auth = new WC_REST_Authentication();
-    // Note we are not trying to authenticate a specific user, so we need to pass false to the function
-    $result = $auth->authenticate(false);
-    return $result;
+	$auth = new WC_REST_Authentication();
+	// Note we are not trying to authenticate a specific user, so we need to pass false to the function
+	$result = $auth->authenticate(false);
+	return $result;
 }
 
 function prq_set_token($data) {
-    $post = $_REQUEST;
-    
-    if (!$post) {
-        return 'die';
-    }
-    
-    $shop_hashid    = get_option('rh_shop_hashid');
-    $api_key        = get_option('rh_api_key');
-        
-    if ( !$shop_hashid && $post['shop_hashid'] ) {
-      update_option('rh_shop_hashid', $post['shop_hashid'], false);
-    }
-    
-    if ( !$api_key && $post['api_key'] ) {
-      update_option('rh_api_key', $post['api_key'], false);        
-    }
+	$post = $_REQUEST;
 
-    return get_option('rh_shop_hashid');
+	if (!$post) {
+		return 'die';
+	}
+
+	$shop_hashid    = get_option('rh_shop_hashid');
+	$api_key        = get_option('rh_api_key');
+    
+	if ( !$shop_hashid && $post['shop_hashid'] ) {
+		update_option('rh_shop_hashid', $post['shop_hashid'], false);
+	}
+	
+	if ( !$api_key && $post['api_key'] ) {
+		update_option('rh_api_key', $post['api_key'], false);        
+	}
+	
+	return get_option('rh_shop_hashid');
 }
 
 function prq_deactivate_plugin() {
