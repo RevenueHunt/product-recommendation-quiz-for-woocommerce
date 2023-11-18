@@ -104,15 +104,15 @@ function prq_set_token($data) {
 
 	$shop_hashid    = get_option('rh_shop_hashid');
 	$api_key        = get_option('rh_api_key');
-    
+
 	if ( !$shop_hashid && $post['shop_hashid'] ) {
 		update_option('rh_shop_hashid', $post['shop_hashid'], false);
 	}
-	
+
 	if ( !$api_key && $post['api_key'] ) {
 		update_option('rh_api_key', $post['api_key'], false);        
 	}
-	
+
 	return get_option('rh_shop_hashid');
 }
 
