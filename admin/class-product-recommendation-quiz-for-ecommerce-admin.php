@@ -171,6 +171,10 @@ class Product_Recommendation_Quiz_For_Ecommerce_Admin {
 			<p class="lg alcenter mtop-30">
 				<a class="btn btn-main" href="<?php echo esc_url($this->prquiz_get_woocommerce_auth_url()); ?>"><?php esc_html_e( 'grant permission now', 'product-recommendation-quiz-for-ecommerce' ); ?></a>
 			</p>
+			<p class="alcenter mtop-30">
+				<?php esc_html_e( 'Are you having trouble granting access? ', 'product-recommendation-quiz-for-ecommerce' ); ?><?php esc_html_e( 'Check out ', 'product-recommendation-quiz-for-ecommerce' ); ?>
+				<a href="https://revenuehunt.com/faqs/troubleshooting-product-recommendation-quiz-app-issues-for-wordpress-woocommerce/" target="_blank"><?php esc_html_e( 'this article', 'product-recommendation-quiz-for-ecommerce' ); ?></a>
+			</p>
 		</div>
 		<?php
 	}
