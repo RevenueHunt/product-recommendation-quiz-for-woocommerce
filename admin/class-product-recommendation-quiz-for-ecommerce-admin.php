@@ -179,6 +179,18 @@ class Product_Recommendation_Quiz_For_Ecommerce_Admin {
 		<?php
 	}
 
+	public function check_plain_permalink() {
+		// Get the current permalink structure
+		$permalink_structure = get_option('permalink_structure');
+	
+		// Check if permalinks are set to "Plain"
+		if (empty($permalink_structure)) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
 	public function woocommerce_missing() {
 		?>
 		<div class="error">
@@ -201,6 +213,15 @@ class Product_Recommendation_Quiz_For_Ecommerce_Admin {
 		?>
 		<div class="error">
 			<p><strong><?php esc_html_e( 'This plugin does not work on local environments. It needs to be installed on a live website. Your website needs to be public and not hidden by a site under construction plugin because it needs connection to our server in order to work.', 'product-recommendation-quiz-for-ecommerce' ); ?></strong></p>
+		</div>
+		<?php
+	}
+
+	public function plain_permalink_warning() {
+		?>
+		<div class="error">
+			<p><strong><?php esc_html_e( 'Your current permalink structure is set to "Plain". For this plugin to authenticate correctly, a different permalink structure (such as "Post name") is required.', 'product-recommendation-quiz-for-ecommerce' ); ?></strong></p>
+			<p><?php esc_html_e( 'Please update your permalink settings under ', 'product-recommendation-quiz-for-ecommerce' ); ?><a href="<?php echo esc_url(admin_url('options-permalink.php')); ?>"><?php esc_html_e( 'Settings > Permalinks', 'product-recommendation-quiz-for-ecommerce' ); ?></a><?php esc_html_e(' to ensure seamless authentication.', 'product-recommendation-quiz-for-ecommerce' ); ?></p>
 		</div>
 		<?php
 	}
@@ -326,6 +347,11 @@ class Product_Recommendation_Quiz_For_Ecommerce_Admin {
 		if ('localhost' == $domain) {
 			// Does not work on local environments
 			$this->is_localhost();
+			die();
+		}
+
+		if ( $this->check_plain_permalink() ) {
+			$this->plain_permalink_warning();
 			die();
 		}
 		

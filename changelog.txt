@@ -1,5 +1,8 @@
 *** Product Recommendation Quiz for WooCommerce ***
 
+2023-12-15 - version 2.2.4
+* Dev - Plain permalinks warning
+
 2023-11-29 - version 2.2.3
 * Dev - link to FAQs article
 
