@@ -317,8 +317,22 @@ class Product_Recommendation_Quiz_For_Ecommerce_Admin {
 
 	public function check_wpml() {
 		if ( function_exists('icl_object_id') ) {
-			$this->wpml_active();
-			die();
+			// WPML is active
+			$shouldCallWpmlActive = true; // Flag to determine if we should trigger warning
+	
+			if ( defined('ICL_SITEPRESS_VERSION') ) {
+				$current_version = ICL_SITEPRESS_VERSION;
+				if (version_compare($current_version, '4.5.0', '>=')) {
+					// WPML version is 4.5.0 or higher, no need to trigger warning
+					// https://wpml.org/errata/endpoints-containing-slashes-are-incorrectly-encoded/
+					$shouldCallWpmlActive = false;
+				}
+			}
+
+			if ($shouldCallWpmlActive) {
+				$this->wpml_active();
+				die();
+			}
 		}
 	}
 
