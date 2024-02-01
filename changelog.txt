@@ -1,5 +1,8 @@
 *** Product Recommendation Quiz for WooCommerce ***
 
+2024-02-01 - version 2.2.6
+* Fix - http_build_query bug
+
 2023-12-20 - version 2.2.5
 * Dev - Check WPML version
 

@@ -88,7 +88,7 @@ class Product_Recommendation_Quiz_For_Ecommerce_Admin {
 		);
 
 		// Add PHP_QUERY_RFC3986 so spaces are encoded as %20 and not +
-		$query = http_build_query($params, null, '&', PHP_QUERY_RFC3986);
+		$query = http_build_query($params, '', '&', PHP_QUERY_RFC3986);
 
 		return $auth_base . '?' . $query;
 	}
