@@ -1,7 +1,7 @@
 === Product Recommendation Quiz for eCommerce ===
 Contributors: revenuehunt
 Donate link: https://revenuehunt.com/
-Tags: product recommendation, quiz builder, woocommerce, sales automation, sales funnel, ecommerce
+Tags: quiz, product recommendation, woocommerce, sales automation, ecommerce
 Requires at least: 3.0.1
 Tested up to: 6.5.2
 Requires PHP: 5.6
