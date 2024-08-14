@@ -1,5 +1,8 @@
 *** Product Recommendation Quiz for WooCommerce ***
 
+2024-08-14 - version 2.2.9
+* Fix - page level auth
+
 2024-07-29 - version 2.2.8
 * Dev - tested up to WP 6.6.1
 

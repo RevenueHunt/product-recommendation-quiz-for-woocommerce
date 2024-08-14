@@ -369,7 +369,7 @@ class Product_Recommendation_Quiz_For_Ecommerce_Admin {
 			die();
 		}
 		
-		$wp_api_check = $this->api_check_json($domain);
+		$wp_api_check = $this->api_check_json(PRQ_STORE_URL);
 		
 		/* RESPONSE CODES:
 		200 success, OK
@@ -387,7 +387,7 @@ class Product_Recommendation_Quiz_For_Ecommerce_Admin {
 			$is_json_body = $this->isJson($wp_api_check_json->body);
 
 			if ($is_html_type && $is_json_body) {
-				$this->wp_json_error_html_content_type($domain);
+				$this->wp_json_error_html_content_type(PRQ_STORE_URL);
 			}
 
 			$this->wp_json_error_body($wp_api_check_json->body);
