@@ -26,13 +26,13 @@ Your quiz will help you achieve four goals:
 
 **A PERSONAL SHOPPER FOR YOUR ECOMMERCE SHOP**
 
-We believe that being engaged by a salesperson is key to a successful shopping experience. After all, your customers might not be experts in the products you're selling and they might not know which ones best match their needs.
+We believe that a personalized interaction with a salesperson is essential for a successful shopping experience. Your customers may not be experts in your products or fully understand which options best suit their needs, and that’s where guidance makes all the difference.
 
 Online shoppers need guidance in finding what they want, just like in real shops.
 
 **HOW OUR PRODUCT RECOMMENDATION QUIZ WORKS**
 
-A fresh alternative to the obsolete "Search Bar" in eCommerce stores, our digital personal shopper engages your customers just like a salesperson would, guiding them from start to cart and ensuring they find exactly what they're looking for.
+Say goodbye to the outdated "Search Bar" on WooCommerce stores! Our digital personal shopper engages your customers just like a salesperson would, guiding them from start to cart and ensuring they find the products they need.
 
 Our plugin allows the customers to play an active role in the buying experience. The quiz asks your customers a series of questions, analyzes their responses and returns a selection of recommended products that match their needs along with an explanation to why they're the right fit for them.
 
@@ -55,9 +55,9 @@ Just like every customer is unique, we believe every brand has its own personali
 
 Shops where their customers are overloaded with choices are a great fit, a few cases where our plugin can provide value are:
 
-* When people want to make a quick an easy choice (e.g.: gifts)
 * The product is complex or it's difficult to compare alternatives
 * When buyers do not have clear preferences about what they want
+* When people want to make a quick an easy choice (e.g.: gifts)
 
 There are several shopping verticals that are inherently more suited for a Product Recommendation Quiz. These include:
 
