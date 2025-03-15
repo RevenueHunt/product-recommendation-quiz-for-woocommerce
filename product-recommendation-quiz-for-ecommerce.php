@@ -23,6 +23,9 @@
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
  * Text Domain:       product-recommendation-quiz-for-ecommerce
  * Domain Path:       /languages
+ * Requires at least: 3.0.1
+ * Tested up to:      6.7.1
+ * Requires PHP:      5.6
  */
 // If this file is called directly, abort.
 if (!defined('WPINC')) {
@@ -92,28 +95,29 @@ function check_woocommerce_api_permission($request) {
 	$auth = new WC_REST_Authentication();
 	// Note we are not trying to authenticate a specific user, so we need to pass false to the function
 	$result = $auth->authenticate(false);
-	return $result;
+    // ✅ Ensure a boolean is returned
+    return (is_wp_error($result) || !$result) ? false : true;
 }
 
 function prq_set_token($data) {
 	$post = $_REQUEST;
 
 	if (!$post) {
-		return 'die';
+		return new WP_Error('invalid_request', 'Invalid request data', array('status' => 400));
 	}
 
-	$shop_hashid    = get_option('rh_shop_hashid');
-	$api_key        = get_option('rh_api_key');
+	$shop_hashid = get_option('rh_shop_hashid');
+	$api_key     = get_option('rh_api_key');
 
-	if ( !$shop_hashid && $post['shop_hashid'] ) {
-		update_option('rh_shop_hashid', $post['shop_hashid'], false);
+	if (!$shop_hashid && isset($post['shop_hashid'])) {
+		update_option('rh_shop_hashid', sanitize_text_field($post['shop_hashid']), false);
 	}
-
-	if ( !$api_key && $post['api_key'] ) {
-		update_option('rh_api_key', $post['api_key'], false);        
+	
+	if (!$api_key && isset($post['api_key'])) {
+		update_option('rh_api_key', sanitize_text_field($post['api_key']), false);        
 	}
-
-	return get_option('rh_shop_hashid');
+	
+	return rest_ensure_response(get_option('rh_shop_hashid'));
 }
 
 function prq_deactivate_plugin() {
@@ -128,17 +132,19 @@ function prq_deactivate_plugin() {
 	$GLOBALS['wp_object_cache']->delete( 'rh_token', 'options' );
 }
 
+// ✅ Fix permission callback in second route
 add_action('rest_api_init', function() {
 	register_rest_route('prq/v1', 'settoken', array(
-		'methods' => 'POST',
+		'methods'  => 'POST',
 		'callback' => 'prq_set_token',
 		'permission_callback' => function($request) {
 			$has_valid_params = !empty($request->get_param('signature')) &&
-			!empty($request->get_param('shop_hashid')) &&
-			!empty($request->get_param('token'));
-			return $has_valid_params;
-		},
-	));
+								!empty($request->get_param('shop_hashid')) &&
+								!empty($request->get_param('token'));
+								
+			return $has_valid_params ? true : false;
+        },
+    ));
 });
 
 add_action( 'before_woocommerce_init', function() {
