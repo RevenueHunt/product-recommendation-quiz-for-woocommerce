@@ -1,5 +1,8 @@
 *** Product Recommendation Quiz for WooCommerce ***
 
+2025-06-04 - version 2.2.13
+* Dev - tested up to WP 6.8.1 and WooCommerce up to Version 9.8.5
+
 2025-03-15 - version 2.2.12
 * Dev - improve compatibility
 
