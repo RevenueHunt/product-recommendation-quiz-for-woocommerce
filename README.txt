@@ -13,7 +13,7 @@ A quiz that does the selling for you. Recover abandoned carts, capture leads and
 
 == Description ==
 
-Your Product Recommendation Quiz does the selling for you. It's like having **a personal shopper on your eCommerce store**, guiding your customers from start to cart and helping them find the products that best match their needs.
+Your Product Recommendation Quiz does the selling for you. It's like having **a personal shopper on your WooCommerce store**, guiding your customers from start to cart and helping them find the products that best match their needs.
 
 [youtube https://www.youtube.com/watch?v=SX-BZBl1PFw]
 
@@ -24,7 +24,7 @@ Your quiz will help you achieve four goals:
 3. **Grow your audience**. Captured leads are sent to your mailing list, so you can segment them based on their responses and follow up with targeted campaigns.
 4. **Reduce Support costs** by educating your customers about your products (the quiz does the heavy lifting in terms of support and sales for you).
 
-**A PERSONAL SHOPPER FOR YOUR ECOMMERCE SHOP**
+**A PERSONAL SHOPPER FOR YOUR WOOCOMMERCE SHOP**
 
 We believe that a personalized interaction with a salesperson is essential for a successful shopping experience. Your customers may not be experts in your products or fully understand which options best suit their needs, and that’s where guidance makes all the difference.
 
@@ -81,17 +81,17 @@ Try the quiz builder plugin for free on a [dummy site](https://tastewp.com/templ
 
 **MINIMUM REQUIREMENTS**
 
-* You need to have an [eCommerce](https://wordpress.org/plugins/woocommerce/ "Open-source eCommerce for WordPress") plugin installed and activated on your WordPress website.
+* You need to have the [WooCommerce](https://wordpress.org/plugins/woocommerce/ "Open-source eCommerce for WordPress") plugin installed and activated on your WordPress website.
 * Works with WooCommerce version 3.5 or higher.
 * You website must have a valid HTTPS/SSL certificate installed.
 * Does not work on local/development environments.
 
 **WALKTHROUGH**
 
-* Install and activate the plugin through the "Plugins" screen in WordPress (more instructions below)
-* Install and activate an eCommerce plugin if you haven’t already done so
+* Install and activate WooCommerce plugin if you haven’t already done so
+* Install and activate this plugin through the "Plugins" screen in WordPress (more instructions below)
 * In your WordPress dashboard, navigate to the **Product Quiz** tab
-* Grant permissions to connect our plugin to your eCommerce
+* Grant permissions to connect our plugin to your WooCommerce
 * Follow the **Success Checklist** to create and publish your quiz
 * Drive traffic to your quiz and start getting sales and leads!
 
@@ -109,13 +109,13 @@ Please refer to our [FAQs page](https://revenuehunt.com/faqs/ "Frequently Asked 
 
 1. Quiz Builder. Create the questions you ask to guide your customers throughout their shopping experience.
 2. Quiz Design. Choose one of our design templates or customize the quiz's design to match your store's look & feel. 
-3. Publish the quiz on your eCommerce store using any of our display modes (link, button, inline and automatic).
+3. Publish the quiz on your WooCommerce store using any of our display modes (link, button, inline and automatic).
 4. Connect your quiz to your other apps. Send results to your CRM or mailing list automatically via Zapier.
 5. Review your quiz's responses and download the results as a CSV file.
 6. Looks awesome on smartphones and tablets too.
 7. Works great on all devices and browsers.
 8. Capture emails and grow your audience.
-9. Links seamlessly with your eCommerce cart.
+9. Links seamlessly with your WooCommerce cart.
 
 == Changelog ==
 
