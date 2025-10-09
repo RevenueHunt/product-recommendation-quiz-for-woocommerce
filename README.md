@@ -1,128 +1,124 @@
 # Product Recommendation Quiz for WooCommerce
 
-A quiz that does the selling for you. Recover abandoned carts, capture leads and grow your audience.
+Turn shoppers into leads and buyers with interactive product recommendation quizzes.
 
 ## Description
 
-Your [Product Recommendation Quiz](https://revenuehunt.com/product-recommendation-quiz-woocommerce/ "Product Recommendation Quiz for WooCommerce") does the selling for you. It's like having **a personal shopper on your WooCommerce store**, guiding your customers from start to cart and helping them find the products that best match their needs.
+Build beautiful, high-converting product recommendation quizzes — no coding needed.  
+The [Product Recommendation Quiz for WooCommerce](https://revenuehunt.com/product-recommendation-quiz-woocommerce/ "Product Recommendation Quiz for WooCommerce") helps you guide every shopper to their perfect product, collect valuable data, and drive measurable results across your store and marketing channels.
 
 [![Product Recommendation Quiz for WooCommerce](https://img.youtube.com/vi/SX-BZBl1PFw/0.jpg)](http://www.youtube.com/watch?v=SX-BZBl1PFw)
 
-**Your quiz will help you achieve four goals:**
+Create stunning quizzes with our **AI-powered quiz builder**, gain insights into your customers’ preferences, and sync results with your mailing list or CRM to launch high-ROI marketing campaigns.  
+Start creating personalized shopping experiences that boost engagement, conversions, and loyalty.
 
-1. **Boost sales** on the first visit to your store by giving your customers a personalized product recommendation.
-2. **Recover abandoned carts**. Quiz results are sent to your customer's inbox so they can come back later and finish the purchase.
-3. **Grow your audience**. Captured leads are sent to your mailing list, so you can segment them based on their responses and follow up with targeted campaigns.
-4. **Reduce Support costs** by educating your customers about your products (the quiz does the heavy lifting in terms of support and sales for you).
+### What You’ll Achieve
 
-### A PERSONAL SHOPPER FOR YOUR WOOCOMMERCE SHOP
+1. **Boost sales** – Guide customers to the right products with quizzes that convert.  
+2. **Grow your audience** – Capture leads and sync them directly with Klaviyo, HubSpot, Mailchimp, or your CRM.  
+3. **Collect actionable data** – Segment and tag shoppers based on their answers.  
+4. **Match your brand** – Customize images, fonts, layout, and CSS to fit your store’s design.  
+5. **Get expert support** – Work with our team to build and launch your first quiz.
 
-We believe that a personalized interaction with a salesperson is essential for a successful shopping experience. Your customers may not be experts in your products or fully understand which options best suit their needs, and that’s where guidance makes all the difference.
+### A Personal Shopper for Your WooCommerce Store
 
-Online shoppers need guidance in finding what they want, just like in real shops.
+Your quiz acts like a **digital personal shopper**, helping customers find the products that best match their needs.  
+By guiding visitors step by step, you deliver a personalized experience that builds trust and drives sales — automatically.
 
-### HOW OUR PRODUCT RECOMMENDATION QUIZ WORKS
+### How It Works
 
-Say goodbye to the outdated "Search Bar" on WooCommerce stores! Our digital personal shopper engages your customers just like a salesperson would, guiding them from start to cart and ensuring they find the products they need.
+Your quiz engages shoppers through simple, tailored questions.  
+It learns their preferences, analyzes responses, and recommends the best products — complete with explanations for why they’re a great fit.
 
-Our plugin allows the customers to play an active role in the buying experience. The quiz asks your customers a series of questions, analyzes their responses and returns a selection of recommended products that match their needs along with an explanation to why they're the right fit for them.
+### Make It Your Own
 
-### CUSTOMIZING THE QUIZ TO YOUR PARTICULAR NEEDS
+With our visual quiz builder, you can:
 
-Just like every customer is unique, we believe every brand has its own personality. Our plugin allows you to customize multiple aspects of the quiz. With our easy-to-use quiz builder you can:
+* Define your own questions and answers  
+* Personalize product recommendations and messages  
+* Style your quiz to match your brand  
+* Display it as a popup, inline block, or automatic embed  
 
-* Define the questions you ask
-* Personalize the feedback you give
-* Choose within multiple fonts and color palettes
-* Choose between multiple display modes (popup, inline or automatic)
+### Features That Drive Results
 
-### SOME OF OUR KEY FEATURES INCLUDE
+* **Plug & play** – Install and start converting more visitors in minutes.  
+* **Conditional logic** – Ask only the most relevant questions for each shopper.  
+* **Lead capture** – Collect emails and sync them automatically with your CRM.  
+* **Integrations** – Connect to Klaviyo, HubSpot, Mailchimp, Google Analytics, Zapier, and more.  
+* **Mobile ready** – Works perfectly across all devices and browsers.  
 
-* **Plug and play**. Easy to install and configure. No coding required. Sell more effectively within minutes, not weeks.
-* **Conditional Logic**. Your customers never have to skip irrelevant questions because with conditional logic rules, they’ll never even see them. This makes the experience easier, with higher completion rates, through a more personal, human interaction.
-* **Lead capture**. Incentivize your customers to leave their contact details (for following-up or retargeting).
+### Perfect For
 
-### WHEN IS A PRODUCT RECOMMENDATION QUIZ USEFUL?
+* Skincare, Beauty & Cosmetics  
+* Nutrition, Vitamins & Supplements  
+* Apparel, Jewelry & Accessories  
+* Sports, Outdoor & Lifestyle Brands  
+* Gifts, Specialty & Subscription Products  
 
-Shops where their customers are overloaded with choices are a great fit, a few cases where our plugin can provide value are:
+### Integrations
 
-* The product is complex or it's difficult to compare alternatives
-* When buyers do not have clear preferences about what they want
-* When people want to make a quick an easy choice (e.g.: gifts)
+Easily connect with your favorite tools, including:
 
-There are several shopping verticals that are inherently more suited for a Product Recommendation Quiz. These include:
+* Google Analytics  
+* Mailchimp  
+* Klaviyo  
+* HubSpot  
+* Omnisend  
+* ActiveCampaign  
+* Facebook Pixel  
+* Webhooks  
+* And many more via [Zapier](https://zapier.com/ "Connect your apps and automate workflows")
 
-* Skincare, Cosmetics & Beauty
-* Nutrition, Vitamins & Supplements
-* Clothing, Jewelry & Accessories
-* Sports & Outdoor Goods
-* Specialized Equipment & Supplies
+## See the Plugin in Action
 
-### INTEGRATES WITH MULTIPLE THIRD-PARTY APPS
-
-* Google Analytics
-* Facebook Pixel
-* Mailchimp
-* Klaviyo
-* HubSpot
-* Omnisend
-* ActiveCampaign
-* Webhooks
-* And many more third-party apps via [Zapier](https://zapier.com/ "Connect your apps and automate workflows")
-
-## See the plugin in action
-
-Explore how the plugin works in our [demo store](https://woo.revenuehunt.com/ "Demo Skincare Store with Quiz")
-
+Explore how the plugin works in our [demo store](https://skincarequiz.myshopify.com/ "Demo Skincare Store with Quiz").  
+Or build your own quiz for free on a [test site](https://tastewp.com/template/d2pbbNMPvZg "Demo WooCommerce Dashboard").
 
 ## Installation
 
-### MINIMUM REQUIREMENTS
+### Minimum Requirements
 
-* You need to have the [WooCommerce](https://wordpress.org/plugins/woocommerce/ "Open-source eCommerce for WordPress") plugin installed and activated on your WordPress website.
-* Works with WooCommerce version 3.5 or higher.
-* You website must have a valid HTTPS/SSL certificate installed.
-* Does not work on local/development environments.
+* The [WooCommerce](https://wordpress.org/plugins/woocommerce/ "Open-source eCommerce for WordPress") plugin must be installed and activated.  
+* Works with WooCommerce version 3.5 or higher.  
+* Your website must have a valid HTTPS/SSL certificate installed.  
+* Not compatible with local/development environments.  
 
-### WALKTHROUGH
+### Walkthrough
 
-* Install and activate the plugin through the "Plugins" screen in WordPress (more instructions below)
-* Install and activate the WooCommerce plugin if you haven’t already done so
-* In your WordPress dashboard, navigate to the **Product Quiz** tab
-* Grant permissions to connect our plugin to your WooCommerce
-* Follow the **Success Checklist** to create and publish your quiz
-* Drive traffic to your quiz and start getting sales and leads!
+1. Install and activate the plugin through the “Plugins” screen in WordPress.  
+2. Install and activate WooCommerce if you haven’t already.  
+3. In your WordPress dashboard, navigate to the **Product Quiz** tab.  
+4. Grant permissions to connect our plugin to your WooCommerce store.  
+5. Follow the **Success Checklist** to create and publish your quiz.  
+6. Share your quiz and start turning visitors into customers.  
 
-### MANUAL INSTALLATION
+### Manual Installation
 
-First, download the latest version of our plugin [here](https://revenuehunt.com/product-recommendation-quiz-woocommerce/ "Product Recommendation Quiz for WooCommerce").
-
-Log in to your WordPress dashboard, navigate to the Plugins menu, and click on "Add New", then click on "Upload Plugin". Choose the ZIP file you downloaded in the previous step and click on "Install Now".
-
+Download the latest version of our plugin [here](https://revenuehunt.com/product-recommendation-quiz-woocommerce/ "Product Recommendation Quiz for WooCommerce").  
+Then, in your WordPress dashboard:  
+* Go to **Plugins → Add New → Upload Plugin → Install Now**  
+* Select the ZIP file you downloaded and click **Install Now**  
 
 ## Frequently Asked Questions
 
 Please refer to our [FAQs page](https://revenuehunt.com/faqs/ "Frequently Asked Questions") for more information.
 
-
 ## Screenshots
 
-1. Quiz Builder. Create the questions you ask to guide your customers throughout their shopping experience.
-2. Quiz Design. Choose one of our design templates or customize the quiz's design to match your store's look & feel. 
-3. Publish the quiz on your WooCommerce store using any of our display modes (link, button, inline and automatic).
-4. Connect your quiz to your other apps. Send results to your CRM or mailing list automatically via Zapier.
-5. Review your quiz's responses and download the results as a CSV file.
-6. Looks awesome on smartphones and tablets too.
-7. Works great on all devices and browsers.
-8. Capture emails and grow your audience.
-9. Links seamlessly with your WooCommerce cart.
-
+1. **Quiz Builder** – Create questions that guide customers to the right products.  
+2. **Design** – Customize the quiz to match your brand’s look and feel.  
+3. **Publish** – Display your quiz as a popup, inline block, or automatic embed.  
+4. **Integrations** – Send data to CRMs, mailing lists, or Zapier.  
+5. **Analytics** – Review responses and export results as CSV.  
+6. **Responsive** – Looks great on all devices and browsers.  
+7. **Lead Capture** – Grow your audience effortlessly.  
+8. **Cart Integration** – Link recommendations directly to your WooCommerce cart.
 
 ## Technical Specifications
 
-* Requires at least WP version: 3.0.1
-* Tested up to WP version: 6.8.3
-* Requires PHP: 5.6 or above
-* Stable tag: 2.2.14
-* License: GPLv2 or later
+* Requires at least WP version: 3.0.1  
+* Tested up to WP version: 6.8.3  
+* Requires PHP: 5.6 or above  
+* Stable tag: 2.2.14  
+* License: GPLv2 or later  
 * License URI: http://www.gnu.org/licenses/gpl-2.0.html

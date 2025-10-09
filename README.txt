@@ -65,7 +65,7 @@ Easily connect with your favorite tools like Google Analytics, Klaviyo, HubSpot,
 
 == See the plugin in action ==
 
-See how your customers will experience it in our [demo store](https://woo.revenuehunt.com/ "Demo Skincare Store with Quiz").  
+See how your customers will experience it in our [demo store](https://skincarequiz.myshopify.com/ "Demo Skincare Store with Quiz").  
 Or try building your own quiz for free on a [test site](https://tastewp.com/template/d2pbbNMPvZg "Demo WooCommerce Dashboard").
 
 == Installation ==
