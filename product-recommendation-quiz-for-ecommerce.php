@@ -92,11 +92,27 @@ function register_prq_set_token() {
 }
 
 function check_woocommerce_api_permission($request) {
+	// Ensure WooCommerce is available
+	if (!class_exists('WC_REST_Authentication')) {
+		return false;
+	}
+	
 	$auth = new WC_REST_Authentication();
 	// Note we are not trying to authenticate a specific user, so we need to pass false to the function
 	$result = $auth->authenticate(false);
-    // ✅ Ensure a boolean is returned
-    return (is_wp_error($result) || !$result) ? false : true;
+	
+	// Return false if authentication failed with an error
+	if (is_wp_error($result)) {
+		return false;
+	}
+	
+	// Return true only if we have a valid authenticated user
+	if (is_a($result, 'WP_User')) {
+		return true;
+	}
+	
+	// Return false for all other cases (no authentication provided, null, or unexpected values)
+	return false;
 }
 
 function prq_set_token($data) {
@@ -138,11 +154,17 @@ add_action('rest_api_init', function() {
 		'methods'  => 'POST',
 		'callback' => 'prq_set_token',
 		'permission_callback' => function($request) {
-			$has_valid_params = !empty($request->get_param('signature')) &&
-								!empty($request->get_param('shop_hashid')) &&
-								!empty($request->get_param('token'));
-								
-			return $has_valid_params ? true : false;
+			// Explicitly return boolean type
+			if (empty($request->get_param('signature'))) {
+				return false;
+			}
+			if (empty($request->get_param('shop_hashid'))) {
+				return false;
+			}
+			if (empty($request->get_param('token'))) {
+				return false;
+			}
+			return true;
         },
     ));
 });
