@@ -21,18 +21,19 @@ RevenueHunt helps you guide every shopper to their perfect product, collect valu
 Create quizzes with our **AI-powered quiz builder**, gain insights into your customers’ preferences, and sync results with your mailing list or CRM to launch high-ROI marketing campaigns.  
 Start creating personalized shopping experiences that boost engagement, conversions, and loyalty.
 
-**WHAT YOU’LL ACHIEVE**
+**WHAT YOU'LL ACHIEVE**
 
-1. **Boost sales** – Guide customers to the right products with quizzes that convert.  
-2. **Grow your audience** – Capture leads and sync them directly with Klaviyo, HubSpot, Mailchimp, or your CRM.  
-3. **Collect actionable data** – Segment and tag shoppers based on their answers.  
-4. **Match your brand** – Customize images, fonts, layout, and CSS to fit your store’s design.  
-5. **Get expert support** – Work with our team to build and launch your first quiz.
+1. **Boost sales** by guiding customers to their perfect products on the first visit.  
+2. **Recover abandoned carts** by sending personalized quiz results straight to their inbox.  
+3. **Grow your audience** by capturing and syncing leads with your mailing list or CRM.  
+4. **Save time on support** by helping shoppers understand your products before they buy.
+5. **Reduce returns** by helping customers choose the products that truly fit their needs.  
 
 **HOW IT WORKS**
 
-Your quiz acts as a **digital personal shopper** for your WooCommerce store.  
-Ask tailored questions, understand each shopper’s preferences, and recommend the products that best match their needs. Every result is personalized, helping customers feel confident in their purchase.
+Think of it as having a **digital personal shopper** in your WooCommerce store. The quiz asks customers a few tailored questions, analyzes their responses, and recommends the best products — complete with personalized explanations that build trust and increase conversions.
+
+Our top-performing merchants use the quiz as the **first step of their automated sales funnel**. It helps them capture leads, segment their audience, and send targeted campaigns that drive repeat purchases. (Highly segmented campaigns can deliver over [3x more revenue per recipient](https://www.klaviyo.com/marketing-resources/segmentation-benchmark-report "Klaviyo Segmentation Benchmark Report") than unsegmented ones!)
 
 **EASY TO SET UP AND CUSTOMIZE**
 
