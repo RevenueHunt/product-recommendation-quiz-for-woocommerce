@@ -1,0 +1,40 @@
+{
+  "enabledPlugins": {
+    "code-simplifier@claude-plugins-official": true
+  },
+  "hooks": {
+    "PreCompact": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "prompt",
+            "prompt": "Before compacting context, analyze this session for learnings using the reflect skill. Look for corrections (user said 'no', 'not like that', explicitly corrected output), successes (user said 'perfect', 'great', accepted without modification), and edge cases. If meaningful signals found, present proposed skill improvements in the reflect format. If no signals, say 'No learnings to capture' and proceed with compaction."
+          }
+        ]
+      }
+    ],
+    "SessionEnd": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "prompt",
+            "prompt": "Session ending. Quickly scan for any uncaptured learnings using the reflect skill. Look for corrections, successes, edge cases, and preferences from this session. If HIGH confidence signals exist, propose skill updates. Otherwise, end silently."
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "prompt",
+            "prompt": "Check if there were any explicit corrections in the last exchange (user said 'no', 'actually', 'I meant', or rejected a tool). If yes, briefly note: 'Correction detected - run /reflect to capture'. If no corrections, stay silent."
+          }
+        ]
+      }
+    ]
+  }
+}
