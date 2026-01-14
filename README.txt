@@ -109,10 +109,55 @@ Visit our [FAQs page](https://revenuehunt.com/faqs/ "Frequently Asked Questions"
 
 == Changelog ==
 
-= 1.0 =
-* Initial release
+= 2.3.0 =
+* Refactor - Code refactoring, security improvements, and enhanced maintainability
+
+= 2.2.14 =
+* Dev - tested up to WP 6.8.3 and WooCommerce up to Version 10.2.2
+
+= 2.2.13 =
+* Dev - tested up to WP 6.8.1 and WooCommerce up to Version 9.8.5
+
+= 2.2.12 =
+* Dev - improve compatibility
+
+= 2.2.11 =
+* Dev - tested up to WP 6.7.2 and WooCommerce up to Version 9.7.1
+
+= 2.2.10 =
+* Dev - tested up to WP 6.7.1
+
+= 2.2.9 =
+* Fix - page level auth
+
+= 2.2.8 =
+* Dev - tested up to WP 6.6.1
+
+= 2.2.7 =
+* Dev - tested up to WP 6.5.2
+
+= 2.2.6 =
+* Fix - http_build_query bug
+
+= 2.2.5 =
+* Dev - Check WPML version
+
+= 2.2.4 =
+* Dev - Plain permalinks warning
+
+= 2.2.3 =
+* Dev - link to FAQs article
+
+= 2.2.2 =
+* Fix - vulnerability issue
+
+= 2.1.2 =
+* Fix - vulnerability issue
 
 == Upgrade Notice ==
 
-= 1.0 =
-Initial release
+= 2.3.0 =
+Major refactor release with code refactoring, security improvements, and enhanced maintainability. Recommended for all users.
+
+= 2.2.14 =
+Tested up to WP 6.8.3 and WooCommerce up to Version 10.2.2. Recommended update for compatibility.
