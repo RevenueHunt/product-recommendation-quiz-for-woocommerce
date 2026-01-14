@@ -151,7 +151,7 @@ svn checkout https://plugins.svn.wordpress.org/product-recommendation-quiz-for-e
 
 #### Step 2: Copy Files to SVN Trunk
 
-**CRITICAL**: Do NOT copy `.claude` or `.project` directories - these are development/configuration files and should NOT be deployed.
+**CRITICAL**: Do NOT copy `.claude`, `.project` directories, or `CLAUDE.md` file - these are development/configuration files and should NOT be deployed.
 
 **Files to copy** from plugin directory to `prq-wp-plugin/trunk/`:
 
@@ -169,6 +169,7 @@ svn checkout https://plugins.svn.wordpress.org/product-recommendation-quiz-for-e
 **Files/Directories to EXCLUDE**:
 - `.claude/` - Development configuration (DO NOT COPY)
 - `.project/` - Project documentation (DO NOT COPY)
+- `CLAUDE.md` - Development documentation (DO NOT COPY)
 - `.git/` - Git repository (DO NOT COPY)
 - `.gitignore` - Git configuration (DO NOT COPY)
 - `.DS_Store` - macOS system files (DO NOT COPY)
@@ -177,8 +178,8 @@ svn checkout https://plugins.svn.wordpress.org/product-recommendation-quiz-for-e
 
 **Command line method** (recommended to avoid copying excluded files):
 ```bash
-# From plugin directory, copy excluding .claude and .project
-rsync -av --exclude='.claude' --exclude='.project' --exclude='.git' --exclude='.gitignore' --exclude='.DS_Store' \
+# From plugin directory, copy excluding .claude, .project, and CLAUDE.md
+rsync -av --exclude='.claude' --exclude='.project' --exclude='CLAUDE.md' --exclude='.git' --exclude='.gitignore' --exclude='.DS_Store' \
   ./ prq-wp-plugin/trunk/
 ```
 
@@ -186,6 +187,7 @@ Or manually copy only the plugin directories:
 ```bash
 cp -r admin/ includes/ public/ languages/ assets/ prq-wp-plugin/trunk/
 cp product-recommendation-quiz-for-ecommerce.php README.txt README.md changelog.txt LICENSE.txt uninstall.php index.php prq-wp-plugin/trunk/
+# Note: Do NOT copy CLAUDE.md
 ```
 
 #### Step 3: Commit to SVN Trunk

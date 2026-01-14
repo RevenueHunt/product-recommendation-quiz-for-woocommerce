@@ -184,7 +184,7 @@ svn checkout https://plugins.svn.wordpress.org/product-recommendation-quiz-for-e
 
 ### 4.2 Copy Modified Files
 
-**CRITICAL**: Do NOT copy `.claude` or `.project` directories - these are development/configuration files and should NOT be deployed to WordPress.org.
+**CRITICAL**: Do NOT copy `.claude`, `.project` directories, or `CLAUDE.md` file - these are development/configuration files and should NOT be deployed to WordPress.org.
 
 Copy the following files from your plugin directory to `prq-wp-plugin/trunk/`:
 
@@ -206,6 +206,7 @@ Copy the following files from your plugin directory to `prq-wp-plugin/trunk/`:
 **Files/Directories to EXCLUDE** (DO NOT COPY):
 - `.claude/` - Development configuration and skills
 - `.project/` - Project documentation and SOPs
+- `CLAUDE.md` - Development documentation
 - `.git/` - Git repository
 - `.gitignore` - Git configuration
 - `.DS_Store` - macOS system files
@@ -214,8 +215,8 @@ Copy the following files from your plugin directory to `prq-wp-plugin/trunk/`:
 
 **Recommended command line method** (excludes development files automatically):
 ```bash
-# From plugin directory, copy excluding .claude and .project
-rsync -av --exclude='.claude' --exclude='.project' --exclude='.git' --exclude='.gitignore' --exclude='.DS_Store' \
+# From plugin directory, copy excluding .claude, .project, and CLAUDE.md
+rsync -av --exclude='.claude' --exclude='.project' --exclude='CLAUDE.md' --exclude='.git' --exclude='.gitignore' --exclude='.DS_Store' \
   ./ prq-wp-plugin/trunk/
 ```
 

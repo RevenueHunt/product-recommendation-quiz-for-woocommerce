@@ -69,11 +69,11 @@ Before proceeding, verify:
 
 **IMPORTANT**: SVN requires user authentication. Guide the user through the process.
 
-**CRITICAL**: Do NOT copy `.claude` or `.project` directories - these are development files and should NOT be deployed.
+**CRITICAL**: Do NOT copy `.claude`, `.project` directories, or `CLAUDE.md` file - these are development files and should NOT be deployed.
 
 1. Verify SVN directory exists (`prq-wp-plugin`)
 2. Provide instructions for copying files to `prq-wp-plugin/trunk/`:
-   - **EXCLUDE**: `.claude/`, `.project/`, `.git/`, `.gitignore`, `.DS_Store`
+   - **EXCLUDE**: `.claude/`, `.project/`, `CLAUDE.md`, `.git/`, `.gitignore`, `.DS_Store`
    - **INCLUDE**: All plugin directories (`admin/`, `includes/`, `public/`, `languages/`, `assets/`) and plugin files
    - Provide rsync command or manual copy instructions
 3. Provide SVN commit command:
