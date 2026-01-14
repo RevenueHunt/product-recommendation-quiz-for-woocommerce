@@ -1,5 +1,4 @@
 <?php
-
 /**
  * The public-facing functionality of the plugin.
  *
@@ -9,6 +8,11 @@
  * @package    Product_Recommendation_Quiz_For_Ecommerce
  * @subpackage Product_Recommendation_Quiz_For_Ecommerce/public
  */
+
+// Prevent direct access.
+if ( ! defined( 'WPINC' ) ) {
+	die;
+}
 
 /**
  * The public-facing functionality of the plugin.
@@ -56,18 +60,17 @@ class Product_Recommendation_Quiz_For_Ecommerce_Public {
 	 * @since    1.0.0
 	 */
 	public function enqueue_scripts() {
-		
-		$dataToBePassed = array(
-			'shop' => PRQ_STORE_URL,
-			'platform' => 'woocommerce',
-			'channel' => 'wordpress',
+		$data_to_pass = array(
+			'shop'           => PRQ_STORE_URL,
+			'platform'       => 'woocommerce',
+			'channel'        => 'wordpress',
 			'plugin_version' => PRQ_PLUGIN_VERSION,
-			'woo_version' => PRQ_WOO_VERSION,
-			'wp_version' => PRQ_WP_VERSION
+			'woo_version'    => PRQ_WOO_VERSION,
+			'wp_version'     => PRQ_WP_VERSION,
 		);
 
-		wp_enqueue_script($this->plugin_name, PRQ_ADMIN_URL . '/embed.js?shop=' . PRQ_STORE_URL, array(), PRQ_PLUGIN_VERSION, true);
-		wp_localize_script($this->plugin_name, 'js_vars', $dataToBePassed);
+		wp_enqueue_script( $this->plugin_name, PRQ_ADMIN_URL . '/embed.js?shop=' . rawurlencode( PRQ_STORE_URL ), array(), PRQ_PLUGIN_VERSION, true );
+		wp_localize_script( $this->plugin_name, 'js_vars', $data_to_pass );
 	}
 
 }

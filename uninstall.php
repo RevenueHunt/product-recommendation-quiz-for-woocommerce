@@ -29,3 +29,16 @@
 if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
 	exit;
 }
+
+// Define option key constants (must be defined here since main plugin file isn't loaded during uninstall).
+// These values must match those in product-recommendation-quiz-for-ecommerce.php.
+if ( ! defined( 'PRQ_OPTION_SHOP_HASHID' ) ) {
+	define( 'PRQ_OPTION_SHOP_HASHID', 'rh_shop_hashid' );
+	define( 'PRQ_OPTION_API_KEY', 'rh_api_key' );
+	define( 'PRQ_OPTION_DOMAIN', 'rh_domain' );
+	define( 'PRQ_OPTION_TOKEN', 'rh_token' );
+}
+
+// Clean up all plugin data.
+require_once plugin_dir_path( __FILE__ ) . 'includes/class-product-recommendation-quiz-for-ecommerce-deactivator.php';
+Product_Recommendation_Quiz_For_Ecommerce_Deactivator::cleanup( true );

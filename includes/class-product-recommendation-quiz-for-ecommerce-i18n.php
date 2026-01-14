@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Define the internationalization functionality
  *
@@ -12,6 +11,11 @@
  * @package    Product_Recommendation_Quiz_For_Ecommerce
  * @subpackage Product_Recommendation_Quiz_For_Ecommerce/includes
  */
+
+// Prevent direct access.
+if ( ! defined( 'WPINC' ) ) {
+	die;
+}
 
 /**
  * Define the internationalization functionality.
@@ -31,9 +35,10 @@ class Product_Recommendation_Quiz_For_Ecommerce_I18n {
 	 * @since    1.0.0
 	 */
 	public function load_plugin_textdomain() {
-
 		load_plugin_textdomain(
-				'product-recommendation-quiz-for-ecommerce', false, dirname(dirname(plugin_basename(__FILE__))) . '/languages/'
+			'product-recommendation-quiz-for-ecommerce',
+			false,
+			dirname( dirname( plugin_basename( __FILE__ ) ) ) . '/languages/'
 		);
 	}
 

@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Fired during plugin activation
  *
@@ -9,6 +8,11 @@
  * @package    Product_Recommendation_Quiz_For_Ecommerce
  * @subpackage Product_Recommendation_Quiz_For_Ecommerce/includes
  */
+
+// Prevent direct access.
+if ( ! defined( 'WPINC' ) ) {
+	die;
+}
 
 /**
  * Fired during plugin activation.
@@ -22,14 +26,38 @@
 class Product_Recommendation_Quiz_For_Ecommerce_Activator {
 
 	/**
-	 * Short Description. (use period)
+	 * Get option keys used by the plugin.
 	 *
-	 * Long Description.
+	 * Uses centralized constants from main plugin file.
 	 *
-	 * @since    1.0.0
+	 * @since 2.2.15
+	 * @return array List of option keys.
 	 */
-	public static function activate() {
-
+	private static function get_option_keys() {
+		return array(
+			PRQ_OPTION_SHOP_HASHID,
+			PRQ_OPTION_API_KEY,
+			PRQ_OPTION_DOMAIN,
+			PRQ_OPTION_TOKEN,
+		);
 	}
 
+	/**
+	 * Run on plugin activation.
+	 *
+	 * Initializes default options if they don't already exist.
+	 * Options are not autoloaded to minimize memory usage.
+	 *
+	 * @since 1.0.0
+	 * @return void
+	 */
+	public static function activate() {
+		// Initialize options with empty values if they don't exist
+		// Using 'no' for autoload to prevent loading on every page
+		foreach ( self::get_option_keys() as $key ) {
+			if ( false === get_option( $key ) ) {
+				add_option( $key, '', '', 'no' );
+			}
+		}
+	}
 }

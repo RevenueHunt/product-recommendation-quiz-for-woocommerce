@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Fired during plugin deactivation
  *
@@ -9,6 +8,11 @@
  * @package    Product_Recommendation_Quiz_For_Ecommerce
  * @subpackage Product_Recommendation_Quiz_For_Ecommerce/includes
  */
+
+// Prevent direct access.
+if ( ! defined( 'WPINC' ) ) {
+	die;
+}
 
 /**
  * Fired during plugin deactivation.
@@ -22,22 +26,56 @@
 class Product_Recommendation_Quiz_For_Ecommerce_Deactivator {
 
 	/**
-	 * Short Description. (use period)
+	 * Get option keys used by the plugin.
 	 *
-	 * Long Description.
+	 * Uses centralized constants from main plugin file.
 	 *
-	 * @since    1.0.0
+	 * @since 2.2.15
+	 * @return array List of option keys.
 	 */
-	public static function deactivate() {
-		$GLOBALS['wp_object_cache']->delete( 'rh_token', 'options' );
-		$GLOBALS['wp_object_cache']->delete( 'rh_shop_hashid', 'options' );
-		$GLOBALS['wp_object_cache']->delete( 'rh_domain', 'options' );
-		$GLOBALS['wp_object_cache']->delete( 'rh_api_key', 'options' );
-
-		delete_option('rh_token');
-		delete_option('rh_shop_hashid');
-		delete_option('rh_domain');
-		delete_option('rh_api_key');
+	private static function get_option_keys() {
+		return array(
+			PRQ_OPTION_SHOP_HASHID,
+			PRQ_OPTION_API_KEY,
+			PRQ_OPTION_DOMAIN,
+			PRQ_OPTION_TOKEN,
+		);
 	}
 
+	/**
+	 * Clean up plugin data.
+	 *
+	 * Clears cached options and optionally deletes them from the database.
+	 * This method is the single source of truth for plugin cleanup.
+	 *
+	 * @since 2.2.15
+	 * @param bool $delete_options Whether to delete options from database (default: true).
+	 * @return void
+	 */
+	public static function cleanup( $delete_options = true ) {
+		// Clear object cache for all option keys using WordPress function
+		foreach ( self::get_option_keys() as $key ) {
+			wp_cache_delete( $key, 'options' );
+		}
+
+		// Delete options from database if requested
+		if ( $delete_options ) {
+			foreach ( self::get_option_keys() as $key ) {
+				delete_option( $key );
+			}
+		}
+	}
+
+	/**
+	 * Plugin deactivation handler.
+	 *
+	 * Called when the plugin is deactivated. Clears all plugin data
+	 * including options from the database.
+	 *
+	 * @since 1.0.0
+	 * @return void
+	 */
+	public static function deactivate() {
+		self::cleanup( true );
+	}
 }

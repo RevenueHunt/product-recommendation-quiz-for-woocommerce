@@ -1,5 +1,4 @@
 <?php
-
 /**
  * The file that defines the core plugin class
  *
@@ -12,6 +11,11 @@
  * @package    Product_Recommendation_Quiz_For_Ecommerce
  * @subpackage Product_Recommendation_Quiz_For_Ecommerce/includes
  */
+
+// Prevent direct access.
+if ( ! defined( 'WPINC' ) ) {
+	die;
+}
 
 /**
  * The core plugin class.
@@ -63,30 +67,30 @@ class Product_Recommendation_Quiz_For_Ecommerce {
 	 * @since    1.0.0
 	 */
 	public function __construct() {
-		
+
 		$this->version = PRQ_PLUGIN_VERSION;
-		
-    	// Assign $storeurl based on the extracted domain or fall back to get_site_url()
-		$currentUrl = $this->getCurrentUrlSanitized();
-		$storeurl = $this->extractDomainAndPath($currentUrl) ? $this->extractDomainAndPath($currentUrl) : get_site_url();
-		
+
+		// Assign $storeurl based on the extracted domain or fall back to get_site_url()
+		$current_url = $this->get_current_url_sanitized();
+		$storeurl    = $this->extract_domain_and_path( $current_url ) ? $this->extract_domain_and_path( $current_url ) : get_site_url();
+
 		// Remove 'http://' or 'https://'
-		$storeurl = preg_replace('#^https?://#', '', $storeurl);
+		$storeurl = preg_replace( '#^https?://#', '', $storeurl );
 
 		/* DEFINE CONSTANTS */
-		define('PRQ_STORE_URL', $storeurl);
-		define('PRQ_WOO_VERSION', $this->get_woo_version());
-		define('PRQ_WP_VERSION', get_bloginfo('version'));
-				
-		if (preg_match('/\.local/i', PRQ_STORE_URL)) {
-			// development environment
+		define( 'PRQ_STORE_URL', $storeurl );
+		define( 'PRQ_WOO_VERSION', $this->get_woo_version() );
+		define( 'PRQ_WP_VERSION', get_bloginfo( 'version' ) );
+
+		if ( self::is_development_environment( PRQ_STORE_URL ) ) {
+			// Development environment
 			// ssh -R 80:localhost:3000 ssh.localhost.run
-			define('PRQ_API_URL', 'https://xxx-xxx.localhost.run');
-			define('PRQ_ADMIN_URL', 'http://localhost:9528');
+			define( 'PRQ_API_URL', 'https://xxx-xxx.localhost.run' );
+			define( 'PRQ_ADMIN_URL', 'http://localhost:9528' );
 		} else {
-			// production environment
-			define('PRQ_API_URL', 'https://api.revenuehunt.com');
-			define('PRQ_ADMIN_URL', 'https://admin.revenuehunt.com');
+			// Production environment
+			define( 'PRQ_API_URL', 'https://api.revenuehunt.com' );
+			define( 'PRQ_ADMIN_URL', 'https://admin.revenuehunt.com' );
 		}
 
 		$this->plugin_name = 'product-recommendation-quiz-for-ecommerce';
@@ -94,56 +98,119 @@ class Product_Recommendation_Quiz_For_Ecommerce {
 		$this->load_dependencies();
 		$this->set_locale();
 		$this->define_admin_hooks();
-		$this->define_public_hooks();		
+		$this->define_public_hooks();
 	}
 
-	private function getCurrentUrlSanitized() {
+	/**
+	 * Determine if running in a development environment.
+	 *
+	 * Checks WordPress environment type first (WP 5.5+), then falls back
+	 * to domain pattern detection for common local development patterns.
+	 *
+	 * This method is public static so it can be used by other plugin classes
+	 * (e.g., Admin class) for consistent environment detection.
+	 *
+	 * @since 2.2.15
+	 * @param string $store_url The store URL to check. Defaults to PRQ_STORE_URL if empty.
+	 * @return bool True if development environment, false otherwise.
+	 */
+	public static function is_development_environment( $store_url = '' ) {
+		// Use PRQ_STORE_URL constant if no URL provided
+		if ( empty( $store_url ) && defined( 'PRQ_STORE_URL' ) ) {
+			$store_url = PRQ_STORE_URL;
+		}
+		// Check WordPress environment type first (WP 5.5+)
+		if ( function_exists( 'wp_get_environment_type' ) ) {
+			$env = wp_get_environment_type();
+			if ( in_array( $env, array( 'local', 'development' ), true ) ) {
+				return true;
+			}
+		}
+
+		// Fallback to domain detection for common local development patterns
+		$dev_patterns = array(
+			'/\.local$/i',      // .local domains (Local by Flywheel, etc.)
+			'/\.test$/i',       // .test domains (Laravel Valet, etc.)
+			'/\.dev$/i',        // .dev domains (some local setups)
+			'/localhost/i',     // localhost
+			'/\.ddev\.site$/i', // DDEV
+			'/\.lndo\.site$/i', // Lando
+		);
+
+		foreach ( $dev_patterns as $pattern ) {
+			if ( preg_match( $pattern, $store_url ) ) {
+				return true;
+			}
+		}
+
+		return false;
+	}
+
+	/**
+	 * Get the current URL with sanitization.
+	 *
+	 * @since 1.0.0
+	 * @return string|false The sanitized current URL or false if host is not available.
+	 */
+	private function get_current_url_sanitized() {
 		// Use WordPress's is_ssl() to check for HTTPS
 		$scheme = is_ssl() ? 'https' : 'http';
 
-		$host = false;
-		$requestUri = '';
-		
-		// Use esc_url_raw() to sanitize the host and request URI
+		$host        = false;
+		$request_uri = '';
+
+		// Use wp_unslash() and esc_url_raw() to sanitize the host and request URI
 		if ( isset( $_SERVER['HTTP_HOST'] ) ) {
-			$host = esc_url_raw($_SERVER['HTTP_HOST']);
+			$host = esc_url_raw( wp_unslash( $_SERVER['HTTP_HOST'] ) );
 		}
 		if ( isset( $_SERVER['REQUEST_URI'] ) ) {
-			$requestUri = esc_url_raw($_SERVER['REQUEST_URI']);
+			$request_uri = esc_url_raw( wp_unslash( $_SERVER['REQUEST_URI'] ) );
 		}
 
-		if ( !$host ) {
+		if ( ! $host ) {
 			return false;
 		}
-		
-		return $scheme . '://' . $host . $requestUri;
+
+		return $scheme . '://' . $host . $request_uri;
 	}
 
-	private function extractDomainAndPath($url) {
-
-		if ( !$url ) {
+	/**
+	 * Extract domain and path from a URL.
+	 *
+	 * @since 1.0.0
+	 * @param string $url The URL to extract from.
+	 * @return string|false The extracted domain and path or false if not found.
+	 */
+	private function extract_domain_and_path( $url ) {
+		if ( ! $url ) {
 			return false;
 		}
 
 		$pattern = '/https?:\/\/(.*?)\/wp-admin\//';
-		preg_match($pattern, $url, $matches);
-		
-		return isset($matches[1]) ? $matches[1] : false;
+		preg_match( $pattern, $url, $matches );
+
+		return isset( $matches[1] ) ? $matches[1] : false;
 	}
 
+	/**
+	 * Get the WooCommerce version.
+	 *
+	 * @since 1.0.0
+	 * @return string|null The WooCommerce version or null if not found.
+	 */
 	private function get_woo_version() {
 		// If get_plugins() isn't available, require it
-		if ( !function_exists('get_plugins') ) {
-			require_once( ABSPATH . 'wp-admin/includes/plugin.php' );			
+		if ( ! function_exists( 'get_plugins' ) ) {
+			require_once ABSPATH . 'wp-admin/includes/plugin.php';
 		}
 
 		// Create the plugins folder and file variables
-		$plugin_folder = get_plugins('/woocommerce');
-		$plugin_file = 'woocommerce.php';
+		$plugin_folder = get_plugins( '/woocommerce' );
+		$plugin_file   = 'woocommerce.php';
 
-		// If the plugin version number is set, return it 
-		if (isset($plugin_folder[$plugin_file]['Version'])) {
-			return $plugin_folder[$plugin_file]['Version'];
+		// If the plugin version number is set, return it
+		if ( isset( $plugin_folder[ $plugin_file ]['Version'] ) ) {
+			return $plugin_folder[ $plugin_file ]['Version'];
 		} else {
 			// Otherwise return null
 			return null;
@@ -166,29 +233,28 @@ class Product_Recommendation_Quiz_For_Ecommerce {
 	 * @since    1.0.0
 	 */
 	private function load_dependencies() {
-
 		/**
 		 * The class responsible for orchestrating the actions and filters of the
 		 * core plugin.
 		 */
-		require_once plugin_dir_path(dirname(__FILE__)) . 'includes/class-product-recommendation-quiz-for-ecommerce-loader.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-product-recommendation-quiz-for-ecommerce-loader.php';
 
 		/**
 		 * The class responsible for defining internationalization functionality
 		 * of the plugin.
 		 */
-		require_once plugin_dir_path(dirname(__FILE__)) . 'includes/class-product-recommendation-quiz-for-ecommerce-i18n.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-product-recommendation-quiz-for-ecommerce-i18n.php';
 
 		/**
 		 * The class responsible for defining all actions that occur in the admin area.
 		 */
-		require_once plugin_dir_path(dirname(__FILE__)) . 'admin/class-product-recommendation-quiz-for-ecommerce-admin.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-product-recommendation-quiz-for-ecommerce-admin.php';
 
 		/**
 		 * The class responsible for defining all actions that occur in the public-facing
 		 * side of the site.
 		 */
-		require_once plugin_dir_path(dirname(__FILE__)) . 'public/class-product-recommendation-quiz-for-ecommerce-public.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-product-recommendation-quiz-for-ecommerce-public.php';
 
 		$this->loader = new Product_Recommendation_Quiz_For_Ecommerce_Loader();
 	}
@@ -202,10 +268,9 @@ class Product_Recommendation_Quiz_For_Ecommerce {
 	 * @since    1.0.0
 	 */
 	private function set_locale() {
-
 		$plugin_i18n = new Product_Recommendation_Quiz_For_Ecommerce_I18n();
 
-		$this->loader->add_action('plugins_loaded', $plugin_i18n, 'load_plugin_textdomain');
+		$this->loader->add_action( 'plugins_loaded', $plugin_i18n, 'load_plugin_textdomain' );
 	}
 
 	/**
@@ -215,11 +280,10 @@ class Product_Recommendation_Quiz_For_Ecommerce {
 	 * @since    1.0.0
 	 */
 	private function define_admin_hooks() {
+		$plugin_admin = new Product_Recommendation_Quiz_For_Ecommerce_Admin( $this->get_plugin_name(), $this->get_version() );
 
-		$plugin_admin = new Product_Recommendation_Quiz_For_Ecommerce_Admin($this->get_plugin_name(), $this->get_version());
-
-		$this->loader->add_action('admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts');
-		$this->loader->add_action('admin_menu', $plugin_admin, 'my_plugin_menu');
+		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
+		$this->loader->add_action( 'admin_menu', $plugin_admin, 'my_plugin_menu' );
 	}
 
 	/**
@@ -229,10 +293,9 @@ class Product_Recommendation_Quiz_For_Ecommerce {
 	 * @since    1.0.0
 	 */
 	private function define_public_hooks() {
+		$plugin_public = new Product_Recommendation_Quiz_For_Ecommerce_Public( $this->get_plugin_name(), $this->get_version() );
 
-		$plugin_public = new Product_Recommendation_Quiz_For_Ecommerce_Public($this->get_plugin_name(), $this->get_version());
-
-		$this->loader->add_action('wp_enqueue_scripts', $plugin_public, 'enqueue_scripts');
+		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
 	}
 
 	/**
