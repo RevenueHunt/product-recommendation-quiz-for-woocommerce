@@ -12,7 +12,7 @@ Route user requests to the appropriate skill/command based on intent.
 | Frontend | "embed", "quiz", "frontend", "public" | Edit public class |
 | WooCommerce | "woo", "woocommerce", "shop", "store" | Check WC integration |
 | REST API | "api", "endpoint", "rest" | Check main plugin file and security.md |
-| Deployment | "deploy", "release", "version" | Follow development.md |
+| Deployment | "deploy", "release", "version" | `/deploy` |
 | Quality Report | "quality", "code review", "issues" | `/quality-report` |
 | Staged Review | "review", "check my changes" | `/review-staged` |
 | Roadmap | "roadmap", "priorities", "what's next" | `/roadmap` |
