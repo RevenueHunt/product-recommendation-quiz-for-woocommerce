@@ -1,5 +1,8 @@
 *** Product Recommendation Quiz for WooCommerce ***
 
+2026-01-18 - version 2.3.1
+* Fix - OAuth authorization showing localhost.run URL on production sites when WP_ENVIRONMENT_TYPE is set to 'development' or 'local'
+
 2025-01-15 - version 2.3.0
 * Refactor - Code refactoring, security improvements, and enhanced maintainability
 

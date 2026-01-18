@@ -102,32 +102,34 @@ class Product_Recommendation_Quiz_For_Ecommerce {
 	}
 
 	/**
-	 * Determine if running in a development environment.
+	 * Determine if running in a local development environment.
 	 *
-	 * Checks WordPress environment type first (WP 5.5+), then falls back
-	 * to domain pattern detection for common local development patterns.
+	 * Uses domain pattern detection to identify common local development setups
+	 * (e.g., .local, .test, localhost). This determines whether to use the
+	 * local development API or production RevenueHunt API.
 	 *
-	 * This method is public static so it can be used by other plugin classes
-	 * (e.g., Admin class) for consistent environment detection.
+	 * Note: We intentionally do NOT check wp_get_environment_type() here because
+	 * even if a customer's WordPress is set to 'development' mode, they still
+	 * need to connect to the production RevenueHunt API. The local API URL is
+	 * only for plugin developers running on actual local domains.
 	 *
 	 * @since 2.2.15
 	 * @param string $store_url The store URL to check. Defaults to PRQ_STORE_URL if empty.
-	 * @return bool True if development environment, false otherwise.
+	 * @return bool True if local development environment, false otherwise.
 	 */
 	public static function is_development_environment( $store_url = '' ) {
 		// Use PRQ_STORE_URL constant if no URL provided
 		if ( empty( $store_url ) && defined( 'PRQ_STORE_URL' ) ) {
 			$store_url = PRQ_STORE_URL;
 		}
-		// Check WordPress environment type first (WP 5.5+)
-		if ( function_exists( 'wp_get_environment_type' ) ) {
-			$env = wp_get_environment_type();
-			if ( in_array( $env, array( 'local', 'development' ), true ) ) {
-				return true;
-			}
-		}
 
-		// Fallback to domain detection for common local development patterns
+		// Note: We intentionally do NOT check wp_get_environment_type() here.
+		// Even if a customer's WordPress is set to 'development' or 'local' environment,
+		// they still need to connect to the production RevenueHunt API.
+		// The development API URL (localhost.run) is only for plugin developers
+		// running the plugin on an actual local domain.
+
+		// Domain detection for common local development patterns
 		$dev_patterns = array(
 			'/\.local$/i',      // .local domains (Local by Flywheel, etc.)
 			'/\.test$/i',       // .test domains (Laravel Valet, etc.)
