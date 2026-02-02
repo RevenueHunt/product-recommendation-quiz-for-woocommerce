@@ -1,5 +1,8 @@
 *** Product Recommendation Quiz for WooCommerce ***
 
+2026-02-02 - version 2.3.2
+* Fix - Exclude .dev TLD from local development detection patterns (.dev is a legitimate production domain owned by Google)
+
 2026-01-18 - version 2.3.1
 * Fix - OAuth authorization showing localhost.run URL on production sites when WP_ENVIRONMENT_TYPE is set to 'development' or 'local'
 
