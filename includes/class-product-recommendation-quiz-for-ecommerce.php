@@ -130,10 +130,10 @@ class Product_Recommendation_Quiz_For_Ecommerce {
 		// running the plugin on an actual local domain.
 
 		// Domain detection for common local development patterns
+		// Note: .dev is NOT included because it's now a legitimate production TLD (owned by Google)
 		$dev_patterns = array(
 			'/\.local$/i',      // .local domains (Local by Flywheel, etc.)
 			'/\.test$/i',       // .test domains (Laravel Valet, etc.)
-			'/\.dev$/i',        // .dev domains (some local setups)
 			'/localhost/i',     // localhost
 			'/\.ddev\.site$/i', // DDEV
 			'/\.lndo\.site$/i', // Lando
