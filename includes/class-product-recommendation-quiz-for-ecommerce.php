@@ -298,6 +298,7 @@ class Product_Recommendation_Quiz_For_Ecommerce {
 		$plugin_public = new Product_Recommendation_Quiz_For_Ecommerce_Public( $this->get_plugin_name(), $this->get_version() );
 
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
+		$this->loader->add_filter( 'script_loader_tag', $plugin_public, 'add_async_to_embed_script', 10, 3 );
 	}
 
 	/**

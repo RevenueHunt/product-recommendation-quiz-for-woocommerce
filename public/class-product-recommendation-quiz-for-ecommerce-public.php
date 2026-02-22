@@ -57,9 +57,27 @@ class Product_Recommendation_Quiz_For_Ecommerce_Public {
 	/**
 	 * Register the JavaScript for the public-facing side of the site.
 	 *
+	 * Skips loading on WooCommerce checkout and cart pages where the quiz
+	 * is never rendered, so a connection timeout to our servers can never
+	 * block those critical pages.
+	 *
+	 * The script is loaded with the 'async' strategy so that even on pages
+	 * where it IS enqueued, a slow or failed connection to admin.revenuehunt.com
+	 * will not block page rendering or execution.
+	 *
 	 * @since    1.0.0
 	 */
 	public function enqueue_scripts() {
+		// Don't load the embed script on WooCommerce checkout or cart pages.
+		// The quiz is never rendered there, and a connection timeout would
+		// degrade the shopping experience for no benefit.
+		if ( function_exists( 'is_checkout' ) && is_checkout() ) {
+			return;
+		}
+		if ( function_exists( 'is_cart' ) && is_cart() ) {
+			return;
+		}
+
 		$data_to_pass = array(
 			'shop'           => PRQ_STORE_URL,
 			'platform'       => 'woocommerce',
@@ -71,6 +89,32 @@ class Product_Recommendation_Quiz_For_Ecommerce_Public {
 
 		wp_enqueue_script( $this->plugin_name, PRQ_ADMIN_URL . '/embed.js?shop=' . rawurlencode( PRQ_STORE_URL ), array(), PRQ_PLUGIN_VERSION, true );
 		wp_localize_script( $this->plugin_name, 'js_vars', $data_to_pass );
+	}
+
+	/**
+	 * Add 'async' attribute to the embed.js script tag.
+	 *
+	 * This ensures that even if admin.revenuehunt.com is unreachable (e.g. due
+	 * to ISP routing issues), the merchant's page continues to load and function
+	 * normally. The quiz simply won't appear — graceful degradation.
+	 *
+	 * @since    2.3.3
+	 * @param string $tag    The full script tag HTML.
+	 * @param string $handle The script's registered handle.
+	 * @param string $src    The script source URL.
+	 * @return string Modified script tag with async attribute.
+	 */
+	public function add_async_to_embed_script( $tag, $handle, $src ) {
+		if ( $this->plugin_name !== $handle ) {
+			return $tag;
+		}
+
+		// Don't double-add if WordPress already added it (WP 6.3+ strategy support).
+		if ( false !== strpos( $tag, ' async' ) ) {
+			return $tag;
+		}
+
+		return str_replace( '<script ', '<script async ', $tag );
 	}
 
 }

@@ -5,7 +5,7 @@ Tags: quiz, product recommendation, woocommerce, ecommerce, personalization, con
 Requires at least: 3.0.1
 Tested up to: 6.8.3
 Requires PHP: 5.6
-Stable tag: 2.3.2
+Stable tag: 2.3.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -108,6 +108,16 @@ Visit our [FAQs page](https://revenuehunt.com/faqs/ "Frequently Asked Questions"
 8. Cart integration – Link recommendations directly to your WooCommerce cart.
 
 == Changelog ==
+
+= 2.3.3 =
+* Fix - Skip loading embed.js on WooCommerce checkout and cart pages to prevent connection timeouts from blocking critical shopping pages
+* Fix - Load embed.js with async attribute so a slow or failed connection to RevenueHunt servers never blocks page rendering
+
+= 2.3.2 =
+* Fix - Exclude .dev TLD from local development detection patterns (.dev is a legitimate production domain owned by Google)
+
+= 2.3.1 =
+* Fix - OAuth authorization showing localhost.run URL on production sites when WP_ENVIRONMENT_TYPE is set to 'development' or 'local'
 
 = 2.3.0 =
 * Refactor - Code refactoring, security improvements, and enhanced maintainability

@@ -1,5 +1,9 @@
 *** Product Recommendation Quiz for WooCommerce ***
 
+2026-02-22 - version 2.3.3
+* Fix - Skip loading embed.js on WooCommerce checkout and cart pages to prevent connection timeouts from blocking critical shopping pages
+* Fix - Load embed.js with async attribute so a slow or failed connection to RevenueHunt servers never blocks page rendering
+
 2026-02-02 - version 2.3.2
 * Fix - Exclude .dev TLD from local development detection patterns (.dev is a legitimate production domain owned by Google)
 
