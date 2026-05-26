@@ -396,36 +396,37 @@ class Product_Recommendation_Quiz_For_Ecommerce_Admin {
 	 *
 	 * @since 1.0.0
 	 * @param string $domain The store domain to check.
-	 * @return array Array with HTTP code and response body, or error array if cURL missing.
+	 * @return array Tuple [HTTP code, response body string]. HTTP code is 0 on transport error.
 	 */
 	public function api_check_json( $domain ) {
-		if ( ! function_exists( 'curl_init' ) ) {
-			return array( 0, wp_json_encode( array( 'error' => 'curl_missing' ) ) );
-		}
-		$url = 'https://api.revenuehunt.com/api/v1/woocommerce/check?domain=' . rawurlencode( $domain );
-		$ch  = curl_init();
-
+		$url  = 'https://api.revenuehunt.com/api/v1/woocommerce/check?domain=' . rawurlencode( $domain );
+		$args = array(
+			'timeout'     => 10,
+			'redirection' => 5,
+		);
 		if ( isset( $_SERVER['HTTP_USER_AGENT'] ) ) {
-			$user_agent = sanitize_text_field( wp_unslash( $_SERVER['HTTP_USER_AGENT'] ) );
-			curl_setopt( $ch, CURLOPT_USERAGENT, $user_agent );
+			$args['user-agent'] = sanitize_text_field( wp_unslash( $_SERVER['HTTP_USER_AGENT'] ) );
 		}
-		curl_setopt( $ch, CURLOPT_URL, $url );
-		curl_setopt( $ch, CURLOPT_ENCODING, 'gzip' );
-		curl_setopt( $ch, CURLOPT_RETURNTRANSFER, true );
-		curl_setopt( $ch, CURLOPT_POST, true );
-		curl_setopt( $ch, CURLOPT_FOLLOWLOCATION, true );
-		curl_setopt( $ch, CURLOPT_HEADER, false );
-		curl_setopt( $ch, CURLOPT_TIMEOUT, 10 );
-		/* curl_setopt( $ch, CURLOPT_SSL_VERIFYPEER, false ); // Uncomment only for debugging locally */
-		if ( defined( 'CURLOPT_IPRESOLVE' ) && defined( 'CURL_IPRESOLVE_V4' ) ) {
-			curl_setopt( $ch, CURLOPT_IPRESOLVE, CURL_IPRESOLVE_V4 );
+
+		// Force IPv4 for this request to mirror legacy curl behavior on hosts with broken IPv6.
+		$ipv4_filter = function ( $handle ) {
+			if ( defined( 'CURLOPT_IPRESOLVE' ) && defined( 'CURL_IPRESOLVE_V4' ) ) {
+				curl_setopt( $handle, CURLOPT_IPRESOLVE, CURL_IPRESOLVE_V4 );
+			}
+			return $handle;
+		};
+		add_action( 'http_api_curl', $ipv4_filter );
+		$response = wp_remote_post( $url, $args );
+		remove_action( 'http_api_curl', $ipv4_filter );
+
+		if ( is_wp_error( $response ) ) {
+			return array( 0, '' );
 		}
-		$output   = curl_exec( $ch );
-		$httpcode = curl_getinfo( $ch, CURLINFO_HTTP_CODE );
-		if ( PHP_VERSION_ID < 80500 ) {
-			curl_close( $ch );
-		}
-		return array( $httpcode, $output );
+
+		return array(
+			(int) wp_remote_retrieve_response_code( $response ),
+			wp_remote_retrieve_body( $response ),
+		);
 	}
 
 	/**
@@ -479,7 +480,7 @@ class Product_Recommendation_Quiz_For_Ecommerce_Admin {
 			);
 		}
 
-		$domain = parse_url( site_url(), PHP_URL_HOST );
+		$domain = wp_parse_url( site_url(), PHP_URL_HOST );
 
 		// Check WooCommerce is installed
 		if ( ! class_exists( 'WooCommerce' ) ) {

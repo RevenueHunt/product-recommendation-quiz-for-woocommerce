@@ -16,7 +16,7 @@
  * Plugin Name:       Product Recommendation Quiz for eCommerce
  * Plugin URI:        https://revenuehunt.com/product-recommendation-quiz-woocommerce/
  * Description:       Advise and delight your customers by engaging them with a personal shopper experience on your store, guiding your customers from start to cart and helping them find the products that best match their needs.
- * Version:           2.3.4
+ * Version:           2.3.5
  * Author:            RevenueHunt
  * Author URI:        https://revenuehunt.com/
  * License:           GPL-2.0+
@@ -37,7 +37,7 @@ if ( ! defined( 'WPINC' ) ) {
  * Start at version 1.0.0 and use SemVer - https://semver.org
  * Rename this for your plugin and update it as you release new versions.
  */
-define( 'PRQ_PLUGIN_VERSION', '2.3.4' );
+define( 'PRQ_PLUGIN_VERSION', '2.3.5' );
 
 /**
  * Option keys used by the plugin.
@@ -92,7 +92,7 @@ function product_recommendation_quiz_for_ecommerce_run() {
 	$plugin->run();
 }
 
-add_action( 'rest_api_init', 'register_prq_set_token' );
+add_action( 'rest_api_init', 'prq_register_set_token' );
 
 /**
  * Register the WooCommerce REST API endpoint for token setting.
@@ -100,11 +100,11 @@ add_action( 'rest_api_init', 'register_prq_set_token' );
  * @since 1.0.0
  * @return void
  */
-function register_prq_set_token() {
+function prq_register_set_token() {
 	register_rest_route( 'wc/v3', 'prq_set_token', array(
 		'methods'             => 'POST',
 		'callback'            => 'prq_set_token',
-		'permission_callback' => 'check_woocommerce_api_permission',
+		'permission_callback' => 'prq_check_woocommerce_api_permission',
 	) );
 }
 
@@ -115,7 +115,7 @@ function register_prq_set_token() {
  * @param WP_REST_Request $request The REST API request object.
  * @return bool True if authenticated, false otherwise.
  */
-function check_woocommerce_api_permission( $request ) {
+function prq_check_woocommerce_api_permission( $request ) {
 	// Ensure WooCommerce is available
 	if ( ! class_exists( 'WC_REST_Authentication' ) ) {
 		return false;

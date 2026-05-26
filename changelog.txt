@@ -1,5 +1,10 @@
 *** Product Recommendation Quiz for WooCommerce ***
 
+2026-05-26 - version 2.3.5
+* Dev - Replace raw cURL with WordPress HTTP API (wp_remote_post) for better hosting compatibility
+* Dev - Use wp_parse_url() for cross-PHP-version URL parsing consistency
+* Dev - Prefix REST API callback functions to align with WordPress.org naming conventions
+
 2026-05-26 - version 2.3.4
 * Dev - tested up to WP 7.0
 * Dev - PHP 8.5 compatibility (avoid redundant curl_close on PHP 8.5+)

@@ -5,7 +5,7 @@ Tags: quiz, product recommendation, woocommerce, ecommerce, personalization
 Requires at least: 3.0.1
 Tested up to: 7.0
 Requires PHP: 5.6
-Stable tag: 2.3.4
+Stable tag: 2.3.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -108,6 +108,11 @@ Visit our [FAQs page](https://revenuehunt.com/faqs/ "Frequently Asked Questions"
 8. Cart integration – Link recommendations directly to your WooCommerce cart.
 
 == Changelog ==
+
+= 2.3.5 =
+* Dev - Replace raw cURL with WordPress HTTP API (wp_remote_post) for better hosting compatibility
+* Dev - Use wp_parse_url() for cross-PHP-version URL parsing consistency
+* Dev - Prefix REST API callback functions to align with WordPress.org naming conventions
 
 = 2.3.4 =
 * Dev - tested up to WP 7.0
