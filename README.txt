@@ -1,11 +1,11 @@
 === Product Recommendation Quiz for eCommerce ===
 Contributors: revenuehunt
 Donate link: https://revenuehunt.com/
-Tags: quiz, product recommendation, woocommerce, ecommerce, personalization, conversion
+Tags: quiz, product recommendation, woocommerce, ecommerce, personalization
 Requires at least: 3.0.1
-Tested up to: 6.8.3
+Tested up to: 7.0
 Requires PHP: 5.6
-Stable tag: 2.3.3
+Stable tag: 2.3.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -108,6 +108,10 @@ Visit our [FAQs page](https://revenuehunt.com/faqs/ "Frequently Asked Questions"
 8. Cart integration – Link recommendations directly to your WooCommerce cart.
 
 == Changelog ==
+
+= 2.3.4 =
+* Dev - tested up to WP 7.0
+* Dev - PHP 8.5 compatibility (avoid redundant curl_close on PHP 8.5+)
 
 = 2.3.3 =
 * Fix - Skip loading embed.js on WooCommerce checkout and cart pages to prevent connection timeouts from blocking critical shopping pages
