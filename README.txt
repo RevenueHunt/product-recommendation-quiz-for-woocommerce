@@ -1,4 +1,4 @@
-=== Product Recommendation Quiz for eCommerce ===
+=== Product Recommendation Quiz for WooCommerce ===
 Contributors: revenuehunt
 Donate link: https://revenuehunt.com/
 Tags: quiz, product recommendation, woocommerce, ecommerce, personalization
