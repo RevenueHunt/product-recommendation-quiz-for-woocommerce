@@ -1,4 +1,4 @@
-# Product Recommendation Quiz for WooCommerce
+# Quiz Builder for WooCommerce - Product Recommendations
 
 Turn WooCommerce shoppers into leads and buyers with an interactive product recommendation quiz builder.
 
